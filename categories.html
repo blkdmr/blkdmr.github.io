@@ -1,0 +1,21 @@
+---
+layout: page
+permalink: /categories/
+title: Categories
+---
+
+<div class="posts-by-category">
+  <ul>
+    {% for category in site.categories %}
+      {% capture cat_name %}{{ category | first }}{% endcapture %}
+      <li>
+        <h3 id="{{ cat_name | slugify }}">{{ cat_name | capitalize }}</h3>
+        <ul>
+          {% for post in site.categories[cat_name] %}
+          <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
