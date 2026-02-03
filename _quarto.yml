@@ -1,0 +1,17 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "IML"
+  sidebar:
+    style: docked
+    contents:
+      - section: "Theory"
+        contents: "th/*"
+      - section: "Exams"
+        contents: "exams/*"
+
+format:
+  html:
+    toc: true
