@@ -214,6 +214,12 @@ window.Quarto = {
  <span class="menu-text">Esame 1 - Esercizio 3</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/esame1-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Esame 1 - Esercizio 4</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -419,7 +425,7 @@ IC 95% per la std: [0.109243, 0.119260]</code></pre>
 <p>Contiamo quante osservazioni cadono in ciascun intervallo: queste sono le <strong>frequenze osservate</strong>. Se i dati fossero davvero normali, ci aspetteremmo circa <span class="math inline">\(n/k\)</span> osservazioni in ogni classe: queste sono le <strong>frequenze attese</strong>.</p>
 <p>La statistica chi-quadro misura quanto le frequenze osservate si discostano da quelle attese. Poiché media e varianza sono stimate dai dati, il test usa una correzione dei gradi di libertà (<span class="math inline">\(ddof = 1\)</span>).</p>
 <p>Se il p-value del test è piccolo, rifiutiamo l’ipotesi che <span class="math inline">\(Y\)</span> segua una distribuzione normale. Se invece è grande, non abbiamo evidenza contro la normalità, in accordo (o meno) con quanto osservato nei grafici.</p>
-<div id="cell-18" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="18a00697-333a-4b62-b630-f88e51d1ec74">
+<div id="cell-18" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;colab&quot;,&quot;value&quot;:{&quot;base_uri&quot;:&quot;https://localhost:8080/&quot;}}" data-outputid="18a00697-333a-4b62-b630-f88e51d1ec74" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm, chisquare</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -440,11 +446,21 @@ IC 95% per la std: [0.109243, 0.119260]</code></pre>
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>expg <span class="op">=</span> np.full(k, n <span class="op">/</span> k)</span>
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>statistic, pvalue <span class="op">=</span> chisquare(obsg, f_exp<span class="op">=</span>expg, ddof<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(statistic)  <span class="co"># statistic, pvalue</span></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pvalue)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>29.67
-3.607790917976994e-07</code></pre>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Statistic: </span><span class="sc">{</span>statistic<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P-value: </span><span class="sc">{</span>pvalue<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[1]</span><span class="ansi-green-fg">, line 4</span>
+<span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">import</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">numpy</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(0,135,0)">as</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">np</span>
+<span class="ansi-green-fg">      2</span> <span style="font-weight:bold;color:rgb(0,135,0)">from</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg ansi-bold">scipy</span><span class="ansi-blue-fg ansi-bold">.</span><span class="ansi-blue-fg ansi-bold">stats</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(0,135,0)">import</span> norm, chisquare
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">4</span> mu = <span class="ansi-yellow-bg">y</span>.mean()
+<span class="ansi-green-fg">      5</span> sigma = y.std(ddof=<span class="ansi-green-fg">1</span>)  <span style="font-style:italic;color:rgb(95,135,135)"># meglio ddof=1 come stima campionaria</span>
+<span class="ansi-green-fg">      6</span> k = <span class="ansi-green-fg">5</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'y' is not defined</pre>
+</div>
 </div>
 </div>
 
