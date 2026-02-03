@@ -349,6 +349,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">01-05: Minimizzazione con SciPy</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/esame_2_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Esame 2 1</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -361,8 +367,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#predizione-sklearn" id="toc-predizione-sklearn" class="nav-link active" data-scroll-target="#predizione-sklearn">Predizione (SKLEARN)</a></li>
-  <li><a href="#predizione-pytorch" id="toc-predizione-pytorch" class="nav-link" data-scroll-target="#predizione-pytorch">Predizione (PyTorch)</a></li>
+  <li><a href="#eda-e-pca" id="toc-eda-e-pca" class="nav-link active" data-scroll-target="#eda-e-pca">EDA e PCA</a></li>
+  <li><a href="#logistic-regression-classificazione-binaria-con-sklearn" id="toc-logistic-regression-classificazione-binaria-con-sklearn" class="nav-link" data-scroll-target="#logistic-regression-classificazione-binaria-con-sklearn">Logistic Regression (Classificazione Binaria) con sklearn</a></li>
+  <li><a href="#classificazione-binaria-con-pytorch" id="toc-classificazione-binaria-con-pytorch" class="nav-link" data-scroll-target="#classificazione-binaria-con-pytorch">Classificazione Binaria con PyTorch</a></li>
   </ul>
 </nav>
     </div>
@@ -389,14 +396,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><strong>3.1 Si usino i dati dell’Es 2 per prevedere la variabile group, usando tutte le altre tranne age. È richiesto di fornire la previsione per ciascuno degli ultimi 200 id, sia “hard” (Adult/Senior), sia “soft” con le probabilità delle due classi.</strong></p>
-<div id="2943945a" class="cell" data-execution_count="2574">
+<section id="eda-e-pca" class="level2">
+<h2 class="anchored" data-anchor-id="eda-e-pca">EDA e PCA</h2>
+<div id="2943945a" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="636de167" class="cell">
+<div id="636de167" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> pd.read_excel(<span class="st">"inml25tst01.xlsx"</span>, sheet_name<span class="op">=</span><span class="st">"Es 2"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> base.drop(columns<span class="op">=</span>base.columns[<span class="dv">0</span>:<span class="dv">9</span>])</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -410,7 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># df_train = df[df["age"].isna() != True]</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># df_test = df[df["age"].isna()]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="9e6a923a" class="cell" data-execution_count="2576">
+<div id="9e6a923a" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> df_train.drop(columns<span class="op">=</span>[<span class="st">"age"</span>, <span class="st">"group"</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> df_train[<span class="st">"group"</span>].values</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -428,7 +435,7 @@ Index(['gender', 'PA', 'BMI', 'GLU', 'diabetic', 'GLT', 'insulin'], dtype='objec
 (2078,)</code></pre>
 </div>
 </div>
-<div id="2c906270" class="cell" data-execution_count="2577">
+<div id="2c906270" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> df_test.drop(columns<span class="op">=</span>[<span class="st">"age"</span>, <span class="st">"group"</span>])</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_test.shape)</span>
@@ -444,27 +451,27 @@ Index(['gender', 'PA', 'BMI', 'GLU', 'diabetic', 'GLT', 'insulin'], dtype='objec
 </div>
 </div>
 <p><strong>ATTENZIONE.</strong> PRIMA LA CALCOLI E POI LA USI, PERCHÈ X_TRAIN CAMBIA, E X_TEST HA I VALORI SBALLATI</p>
-<div id="a9587df9" class="cell" data-execution_count="2578">
+<div id="a9587df9" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> np.mean(X_train, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cc95f124" class="cell" data-execution_count="2579">
+<div id="cc95f124" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> X_train <span class="op">-</span> mean</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> X_test <span class="op">-</span> mean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="828151a9" class="cell" data-execution_count="2580">
+<div id="828151a9" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> pca.fit_transform(X_train)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pca.transform(X_test)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="71277832" class="cell" data-execution_count="2581">
+<div id="71277832" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> np.mean(X_train, axis<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>std <span class="op">=</span> np.std(X_train, axis<span class="op">=</span><span class="dv">0</span>, ddof<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="7cea99a1" class="cell" data-execution_count="2582">
+<div id="7cea99a1" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> ( X_train <span class="op">-</span> mean) <span class="op">/</span> std</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> ( X_test <span class="op">-</span> mean) <span class="op">/</span> std</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="32781327" class="cell" data-execution_count="2583">
+<div id="32781327" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.unique(y_train, return_counts<span class="op">=</span><span class="va">True</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> (y_train <span class="op">==</span> <span class="st">"Senior"</span>).astype(<span class="bu">int</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.unique(y_train, return_counts<span class="op">=</span><span class="va">True</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -473,19 +480,20 @@ Index(['gender', 'PA', 'BMI', 'GLU', 'diabetic', 'GLT', 'insulin'], dtype='objec
 (array([0, 1]), array([1754,  324]))</code></pre>
 </div>
 </div>
-<section id="predizione-sklearn" class="level2">
-<h2 class="anchored" data-anchor-id="predizione-sklearn">Predizione (SKLEARN)</h2>
-<div id="c89b9cbe" class="cell" data-execution_count="2584">
+</section>
+<section id="logistic-regression-classificazione-binaria-con-sklearn" class="level2">
+<h2 class="anchored" data-anchor-id="logistic-regression-classificazione-binaria-con-sklearn">Logistic Regression (Classificazione Binaria) con sklearn</h2>
+<div id="c89b9cbe" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>IMPORTANTE.</strong> Le due classi sono molto sbilanciate!!! quindi mettiamo <code>class_weight = "balanced"</code></p>
-<div id="02a375ed" class="cell" data-execution_count="2585">
+<div id="02a375ed" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LogisticRegression(class_weight<span class="op">=</span><span class="st">"balanced"</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>hard_pred <span class="op">=</span> model.predict(X_test)</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>soft_pred <span class="op">=</span> model.predict_proba(X_test)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="d5329429" class="cell" data-execution_count="2586">
+<div id="d5329429" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(soft_pred[<span class="dv">0</span>])</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.unique(hard_pred, return_counts<span class="op">=</span><span class="va">True</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -493,11 +501,11 @@ Index(['gender', 'PA', 'BMI', 'GLU', 'diabetic', 'GLT', 'insulin'], dtype='objec
 (array([0, 1]), array([142,  58]))</code></pre>
 </div>
 </div>
-<div id="47941523" class="cell" data-execution_count="2598">
+<div id="47941523" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> pd.DataFrame(soft_pred, columns<span class="op">=</span>[<span class="st">"Adult"</span>, <span class="st">"Senior"</span>])</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>result[<span class="st">"Hard-Class"</span>] <span class="op">=</span> hard_pred</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>result.head(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2598">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -513,63 +521,63 @@ Index(['gender', 'PA', 'BMI', 'GLU', 'diabetic', 'GLT', 'insulin'], dtype='objec
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
-<td>0.468150</td>
-<td>0.531850</td>
+<td>0.377126</td>
+<td>0.622874</td>
 <td>1</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
-<td>0.337974</td>
-<td>0.662026</td>
+<td>0.484201</td>
+<td>0.515799</td>
 <td>1</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
-<td>0.269127</td>
-<td>0.730873</td>
-<td>1</td>
+<td>0.580394</td>
+<td>0.419606</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
-<td>0.239190</td>
-<td>0.760810</td>
-<td>1</td>
+<td>0.773640</td>
+<td>0.226360</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
-<td>0.412775</td>
-<td>0.587225</td>
+<td>0.466580</td>
+<td>0.533420</td>
 <td>1</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">5</th>
-<td>0.426228</td>
-<td>0.573772</td>
+<td>0.497061</td>
+<td>0.502939</td>
 <td>1</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">6</th>
-<td>0.537999</td>
-<td>0.462001</td>
-<td>0</td>
+<td>0.344787</td>
+<td>0.655213</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">7</th>
-<td>0.558185</td>
-<td>0.441815</td>
-<td>0</td>
+<td>0.433641</td>
+<td>0.566359</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">8</th>
-<td>0.368082</td>
-<td>0.631918</td>
-<td>1</td>
+<td>0.532328</td>
+<td>0.467672</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">9</th>
-<td>0.389986</td>
-<td>0.610014</td>
-<td>1</td>
+<td>0.552802</td>
+<td>0.447198</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
@@ -578,40 +586,40 @@ Index(['gender', 'PA', 'BMI', 'GLU', 'diabetic', 'GLT', 'insulin'], dtype='objec
 </div>
 </div>
 </section>
-<section id="predizione-pytorch" class="level2">
-<h2 class="anchored" data-anchor-id="predizione-pytorch">Predizione (PyTorch)</h2>
-<div id="22b2e9b4" class="cell" data-execution_count="2587">
+<section id="classificazione-binaria-con-pytorch" class="level2">
+<h2 class="anchored" data-anchor-id="classificazione-binaria-con-pytorch">Classificazione Binaria con PyTorch</h2>
+<div id="22b2e9b4" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader, TensorDataset</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="ba4089a0" class="cell" data-execution_count="2588">
+<div id="ba4089a0" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>X_train_tensor <span class="op">=</span> torch.from_numpy(X_train).to(torch.<span class="bu">float</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>y_train_tensor <span class="op">=</span> torch.from_numpy(y_train).to(torch.<span class="bu">float</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>X_test_tensor <span class="op">=</span> torch.from_numpy(X_test).to(torch.<span class="bu">float</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="a105e113" class="cell" data-execution_count="2589">
+<div id="a105e113" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">1e-4</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>batch <span class="op">=</span> <span class="dv">16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="841184ef" class="cell" data-execution_count="2590">
+<div id="841184ef" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> nn.Linear(X_train_tensor.shape[<span class="dv">1</span>], <span class="dv">1</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam(model.parameters(), lr<span class="op">=</span>lr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="ebe104b7" class="cell" data-execution_count="2591">
+<div id="ebe104b7" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>n_pos <span class="op">=</span> (y_train_tensor <span class="op">==</span> <span class="dv">1</span>).<span class="bu">sum</span>()</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>n_neg <span class="op">=</span> (y_train_tensor <span class="op">==</span> <span class="dv">0</span>).<span class="bu">sum</span>()</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>pos_weight <span class="op">=</span> n_neg <span class="op">/</span> n_pos   <span class="co"># &gt;1 se i positivi sono rari</span></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>loss_fn <span class="op">=</span> nn.BCEWithLogitsLoss(pos_weight<span class="op">=</span>pos_weight)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="63c63bcf" class="cell">
+<div id="63c63bcf" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>train_dataset <span class="op">=</span> TensorDataset(X_train_tensor, y_train_tensor)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>train_loader <span class="op">=</span> DataLoader(train_dataset, batch_size<span class="op">=</span>batch, shuffle<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="9999d8c1" class="cell" data-execution_count="2593">
+<div id="9999d8c1" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>model.train()</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -631,29 +639,29 @@ Index(['gender', 'PA', 'BMI', 'GLU', 'diabetic', 'GLT', 'insulin'], dtype='objec
 <span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Epoch </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss"> - Loss </span><span class="sc">{</span><span class="bu">round</span>(epoch_loss<span class="op">/</span>n_batches, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Epoch 0 - Loss 1.491
-Epoch 1 - Loss 1.4842
-Epoch 2 - Loss 1.4775
-Epoch 3 - Loss 1.4709
-Epoch 4 - Loss 1.4643
-Epoch 5 - Loss 1.4579
-Epoch 6 - Loss 1.4515
-Epoch 7 - Loss 1.4452
-Epoch 8 - Loss 1.439
-Epoch 9 - Loss 1.4329
-Epoch 10 - Loss 1.4268
-Epoch 11 - Loss 1.4209
-Epoch 12 - Loss 1.415
-Epoch 13 - Loss 1.4092
-Epoch 14 - Loss 1.4034
-Epoch 15 - Loss 1.3978
-Epoch 16 - Loss 1.3922
-Epoch 17 - Loss 1.3867
-Epoch 18 - Loss 1.3812
-Epoch 19 - Loss 1.3759</code></pre>
+<pre><code>Epoch 0 - Loss 1.0951
+Epoch 1 - Loss 1.0943
+Epoch 2 - Loss 1.0942
+Epoch 3 - Loss 1.0934
+Epoch 4 - Loss 1.0925
+Epoch 5 - Loss 1.092
+Epoch 6 - Loss 1.0914
+Epoch 7 - Loss 1.0922
+Epoch 8 - Loss 1.0916
+Epoch 9 - Loss 1.0901
+Epoch 10 - Loss 1.0898
+Epoch 11 - Loss 1.0898
+Epoch 12 - Loss 1.0887
+Epoch 13 - Loss 1.0891
+Epoch 14 - Loss 1.0881
+Epoch 15 - Loss 1.0877
+Epoch 16 - Loss 1.0873
+Epoch 17 - Loss 1.0871
+Epoch 18 - Loss 1.0864
+Epoch 19 - Loss 1.0857</code></pre>
 </div>
 </div>
-<div id="f18b183e" class="cell" data-execution_count="2594">
+<div id="f18b183e" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>hard_pred <span class="op">=</span> []</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>soft_pred <span class="op">=</span> []</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">eval</span>()</span>
@@ -676,15 +684,15 @@ Epoch 19 - Loss 1.3759</code></pre>
 <span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(soft_pred[<span class="dv">0</span>])</span>
 <span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.unique(hard_pred, return_counts<span class="op">=</span><span class="va">True</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(0.46814966201782227, 0.5318503379821777)
-(array([0, 1]), array([ 19, 181]))</code></pre>
+<pre><code>(0.4343456029891968, 0.5656543970108032)
+(array([0, 1]), array([165,  35]))</code></pre>
 </div>
 </div>
-<div id="baba5f22" class="cell" data-execution_count="2599">
+<div id="baba5f22" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> pd.DataFrame(soft_pred, columns<span class="op">=</span>[<span class="st">"Adult"</span>, <span class="st">"Senior"</span>])</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>result[<span class="st">"Hard-Class"</span>] <span class="op">=</span> hard_pred</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>result.head(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2599">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <div>
 
 
@@ -700,63 +708,63 @@ Epoch 19 - Loss 1.3759</code></pre>
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
-<td>0.468150</td>
-<td>0.531850</td>
+<td>0.434346</td>
+<td>0.565654</td>
 <td>1</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
-<td>0.337974</td>
-<td>0.662026</td>
-<td>1</td>
+<td>0.551826</td>
+<td>0.448174</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
-<td>0.269127</td>
-<td>0.730873</td>
-<td>1</td>
+<td>0.646597</td>
+<td>0.353403</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
-<td>0.239190</td>
-<td>0.760810</td>
-<td>1</td>
+<td>0.809278</td>
+<td>0.190722</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
-<td>0.412775</td>
-<td>0.587225</td>
-<td>1</td>
+<td>0.524993</td>
+<td>0.475007</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">5</th>
-<td>0.426228</td>
-<td>0.573772</td>
-<td>1</td>
+<td>0.550599</td>
+<td>0.449401</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">6</th>
-<td>0.537999</td>
-<td>0.462001</td>
-<td>0</td>
+<td>0.394198</td>
+<td>0.605802</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">7</th>
-<td>0.558185</td>
-<td>0.441815</td>
-<td>0</td>
+<td>0.474728</td>
+<td>0.525272</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">8</th>
-<td>0.368082</td>
-<td>0.631918</td>
-<td>1</td>
+<td>0.590127</td>
+<td>0.409873</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">9</th>
-<td>0.389986</td>
-<td>0.610014</td>
-<td>1</td>
+<td>0.605022</td>
+<td>0.394978</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
