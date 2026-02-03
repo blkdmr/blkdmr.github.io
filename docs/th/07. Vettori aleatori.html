@@ -343,7 +343,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exams/esame_2_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Esame 2 1</span></a>
+ <span class="menu-text">02-01: Analisi distribuzione custom</span></a>
   </div>
 </li>
       </ul>
@@ -381,7 +381,7 @@ window.Quarto = {
 <p>Un vettore aleatorio di dimensione <span class="math inline">\(m\)</span> è <span class="math inline">\(X = (X_1, X_2, \ldots, X_m)\)</span>, le cui componenti sono variabili casuali (potenzialmente dipendenti tra loro). Ad esempio, per <span class="math inline">\(m=6\)</span> si possono considerare dati ordinati <span class="math inline">\(X_{(1)} \le X_{(2)} \le \ldots \le X_{(6)}\)</span>, che non sono indipendenti.</p>
 <p>La <strong>media</strong> o valore atteso di <span class="math inline">\(X\)</span> è un vettore deterministico <span class="math inline">\(\mu = E[X]\)</span> in <span class="math inline">\(\mathbb{R}^m\)</span>, con componenti <span class="math inline">\(\mu_i = E[X_i]\)</span>.</p>
 <p>La <strong>matrice di covarianza</strong> di <span class="math inline">\(X\)</span> è <span class="math inline">\(\Sigma = C(X)\)</span>, una matrice quadrata di ordine <span class="math inline">\(m\)</span>, dove <span class="math inline">\(\Sigma_{ij} = \mathrm{Cov}(X_i, X_j)\)</span>. Sulla diagonale di <span class="math inline">\(\Sigma\)</span> compaiono le varianze di ciascuna componente (<span class="math inline">\(\Sigma_{ii} = \mathrm{Var}(X_i)\)</span>).</p>
-<p>![[Pasted image 20250307175616.png|500]]</p>
+<p><img src="images/Pasted image 20250307175616.png" class="img-fluid" width="500"></p>
 <p>La <strong>covarianza</strong> tra due variabili aleatorie <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> si definisce come <span class="math inline">\(\mathrm{Cov}(X,Y) = E[(X - E[X])(Y - E[Y])] = E[XY] - E[X]E[Y]\)</span>. In particolare, <span class="math inline">\(\mathrm{Cov}(X, X) = \mathrm{Var}(X)\)</span> e, in caso di indipendenza, <span class="math inline">\(\mathrm{Cov}(X,Y) = 0\)</span>.</p>
 <p><strong>Recall.</strong></p>
 <ul>
@@ -397,7 +397,7 @@ window.Quarto = {
 <p><strong>Esempio. Legge congiunta nel caso misto</strong></p>
 <p>Consideriamo il caso di una distribuzione congiunta in cui una variabile <span class="math inline">\(X\)</span> è discreta e una variabile <span class="math inline">\(Y\)</span> è continua. Supponiamo che <span class="math inline">\(X\)</span> rappresenti il sesso di un individuo e <span class="math inline">\(Y\)</span> la sua statura. In particolare, <span class="math inline">\(X\)</span> può assumere i valori in <span class="math inline">\(\{0, 1\}\)</span>, dove <span class="math inline">\(P(X = 1) = 1/2\)</span>, ovvero la probabilità di essere maschio o femmina è uguale.</p>
 <p>La variabile <span class="math inline">\(Y\)</span>, che rappresenta la statura, segue una distribuzione normale (gaussiana) condizionatamente a <span class="math inline">\(X\)</span>. Tuttavia, i parametri della distribuzione di <span class="math inline">\(Y\)</span> dipendono dal valore assunto da <span class="math inline">\(X\)</span>. In altre parole, sia per gli uomini sia per le donne, la statura segue una distribuzione gaussiana, ma con medie e varianze differenti.</p>
-<p>![[Pasted image 20250304140904.png]]</p>
+<p><img src="images/Pasted image 20250304140904.png" class="img-fluid"></p>
 <p>L’immagine illustra un esempio di distribuzione congiunta nel caso misto, in cui la variabile <span class="math inline">\(X\)</span> è discreta e la variabile <span class="math inline">\(Y\)</span> è continua. In questo caso, <span class="math inline">\(X\)</span> rappresenta il sesso ( <span class="math inline">\(0\)</span> o <span class="math inline">\(1\)</span> ), mentre <span class="math inline">\(Y\)</span> rappresenta la statura.</p>
 <p>Si osserva che la distribuzione condizionata di <span class="math inline">\(Y\)</span> dipende dal valore assunto da <span class="math inline">\(X\)</span>:</p>
 <ul>
@@ -418,7 +418,7 @@ window.Quarto = {
 <section id="trasformazioni-lineari-di-vettori-aleatori" class="level3">
 <h3 class="anchored" data-anchor-id="trasformazioni-lineari-di-vettori-aleatori">Trasformazioni lineari di vettori aleatori</h3>
 <p>Considerando una funzione lineare da <span class="math inline">\(\mathbb{R}^n\)</span> a <span class="math inline">\(\mathbb{R}^m\)</span> data da <span class="math inline">\(y = \alpha + Bx\)</span>, con <span class="math inline">\(\alpha \in \mathbb{R}^m\)</span> e <span class="math inline">\(B \in M_{m,n}\)</span>, se <span class="math inline">\(X\)</span> è un vettore aleatorio di dimensione <span class="math inline">\(n\)</span>, allora <span class="math inline">\(Y = \alpha + BX\)</span> è un vettore aleatorio di dimensione <span class="math inline">\(m\)</span>.</p>
-<p>![[Pasted image 20250307171750.png]]</p>
+<p><img src="images/Pasted image 20250307171750.png" class="img-fluid"></p>
 <p>La <strong>media</strong> di <span class="math inline">\(Y\)</span> è <span class="math inline">\(\mu_Y = E[Y] = \alpha + B\,E[X] = \alpha + B\mu_X\)</span>. La <strong>matrice di covarianza</strong> di <span class="math inline">\(Y\)</span> è <span class="math inline">\(\Sigma_Y = C(Y) = B\,C(X)\,B^T = B\,\Sigma_X\,B^T\)</span>.</p>
 <section id="trasformazione-che-centra-il-vettore" class="level4">
 <h4 class="anchored" data-anchor-id="trasformazione-che-centra-il-vettore">Trasformazione che centra il vettore</h4>
@@ -451,7 +451,7 @@ window.Quarto = {
 <p>Nel caso univariato, una funzione lineare da <span class="math inline">\(\mathbb{R}\)</span> a <span class="math inline">\(\mathbb{R}\)</span> assume la forma di una retta</p>
 <p><span class="math inline">\(y = \alpha + \beta x\)</span> ,</p>
 <p>dove <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span> sono parametri scalari e la trasformazione modifica sia la distribuzione teorica di <span class="math inline">\(x\)</span> sia quella empirica nel campione osservato.</p>
-<p>![[Pasted image 20250307172015.png]]</p>
+<p><img src="images/Pasted image 20250307172015.png" class="img-fluid"></p>
 <p>Nel caso multivariato, se <span class="math inline">\(\vec{x}\)</span> è un vettore aleatorio di dimensione <span class="math inline">\(m\)</span>, una trasformazione lineare verso uno spazio di dimensione <span class="math inline">\(k\)</span> può essere scritta come</p>
 <p><span class="math inline">\(\,\vec{y} = \alpha + B \vec{x}\,\)</span>,</p>
 <p>dove <span class="math inline">\(\alpha \in \mathbb{R}^k\)</span> rappresenta il termine di bias (o spostamento) e <span class="math inline">\(B \in M_{k,m}\)</span> è la matrice che definisce la trasformazione lineare. <span class="math inline">\(a \in \mathbb{R}^m\)</span>, si ha</p>

@@ -343,7 +343,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exams/esame_2_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Esame 2 1</span></a>
+ <span class="menu-text">02-01: Analisi distribuzione custom</span></a>
   </div>
 </li>
       </ul>
@@ -428,7 +428,7 @@ E[S_n] = n p,
 \operatorname{Var}(S_n) = n p (1 - p).
 \]</span></p>
 <p>La figura rappresenta il grafico della funzione di massa di una variabile binomiale con parametri <span class="math inline">\(n = 10\)</span> e <span class="math inline">\(p = 0{,}5\)</span>, che risulta simmetrica rispetto al valore medio.</p>
-<p>![[Pasted image 20241103164907 1.png|350]]</p>
+<p><img src="images/Pasted image 20241103164907 1.png" class="img-fluid" width="350"></p>
 </section>
 <section id="variabili-aleatorie-di-poisson" class="level2">
 <h2 class="anchored" data-anchor-id="variabili-aleatorie-di-poisson">Variabili aleatorie di poisson</h2>
@@ -439,7 +439,7 @@ P(X = i) = \dfrac{e^{-\lambda} \lambda^i}{i!}.
 <p>Il parametro <span class="math inline">\(\lambda\)</span> rappresenta sia il <strong>valore atteso</strong> <span class="math inline">\(E[X] = \lambda\)</span> sia la <strong>varianza</strong> <span class="math inline">\(\operatorname{Var}(X) = \lambda\)</span>.</p>
 <p><strong>Nota.</strong> Le variabili di Poisson vengono spesso utilizzate come approssimazione delle variabili binomiali <span class="math inline">\(\mathcal{B}(n, p)\)</span> quando <span class="math inline">\(n\)</span> è molto grande e <span class="math inline">\(p\)</span> è molto piccolo, mantenendo <span class="math inline">\(\lambda = n p\)</span> costante.</p>
 <p>La figura illustra il grafico della funzione di massa di una variabile di Poisson con parametro <span class="math inline">\(\lambda = 4\)</span>.</p>
-<p>![[Pasted image 20241103165152 1.png|300]]</p>
+<p><img src="images/Pasted image 20241103165152 1.png" class="img-fluid" width="300"></p>
 <p><strong>Nota.</strong> La distribuzione di Poisson viene spesso utilizzata per modellare il numero di eventi in un intervallo di tempo, dato un tasso medio di occorrenza <span class="math inline">\(\lambda\)</span></p>
 </section>
 <section id="processi-di-poisson" class="level2">
@@ -453,7 +453,7 @@ P(X = i) = \dfrac{e^{-\lambda} \lambda^i}{i!}.
 <p>Una <strong>variabile aleatoria continua</strong> <span class="math inline">\(X\)</span> si dice <strong>uniformemente distribuita</strong> sull’intervallo <span class="math inline">\([a,b]\)</span>(con <span class="math inline">\(a &lt; b\)</span>) se la sua <strong>funzione di densità di probabilità (pdf)</strong> è costante su <span class="math inline">\([a,b]\)</span> e nulla altrove. Formalmente,</p>
 <p><span class="math inline">\(f_X(x) = \begin{cases} \dfrac{1}{b - a}, &amp; x \in [a, b],\\ 0, &amp; \text{altrimenti}. \end{cases}\)</span></p>
 <p>La distribuzione uniforme è così chiamata perché <strong>ogni valore all’interno dell’intervallo</strong> <span class="math inline">\([a, b]\)</span> è <strong>ugualmente probabile</strong>.</p>
-<p>![[Pasted image 20250304113422 1.png|350]]</p>
+<p><img src="images/Pasted image 20250304113422 1.png" class="img-fluid" width="350"></p>
 <p>Il <strong>valore atteso</strong> della variabile è dato da <span class="math inline">\(E[X] = \dfrac{a + b}{2}\)</span>, mentre la <strong>varianza</strong> è <span class="math inline">\(\operatorname{Var}(X) = \dfrac{(b - a)^2}{12}\)</span>.</p>
 <p>Oltre alla versione continua, esiste anche una versione discreta della distribuzione uniforme. Se <span class="math inline">\(X\)</span> può assumere <span class="math inline">\(n\)</span> valori distinti <span class="math inline">\(\{1, 2, \dots, n\}\)</span> con la stessa probabilità, allora la funzione di massa di probabilità è</p>
 <p><span class="math inline">\(P(X = k) = \frac{1}{n}, \quad k = 1, 2, \dots, n.\)</span></p>
@@ -614,7 +614,7 @@ Z = \dfrac{X - \mu}{\sigma}
 \]</span></p>
 <p>segue una distribuzione <strong>normale standard</strong> <span class="math inline">\(\mathcal{N}(0, 1)\)</span>.</p>
 <p>Il grafico della funzione di densità di una normale standard mostra la classica forma a campana centrata in zero.</p>
-<p>![[Pasted image 20241103170100 1.png|300]]</p>
+<p><img src="images/Pasted image 20241103170100 1.png" class="img-fluid" width="300"></p>
 <p>La <strong>funzione di ripartizione</strong> della normale standard è indicata con <span class="math inline">\(\Phi\)</span> ed è definita come:</p>
 <p><span class="math display">\[
 \Phi(x) = P(Z \leq x) = \dfrac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} e^{-y^2/2} \, dy.
@@ -628,7 +628,7 @@ P(X &lt; b) = \Phi\left( \dfrac{b - \mu}{\sigma} \right).
 P(a &lt; X &lt; b) = \Phi\left( \dfrac{b - \mu}{\sigma} \right) - \Phi\left( \dfrac{a - \mu}{\sigma} \right).
 \]</span></p>
 <p>L’integrale che definisce <span class="math inline">\(\Phi(x)\)</span> non ha una soluzione analitica esatta; si utilizzano tabelle o approssimazioni numeriche.</p>
-<p>![[Pasted image 20241107114743 1.png|500]]</p>
+<p><img src="images/Pasted image 20241107114743 1.png" class="img-fluid" width="500"></p>
 <p>Poiché la normale standard è simmetrica rispetto a zero:</p>
 <p><span class="math display">\[
 \Phi(-x) = 1 - \Phi(x).
@@ -655,7 +655,7 @@ P(Z &gt; z_\alpha) = \alpha \quad \Rightarrow \quad z_\alpha = \Phi^{-1}(1 - \al
 <p>La varianza è:</p>
 <p><span class="math inline">\(\operatorname{Var}(X) = \dfrac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}\)</span></p>
 <p>La distribuzione Beta è molto flessibile perché, in base ai valori di <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>, può assumere forme molto diverse.</p>
-<p>![[Pasted image 20250304115356 1.png|350]]</p>
+<p><img src="images/Pasted image 20250304115356 1.png" class="img-fluid" width="350"></p>
 <p>Per esempio, se <span class="math inline">\(\alpha = \beta = 1\)</span>, la distribuzione diventa uniforme su <span class="math inline">\([0,1]\)</span>. Se <span class="math inline">\(\alpha &gt; 1\)</span> e <span class="math inline">\(\beta &gt; 1\)</span>, la distribuzione è concentrata al centro. Se invece uno dei due parametri è minore di <span class="math inline">\(1\)</span>, la distribuzione diventa asimmetrica, con una maggiore probabilità vicino a <span class="math inline">\(0\)</span> o <span class="math inline">\(1\)</span>.</p>
 </section>
 <section id="variabili-aleatorie-esponenziali" class="level2">
@@ -703,7 +703,7 @@ P(X &gt; s + t) = P(X &gt; s) P(X &gt; t).
 <h3 class="anchored" data-anchor-id="variabili-aleatorie-lognormali">Variabili aleatorie lognormali</h3>
 <p>Una variabile aleatoria <span class="math inline">\(Y\)</span> si dice di <strong>distribuzione lognormale</strong> se la variabile <span class="math inline">\(\ln(Y)\)</span> segue una distribuzione normale con parametri <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma^2\)</span>. In altre parole, se <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>, allora <span class="math inline">\(Y = e^X\)</span> si dice lognormale. La <strong>funzione di densità</strong> di probabilità di <span class="math inline">\(Y\)</span>, per <span class="math inline">\(y &gt; 0\)</span>, è data da</p>
 <p><span class="math inline">\(f_Y(y) = \dfrac{1}{y\,\sigma \sqrt{2\pi}} \exp\!\left(-\dfrac{(\ln(y) - \mu)^2}{2\sigma^2}\right)\)</span></p>
-<p>![[Pasted image 20250302200445 1.png]]</p>
+<p><img src="images/Pasted image 20250302200445 1.png" class="img-fluid"></p>
 <p>Il suo <strong>valore atteso</strong> si calcola come <span class="math inline">\(E[Y] = e^{\mu + \frac{\sigma^2}{2}}\)</span>, mentre la sua <strong>varianza</strong> risulta <span class="math inline">\(\operatorname{Var}(Y) = \left(e^{\sigma^2} - 1\right)\,e^{2\mu + \sigma^2}\)</span></p>
 </section>
 <section id="variabili-aleatorie-gamma-chi-quadro-e-erlang" class="level3">
@@ -711,15 +711,15 @@ P(X &gt; s + t) = P(X &gt; s) P(X &gt; t).
 <p>La <strong>distribuzione Gamma</strong> caratterizza una variabile aleatoria definita per valori positivi ed è spesso parametrizzata con un parametro di forma <span class="math inline">\(\alpha\)</span> e un parametro di tasso <span class="math inline">\(\beta\)</span>. In questo caso, la <strong>funzione di densità</strong> di probabilità, per <span class="math inline">\(x &gt; 0\)</span>, è</p>
 <p><span class="math display">\[f_X(x) = \dfrac{\beta^\alpha}{\Gamma(\alpha)}\, x^{\alpha - 1} e^{-\beta x}\]</span> Il suo <strong>valore atteso</strong> è <span class="math inline">\(E[X] = \dfrac{\alpha}{\beta}\)</span>, mentre la sua <strong>varianza</strong> è <span class="math inline">\(\operatorname{Var}(X) = \dfrac{\alpha}{\beta^2}\)</span>. Questa distribuzione è utile per descrivere tempi di attesa fino al verificarsi di un certo numero di eventi in processi di Poisson e, in generale, per modellare fenomeni positivi con variabilità asimmetrica.</p>
 <p><strong>Nota.</strong> Talvolta, la distribuzione Gamma è espressa in funzione dei parametri <span class="math inline">\(k\)</span> e <span class="math inline">\(\theta\)</span>, dove <span class="math inline">\(\displaystyle \alpha =k\)</span> e <span class="math inline">\(\displaystyle \beta =1/\theta\)</span>.</p>
-<p>![[Pasted image 20250302203805 1.png]]</p>
+<p><img src="images/Pasted image 20250302203805 1.png" class="img-fluid"></p>
 <p>La <strong>distribuzione <span class="math inline">\(\chi^2\)</span> (chi-quadro)</strong> è un caso particolare della gamma in cui <span class="math inline">\(\alpha = \dfrac{k}{2}\)</span> e <span class="math inline">\(\beta = \dfrac{1}{2}\)</span>, dove <span class="math inline">\(k\)</span> rappresenta i gradi di libertà. In tale situazione, la funzione di densità risulta</p>
 <p><span class="math inline">\(\displaystyle f_X(x) = \frac{1}{2^{k/2}\,\Gamma(\dfrac{k}{2})} \, x^{({k}/{2}) - 1} e^{-{x}/{2}}\)</span></p>
 <p>per <span class="math inline">\(x&gt;0\)</span>. Il suo <strong>valore atteso</strong> è <span class="math inline">\(E[X] = k\)</span>, la <strong>varianza</strong> è <span class="math inline">\(\operatorname{Var}(X) = 2k\)</span>. Questa distribuzione è fondamentale in statistica per definire test di ipotesi e intervalli di confidenza relativi, ad esempio, a varianze e regressioni.</p>
-<p>![[Pasted image 20250302203827 1.png]]</p>
+<p><img src="images/Pasted image 20250302203827 1.png" class="img-fluid"></p>
 <p>La <strong>distribuzione Erlang</strong> è anch’essa un caso speciale di gamma in cui il parametro di forma <span class="math inline">\(\alpha\)</span> è un intero positivo <span class="math inline">\(k\)</span>. Con un parametro di tasso <span class="math inline">\(\lambda\)</span>, la funzione di densità si esprime come</p>
 <p><span class="math inline">\(\displaystyle f_X(x) = \dfrac{\lambda^k}{(k-1)!}\, x^{k-1}\, e^{-\lambda x}\)</span></p>
 <p>per <span class="math inline">\(x&gt;0\)</span>. Il suo <strong>valore atteso</strong> è <span class="math inline">\(E[X] = \frac{k}{\lambda}\)</span>, mentre la <strong>varianza</strong> è <span class="math inline">\(\operatorname{Var}(X) = \dfrac{k}{\lambda^2}\)</span>. Si ottiene come somma di <span class="math inline">\(k\)</span> variabili esponenziali indipendenti, tutte con lo stesso parametro <span class="math inline">\(\lambda\)</span>, ed è comunemente impiegata per analizzare tempi di attesa in processi di natura “conta-eventi” (processi di Poisson).</p>
-<p>![[Pasted image 20250302204541 1.png]]</p>
+<p><img src="images/Pasted image 20250302204541 1.png" class="img-fluid"></p>
 </section>
 <section id="variabili-aleatorie-t-di-student" class="level3">
 <h3 class="anchored" data-anchor-id="variabili-aleatorie-t-di-student">Variabili aleatorie t di student</h3>
@@ -727,7 +727,7 @@ P(X &gt; s + t) = P(X &gt; s) P(X &gt; t).
 <p>La funzione di densità di probabilità (pdf) della distribuzione t di Student è</p>
 <p><span class="math inline">\(f_X(x) = \dfrac{\Gamma\left(\dfrac{\nu+1}{2}\right)}{\sqrt{\nu \pi}\ \Gamma\left(\dfrac{\nu}{2}\right)} \left(1 + \dfrac{x^2}{\nu} \right)^{-\dfrac{\nu+1}{2}}, \quad -\infty &lt; x &lt; \infty.\)</span></p>
 <p>Qui, <span class="math inline">\(\Gamma(\cdot)\)</span> rappresenta la funzione Gamma.</p>
-<p>![[Pasted image 20250307155750 1.png]]</p>
+<p><img src="images/Pasted image 20250307155750 1.png" class="img-fluid"></p>
 <p>La distribuzione t di Student ha media:</p>
 <p><span class="math inline">\(E[X] = 0, \quad \text{per } \nu &gt; 1.\)</span></p>
 <p>La varianza è:</p>
@@ -743,7 +743,7 @@ P(X &gt; s + t) = P(X &gt; s) P(X &gt; t).
 <p>La distribuzione F di Fisher dipende da due parametri, detti <strong>gradi di libertà</strong>: <span class="math inline">\(d_1\)</span> per il numeratore e <span class="math inline">\(d_2\)</span> per il denominatore. La funzione di densità di probabilità (pdf) è:</p>
 <p><span class="math inline">\(f_X(x) = \dfrac{\left(\dfrac{d_1}{d_2}\right)^{\dfrac{d_1}{2}} x^{\dfrac{d_1}{2} - 1}}{B\left(\dfrac{d_1}{2}, \dfrac{d_2}{2}\right)} \left(1 + \dfrac{d_1}{d_2} x\right)^{-\dfrac{d_1 + d_2}{2}}, \quad x &gt; 0.\)</span></p>
 <p>dove <span class="math inline">\(B(a, b)\)</span> è la funzione Beta.</p>
-<p>![[Pasted image 20250307155915 1.png]]</p>
+<p><img src="images/Pasted image 20250307155915 1.png" class="img-fluid"></p>
 <p>La distribuzione F è sempre definita per valori positivi <span class="math inline">\(x &gt; 0\)</span>, perché rappresenta il rapporto tra due varianze stimate da campioni casuali. Il <strong>valore atteso</strong> della distribuzione è dato da:</p>
 <p><span class="math inline">\(E[X] = \dfrac{d_2}{d_2 - 2}, \quad \text{per } d_2 &gt; 2\)</span></p>
 <p>La <strong>varianza</strong> è</p>

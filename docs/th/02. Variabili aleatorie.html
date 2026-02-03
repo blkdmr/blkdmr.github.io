@@ -343,7 +343,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exams/esame_2_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Esame 2 1</span></a>
+ <span class="menu-text">02-01: Analisi distribuzione custom</span></a>
   </div>
 </li>
       </ul>
@@ -389,9 +389,9 @@ F(i) = P(X \leq i)
 <p>Quindi, <span class="math inline">\(F(i)\)</span> esprime la <strong>probabilità</strong> che <span class="math inline">\(X\)</span> assuma un valore <strong>minore o uguale</strong> a <span class="math inline">\(i\)</span>. Si utilizza la notazione <span class="math inline">\(X \sim F\)</span> per indicare che <span class="math inline">\(F\)</span> è la funzione di ripartizione di <span class="math inline">\(X\)</span>.</p>
 <p>Le variabili aleatorie che possono assumere un numero <strong>finito</strong> o <strong>numerabile</strong> di valori sono dette <strong>discrete</strong>, mentre quelle che possono assumere un insieme continuo (<strong>infinito non numerabile</strong>) di valori sono dette <strong>continue</strong>.</p>
 <p>La funzione di ripartizione ha utili applicazioni sia nel caso continuo</p>
-<p>![[Pasted image 20250301180012 1.png]]</p>
+<p><img src="images/Pasted image 20250301180012 1.png" class="img-fluid"></p>
 <p>che in quello discreto</p>
-<p>![[Pasted image 20250301180203 1.png]]</p>
+<p><img src="images/Pasted image 20250301180203 1.png" class="img-fluid"></p>
 <p>Inoltre, calcolando l’inverso della funzione di ripartizione, è possibile individuare i percentili di una distribuzione di probabilità.</p>
 <section id="funzioni-di-massa-e-densità" class="level2">
 <h2 class="anchored" data-anchor-id="funzioni-di-massa-e-densità">Funzioni di massa e densità</h2>
@@ -431,7 +431,7 @@ P\big((X, Y) \in C\big) = \iint_{(x, y) \in C} f(x, y) \, dx \, dy
 <p>La funzione <span class="math inline">\(f(x, y)\)</span> è detta <strong>densità congiunta</strong> di <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>.</p>
 <p>Ad esempio, se <span class="math inline">\(X\)</span> rappresenta l’altezza di una persona e <span class="math inline">\(Y\)</span> il suo peso, la densità congiunta <span class="math inline">\(f_{X,Y}(a, b)\)</span> indica quanto è probabile che una persona scelta a caso abbia altezza <span class="math inline">\(a\)</span> e peso <span class="math inline">\(b\)</span>. Maggiore è il valore di <span class="math inline">\(f\)</span> in un punto <span class="math inline">\((a, b)\)</span>, maggiore è la probabilità di osservare quella particolare combinazione di altezza e peso. Integrando <span class="math inline">\(f\)</span> su un’area specifica, otteniamo la probabilità che altezza e peso cadano in quell’intervallo. Ad esempio, integrando su altezze tra 160 cm e 170 cm e pesi tra 60 kg e 70 kg, si ottiene la probabilità che una persona abbia altezza e peso in quegli intervalli.</p>
 <p>In generale, due variabili prese contemporaneamente hanno una <strong>distribuzione congiunta</strong>. Una distribuzione congiunta di variabili gaussiane, ha spesso forma ellittica</p>
-<p>![[Pasted image 20250301171038 1.png|300]]</p>
+<p><img src="images/Pasted image 20250301171038 1.png" class="img-fluid" width="300"></p>
 <p>Due variabili aleatorie relative allo stesso esperimento si dicono <strong>indipendenti</strong> se, per ogni coppia di insiemi misurabili <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span>, vale:</p>
 <p><span class="math display">\[
 P(X \in A, Y \in B) = P(X \in A) \cdot P(Y \in B)
@@ -554,15 +554,15 @@ P\left(\left\vert \dfrac{X_1 + \dots + X_n}{n} - \mu \right\vert &gt; \varepsilo
 <section id="studiare-la-distribuzione-di-un-campione" class="level2">
 <h2 class="anchored" data-anchor-id="studiare-la-distribuzione-di-un-campione">Studiare la distribuzione di un campione</h2>
 <p>Dato un campione di dati osservati</p>
-<p>![[Pasted image 20250301184249 1.png|400]]</p>
+<p><img src="images/Pasted image 20250301184249 1.png" class="img-fluid" width="400"></p>
 <p>è possibile studiare la sua distribuzione attraverso l’istogramma dei dati</p>
-<p>![[Pasted image 20250301184615 1.png|400]]</p>
+<p><img src="images/Pasted image 20250301184615 1.png" class="img-fluid" width="400"></p>
 <p>Oppure attraverso la <strong>funzione di ripartizione empirica</strong> (ECDF, Empirical Cumulative Distribution Function), una stima della funzione di ripartizione del campione. Per ottenere la ECDF a partire da un insieme di dati campionari, occorre ordinare i dati in ordine crescente.</p>
-<p>![[Pasted image 20250302192343 1.png|400]]</p>
+<p><img src="images/Pasted image 20250302192343 1.png" class="img-fluid" width="400"></p>
 <p>Invertendo gli assi, otteniamo una CdF empirica “grossolana”</p>
-<p>![[Pasted image 20250302192418 1.png|400]]</p>
+<p><img src="images/Pasted image 20250302192418 1.png" class="img-fluid" width="400"></p>
 <p>Scalando i dati tra 0 e 1, si ricava la ECDF, che approssima la CdF reale, che ha generato il campione</p>
-<p>![[Pasted image 20250302192552 1.png|400]]</p>
+<p><img src="images/Pasted image 20250302192552 1.png" class="img-fluid" width="400"></p>
 <p>L’ECDF è utile per studiare la distribuzione dei dati osservati, e per visualizzare tale distribuzione in modo intuitivo.</p>
 </section>
 <section id="diagramma-q-q" class="level2">
@@ -571,7 +571,7 @@ P\left(\left\vert \dfrac{X_1 + \dots + X_n}{n} - \mu \right\vert &gt; \varepsilo
 <p><span class="math display">\[\left(\Phi^{-1}\left(\dfrac{i-0.5}{n}\right), x_{(i)}\right)
 \]</span></p>
 <p>corrispondono ai quantili teorici, calcolati tramite la funzione inversa <span class="math inline">\(\Phi^{-1}\)</span> della distribuzione <span class="math inline">\(\mathcal{N}(0,1)\)</span>, e ai dati osservati ordinati.</p>
-<p>![[Pasted image 20250302193324 1.png|400]]</p>
+<p><img src="images/Pasted image 20250302193324 1.png" class="img-fluid" width="400"></p>
 <p>Per costruire il diagramma, si parte da un insieme di dati con una qualsiasi distribuzione, li si ordina in modo crescente, si calcola la funzione di distribuzione cumulativa empirica (CdF empirica) e si confrontano i quantili empirici con quelli teorici della distribuzione normale.</p>
 
 
