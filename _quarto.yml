@@ -6,11 +6,15 @@ website:
   title: "IML"
   sidebar:
     style: docked
+    collapse-level: 1
     contents:
       - section: "Theory"
         contents: "th/*"
+      - section: "Laboratory"
+        contents: "lab/*"
       - section: "Exams"
         contents: "exams/*"
+
 
 format:
   html:

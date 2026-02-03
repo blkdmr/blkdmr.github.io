@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Esame 1 - Esercizio 4 – IML</title>
+<title>01-04: Regressione con OLS – IML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -148,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exams/esame_1_1.html">Exams</a></li><li class="breadcrumb-item"><a href="../exams/esame_1_4.html">Esame 1 - Esercizio 4</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exams/esame_1_1.html">Exams</a></li><li class="breadcrumb-item"><a href="../exams/esame_1_4.html">01-04: Regressione con OLS</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,58 +175,207 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/esame1-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Esame 1 - Esercizio 1</span></a>
+  <a href="../th/01. Richiami di probabilità.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Richiami di Probabilità</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/02. Variabili aleatorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variabili Aleatorie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/03. Modelli di variabili aleatorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modelli di variabili aleatorie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/04. La distribuzione delle statistiche campionarie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">La distribuzione delle statistiche campionarie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/05. Stima parametrica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stima parametrica</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/06. Verifica delle ipotesi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verifica delle ipotesi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/07. Vettori aleatori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vettori aleatori</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trasformazione PCA e analisi delle componenti principali</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funzioni di Perdita e Inferenza Statistica</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/10. Ancora sul teorema di Cochran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ancora sul teorema di Cochran</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Selezione di Variabili e Regolarizzazione nella Regressione</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/12. Gestione delle Variabili.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gestione delle Variabili</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/13. Regressione Logistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regressione Logistica</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/14. Analisi della varianza (ANOVA).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi della varianza (ANOVA)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/15. ANOVA a due vie (con o senza repliche).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ANOVA a due vie (con o senza repliche)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/16. Test del Chi-quadro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test del Chi-quadro</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Exams</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Laboratory</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/01_02_Introduzione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01-02: Introduzione</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/03_04_Gaussiane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03-04: Gaussiane</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/05_06_Limite_Centrale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05-06: Limite Centrale</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/07_08_EDA_PCA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07-08: EDA e PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/09_10_Generazione_campioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-10: Generazione campioni da distribuzione scelta</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/11_12_MLE_Regressione_Abalone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11-12: MLE e Regressione Abalone</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/13_14_Outlier_Regressione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13-14: Outlier e Regressione</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/15_16_OLS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15-16: OLS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Exams</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exams/esame_1_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Esame 1 - Esercizio 1</span></a>
+ <span class="menu-text">01-01: Analisi distribuzione Dirichlet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exams/esame_1_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Esame 1 - Esercizio 2</span></a>
+ <span class="menu-text">01-02: EDA e PCA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exams/esame_1_3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Esame 1 - Esercizio 3</span></a>
+ <span class="menu-text">01-03: Classificazione Logistic Regression e PyTorch</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exams/esame_1_4.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Esame 1 - Esercizio 4</span></a>
+ <span class="menu-text">01-04: Regressione con OLS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exams/esame_1_5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Esame 1 - Esercizio 5</span></a>
+ <span class="menu-text">01-05: Minimizzazione con SciPy</span></a>
   </div>
 </li>
       </ul>
@@ -257,9 +406,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exams/esame_1_1.html">Exams</a></li><li class="breadcrumb-item"><a href="../exams/esame_1_4.html">Esame 1 - Esercizio 4</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exams/esame_1_1.html">Exams</a></li><li class="breadcrumb-item"><a href="../exams/esame_1_4.html">01-04: Regressione con OLS</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Esame 1 - Esercizio 4</h1>
+<h1 class="title">01-04: Regressione con OLS</h1>
 </div>
 
 

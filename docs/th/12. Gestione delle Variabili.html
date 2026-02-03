@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>gestione-delle-variabili – IML</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d1aacd23651da4810371d54805babc2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/12. Gestione delle Variabili.html">Gestione delle Variabili</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">IML</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/01. Richiami di probabilità.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Richiami di Probabilità</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/02. Variabili aleatorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variabili Aleatorie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/03. Modelli di variabili aleatorie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modelli di variabili aleatorie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/04. La distribuzione delle statistiche campionarie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">La distribuzione delle statistiche campionarie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/05. Stima parametrica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stima parametrica</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/06. Verifica delle ipotesi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Verifica delle ipotesi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/07. Vettori aleatori.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vettori aleatori</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trasformazione PCA e analisi delle componenti principali</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funzioni di Perdita e Inferenza Statistica</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/10. Ancora sul teorema di Cochran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ancora sul teorema di Cochran</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Selezione di Variabili e Regolarizzazione nella Regressione</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/12. Gestione delle Variabili.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Gestione delle Variabili</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/13. Regressione Logistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regressione Logistica</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/14. Analisi della varianza (ANOVA).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi della varianza (ANOVA)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/15. ANOVA a due vie (con o senza repliche).html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ANOVA a due vie (con o senza repliche)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../th/16. Test del Chi-quadro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test del Chi-quadro</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Laboratory</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/01_02_Introduzione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01-02: Introduzione</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/03_04_Gaussiane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03-04: Gaussiane</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/05_06_Limite_Centrale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05-06: Limite Centrale</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/07_08_EDA_PCA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07-08: EDA e PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/09_10_Generazione_campioni.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09-10: Generazione campioni da distribuzione scelta</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/11_12_MLE_Regressione_Abalone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11-12: MLE e Regressione Abalone</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/13_14_Outlier_Regressione.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13-14: Outlier e Regressione</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lab/15_16_OLS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15-16: OLS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Exams</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/esame_1_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01-01: Analisi distribuzione Dirichlet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/esame_1_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01-02: EDA e PCA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/esame_1_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01-03: Classificazione Logistic Regression e PyTorch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/esame_1_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01-04: Regressione con OLS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/esame_1_5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01-05: Minimizzazione con SciPy</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#gestione-delle-variabili" id="toc-gestione-delle-variabili" class="nav-link active" data-scroll-target="#gestione-delle-variabili">Gestione delle Variabili</a>
+  <ul class="collapse">
+  <li><a href="#variabili-dicotomiche" id="toc-variabili-dicotomiche" class="nav-link" data-scroll-target="#variabili-dicotomiche">Variabili Dicotomiche</a>
+  <ul class="collapse">
+  <li><a href="#come-variabili-esplicative-di-ingresso" id="toc-come-variabili-esplicative-di-ingresso" class="nav-link" data-scroll-target="#come-variabili-esplicative-di-ingresso">Come variabili esplicative (di ingresso)</a></li>
+  <li><a href="#come-variabili-di-risposta" id="toc-come-variabili-di-risposta" class="nav-link" data-scroll-target="#come-variabili-di-risposta">Come variabili di risposta</a></li>
+  </ul></li>
+  <li><a href="#variabili-categoriche" id="toc-variabili-categoriche" class="nav-link" data-scroll-target="#variabili-categoriche">Variabili Categoriche</a>
+  <ul class="collapse">
+  <li><a href="#nominali" id="toc-nominali" class="nav-link" data-scroll-target="#nominali">Nominali</a></li>
+  <li><a href="#ordinali" id="toc-ordinali" class="nav-link" data-scroll-target="#ordinali">Ordinali</a></li>
+  </ul></li>
+  <li><a href="#variabili-categoriche-come-risposta" id="toc-variabili-categoriche-come-risposta" class="nav-link" data-scroll-target="#variabili-categoriche-come-risposta">Variabili categoriche come risposta</a></li>
+  <li><a href="#variabili-categoriche-come-ingresso" id="toc-variabili-categoriche-come-ingresso" class="nav-link" data-scroll-target="#variabili-categoriche-come-ingresso">Variabili categoriche come ingresso</a>
+  <ul class="collapse">
+  <li><a href="#codifica-one-hot-con-categoria-di-riferimento" id="toc-codifica-one-hot-con-categoria-di-riferimento" class="nav-link" data-scroll-target="#codifica-one-hot-con-categoria-di-riferimento">Codifica one-hot (con categoria di riferimento)</a></li>
+  </ul></li>
+  <li><a href="#cosa-succede-nello-stepwise" id="toc-cosa-succede-nello-stepwise" class="nav-link" data-scroll-target="#cosa-succede-nello-stepwise">Cosa succede nello stepwise</a></li>
+  <li><a href="#variabili-numeriche" id="toc-variabili-numeriche" class="nav-link" data-scroll-target="#variabili-numeriche">Variabili Numeriche</a>
+  <ul class="collapse">
+  <li><a href="#tipo-differenza" id="toc-tipo-differenza" class="nav-link" data-scroll-target="#tipo-differenza">Tipo “differenza”</a></li>
+  <li><a href="#tipo-rapporto" id="toc-tipo-rapporto" class="nav-link" data-scroll-target="#tipo-rapporto">Tipo “rapporto”</a></li>
+  <li><a href="#effetti-delle-trasformazioni" id="toc-effetti-delle-trasformazioni" class="nav-link" data-scroll-target="#effetti-delle-trasformazioni">Effetti delle trasformazioni</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/12. Gestione delle Variabili.html">Gestione delle Variabili</a></li></ol></nav></header>
+
+
+
+
+<section id="gestione-delle-variabili" class="level1">
+<h1>Gestione delle Variabili</h1>
+<p>Quando si costruisce un modello statistico (non solo di regressione), è fondamentale gestire correttamente le <strong>variabili</strong> in base alla loro natura. Le principali tipologie sono:</p>
+<ul>
+<li><strong>Dichotomiche</strong>: due soli livelli (es. sì/no, vero/falso, maschio/femmina)</li>
+<li><strong>Categoriche</strong>: più di due livelli (es. stagione, regione, titolo di studio)</li>
+<li><strong>Numeriche</strong>: variabili quantitative (continue o discrete)</li>
+</ul>
+<section id="variabili-dicotomiche" class="level2">
+<h2 class="anchored" data-anchor-id="variabili-dicotomiche">Variabili Dicotomiche</h2>
+<section id="come-variabili-esplicative-di-ingresso" class="level3">
+<h3 class="anchored" data-anchor-id="come-variabili-esplicative-di-ingresso">Come variabili esplicative (di ingresso)</h3>
+<p>Le variabili dicotomiche possono essere codificate con qualsiasi coppia di numeri, ma per semplicità (e interpretabilità) si usa quasi sempre <strong>0 e 1</strong>.</p>
+<p>Se la variabile <span class="math inline">\(x_i = 1\)</span> rappresenta “femmina”, allora il coefficiente <span class="math inline">\(\beta_1\)</span> misura quanto, <strong>in media</strong>, le donne differiscono dagli uomini (gruppo di riferimento) nella variabile risposta <span class="math inline">\(Y\)</span>.</p>
+<p>Questo tipo di variabile è molto comune anche nei <strong>disegni sperimentali</strong>, perché consente confronti semplici e immediati.</p>
+</section>
+<section id="come-variabili-di-risposta" class="level3">
+<h3 class="anchored" data-anchor-id="come-variabili-di-risposta">Come variabili di risposta</h3>
+<p>Le dicotomiche <strong>non sono adatte</strong> come risposta in un modello di regressione lineare classica. In questi casi si usano modelli specifici:</p>
+<ul>
+<li><strong>Regressione logistica</strong>: se la risposta è binaria</li>
+<li><strong>Analisi discriminante</strong>: in alternativa alla regressione</li>
+<li><strong>Modelli di classificazione</strong>: alberi, reti neurali, random forest, ecc.</li>
+</ul>
+</section>
+</section>
+<section id="variabili-categoriche" class="level2">
+<h2 class="anchored" data-anchor-id="variabili-categoriche">Variabili Categoriche</h2>
+<p>Le variabili categoriche possono essere suddivise in due sottotipi:</p>
+<section id="nominali" class="level3">
+<h3 class="anchored" data-anchor-id="nominali">Nominali</h3>
+<p>Non hanno un ordine naturale. Alcuni esempi: - Regione di provenienza, tipo di carburante, stagione dell’anno, tipo di veicolo…</p>
+</section>
+<section id="ordinali" class="level3">
+<h3 class="anchored" data-anchor-id="ordinali">Ordinali</h3>
+<p>Hanno un <strong>ordine intrinseco</strong>, anche se non sempre le “distanze” tra le categorie sono significative.</p>
+<p>Esempi: livello di istruzione, gravità di un sintomo, classifica sportiva (I, II, III…).</p>
+<p>A volte si codificano gli ordinali con numeri interi (1, 2, 3…), ma bisogna fare attenzione: ciò introduce implicitamente una distanza tra i livelli che potrebbe non essere reale.</p>
+<p>Esempio: codifica del <strong>titolo di studio</strong> con diversi criteri.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Titolo</th>
+<th>Valore 1</th>
+<th>Valore 2</th>
+<th>Valore 3</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nessuno</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>5 anni di scuola</td>
+</tr>
+<tr class="even">
+<td>Elementari</td>
+<td>2</td>
+<td>10</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Medie</td>
+<td>3</td>
+<td>20</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Maturità</td>
+<td>4</td>
+<td>30</td>
+<td>≠13</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Laurea</td>
+<td>5</td>
+<td>40</td>
+<td>16</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Laurea magistrale</td>
+<td>6</td>
+<td>50</td>
+<td>18</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Dottorato</td>
+<td>7</td>
+<td>60</td>
+<td>21</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="variabili-categoriche-come-risposta" class="level2">
+<h2 class="anchored" data-anchor-id="variabili-categoriche-come-risposta">Variabili categoriche come risposta</h2>
+<p>Quando la variabile risposta è categorica (es. classificazione), <strong>non</strong> si usa la regressione lineare. Si passa a:</p>
+<ul>
+<li>Regressione logistica (binaria o multinomiale)</li>
+<li>Alberi decisionali, foreste casuali, reti neurali, ecc.</li>
+</ul>
+</section>
+<section id="variabili-categoriche-come-ingresso" class="level2">
+<h2 class="anchored" data-anchor-id="variabili-categoriche-come-ingresso">Variabili categoriche come ingresso</h2>
+<p>In regressione, una variabile categorica con <span class="math inline">\(k\)</span> categorie va trasformata in <strong><span class="math inline">\(k-1\)</span> variabili dicotomiche</strong> (dummy), altrimenti si creerebbe collinearità.</p>
+<section id="codifica-one-hot-con-categoria-di-riferimento" class="level3">
+<h3 class="anchored" data-anchor-id="codifica-one-hot-con-categoria-di-riferimento">Codifica one-hot (con categoria di riferimento)</h3>
+<p>Si sceglie una categoria come <strong>default</strong> (es. inverno) e si costruiscono <span class="math inline">\(k-1\)</span> colonne binarie.</p>
+<p>Esempio con 4 stagioni:</p>
+<div class="line-block">x₀ | primavera | estate | autunno | inverno (default) |</div>
+<p>|-|–|–||-| | 1 | 1 | 0 | 0 | 0 | | 1 | 0 | 1 | 0 | 0 | | 1 | 0 | 0 | 1 | 0 | | 1 | 0 | 0 | 0 | 1 (implicita) |</p>
+<p>L’equazione del modello diventa:</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_{\text{pri}} x_{\text{pri}} + \beta_{\text{est}} x_{\text{est}} + \beta_{\text{aut}} x_{\text{aut}} + \varepsilon
+\]</span></p>
+<p>La categoria “inverno” è inclusa <strong>nel termine noto <span class="math inline">\(\beta_0\)</span></strong>. Gli altri coefficienti esprimono le <strong>differenze rispetto al default</strong>.</p>
+<p>Esempio:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Coefficiente</th>
+<th>Valore</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\beta_0\)</span> (inverno)</td>
+<td>16.4</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\beta_1\)</span> (primavera)</td>
+<td>5.4</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\beta_2\)</span> (estate)</td>
+<td>6.7</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\beta_3\)</span> (autunno)</td>
+<td>1.8</td>
+</tr>
+</tbody>
+</table>
+<p>Allora:</p>
+<div class="line-block">Stagione | Y atteso |</div>
+<p>||-| | Inverno | 16.4 | | Primavera | 21.8 | | Estate | 23.1 | | Autunno | 18.2 |</p>
+<p>Si possono testare ipotesi come:</p>
+<ul>
+<li><span class="math inline">\(H_0: \beta_3 = 0\)</span> → autunno = inverno</li>
+<li><span class="math inline">\(H_0: \beta_1 = \beta_2\)</span> → primavera = estate</li>
+</ul>
+</section>
+</section>
+<section id="cosa-succede-nello-stepwise" class="level2">
+<h2 class="anchored" data-anchor-id="cosa-succede-nello-stepwise">Cosa succede nello stepwise</h2>
+<p>Quando si usa la <strong>stepwise backward</strong>, se una variabile dummy viene eliminata significa che <strong>non è distinguibile dal default</strong> (es. <span class="math inline">\(\beta_3 = 0\)</span> per autunno).</p>
+<p>La nuova codifica raggruppa autunno e inverno:</p>
+<div class="line-block">Stagione | primavera | estate |</div>
+<p>||–|–| | Primavera | 1 | 0 | | Estate | 0 | 1 | | Autunno | 0 | 0 | | Inverno | 0 | 0 |</p>
+<p>Ora autunno è trattato <strong>come inverno</strong>.</p>
+<p>Se si vuole confrontare direttamente <strong>primavera ed estate</strong>, si può:</p>
+<ol type="1">
+<li>Fare un <strong>test manuale</strong>: <span class="math inline">\(H_0: \beta_1 = \beta_2\)</span></li>
+<li>Cambiare il <strong>default</strong> e rifare la codifica (es. default = estate)</li>
+</ol>
+<p><strong>Attenzione.</strong> Ogni categoria aggiunta aumenta <span class="math inline">\(p\)</span> → occhio al <strong>rapporto <span class="math inline">\(n/p\)</span></strong>. È possibile accorpare categorie rare in macro-categorie, o anche eliminare alcune righe.</p>
+</section>
+<section id="variabili-numeriche" class="level2">
+<h2 class="anchored" data-anchor-id="variabili-numeriche">Variabili Numeriche</h2>
+<section id="tipo-differenza" class="level3">
+<h3 class="anchored" data-anchor-id="tipo-differenza">Tipo “differenza”</h3>
+<p>Non richiedono trasformazioni particolari. Esempi: statura, peso, QI, consumi.</p>
+</section>
+<section id="tipo-rapporto" class="level3">
+<h3 class="anchored" data-anchor-id="tipo-rapporto">Tipo “rapporto”</h3>
+<p>Quando le variabili sono <strong>positive</strong> e distribuite su ordini di grandezza diversi (es. reddito, popolazione), conviene usare il <strong>logaritmo</strong>.</p>
+<p>Esempio:</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p + \varepsilon
+\]</span></p>
+<p>Se <span class="math inline">\(x_1\)</span> è di tipo rapporto, si può usare <span class="math inline">\(\log x_1\)</span> per linearizzare la relazione o normalizzare la distribuzione.</p>
+</section>
+<section id="effetti-delle-trasformazioni" class="level3">
+<h3 class="anchored" data-anchor-id="effetti-delle-trasformazioni">Effetti delle trasformazioni</h3>
+<ul>
+<li>Le <strong>trasformazioni lineari</strong> (es. cambio unità) <strong>non alterano</strong> le conclusioni statistiche (test, <span class="math inline">\(R^2\)</span>), ma cambiano i coefficienti.</li>
+<li>Le <strong>trasformazioni non lineari</strong> (es. logaritmo, radice quadrata) possono migliorare la <strong>normalità</strong> dei residui o la <strong>linearità</strong> della relazione.</li>
+</ul>
+<p>Esempio di regressione logaritmica su <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[
+\log Y = \beta_0 + \beta_1 x_1 + \cdots \quad \Rightarrow \quad Y = e^{\beta_0} \cdot e^{\beta_1 x_1} \cdot \cdots
+\]</span></p>
+<p>Se <span class="math inline">\(\beta_1 = \log(1.4)\)</span>, significa che l’effetto di <span class="math inline">\(x_1\)</span> è un <strong>+40%</strong> su <span class="math inline">\(Y\)</span>.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
