@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15-16: OLS – IML</title>
+<title>15-16: OLS (Abalone) – IML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lab/01_02_Introduzione.html">Laboratory</a></li><li class="breadcrumb-item"><a href="../lab/15_16_OLS.html">15-16: OLS</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lab/01_02_Introduzione.html">Laboratory</a></li><li class="breadcrumb-item"><a href="../lab/15_16_OLS_Abalone.html">15-16: OLS (Abalone)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -304,8 +304,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lab/15_16_OLS.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">15-16: OLS</span></a>
+  <a href="../lab/15_16_OLS_Abalone.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">15-16: OLS (Abalone)</span></a>
   </div>
 </li>
       </ul>
@@ -355,6 +355,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">02-01: Analisi distribuzione custom</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/esame_2_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02-02: Analisi dataset Gallstone</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -362,20 +368,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#caricamento-dati-one-hot-encoding" id="toc-caricamento-dati-one-hot-encoding" class="nav-link active" data-scroll-target="#caricamento-dati-one-hot-encoding">Caricamento dati + one-hot encoding</a></li>
+  <li><a href="#ols-con-intercetta-valutazione-su-test" id="toc-ols-con-intercetta-valutazione-su-test" class="nav-link" data-scroll-target="#ols-con-intercetta-valutazione-su-test">OLS con intercetta + valutazione su test</a>
+  <ul class="collapse">
+  <li><a href="#come-leggere-summary-in-modo-semplice" id="toc-come-leggere-summary-in-modo-semplice" class="nav-link" data-scroll-target="#come-leggere-summary-in-modo-semplice">Come leggere <code>summary()</code> (in modo semplice)</a></li>
+  </ul></li>
+  <li><a href="#formula-interface-più-leggibile" id="toc-formula-interface-più-leggibile" class="nav-link" data-scroll-target="#formula-interface-più-leggibile">Formula interface (più leggibile)</a></li>
+  <li><a href="#intervalli-di-confidenza-dei-coefficienti" id="toc-intervalli-di-confidenza-dei-coefficienti" class="nav-link" data-scroll-target="#intervalli-di-confidenza-dei-coefficienti">Intervalli di confidenza dei coefficienti</a></li>
+  <li><a href="#predizione-intervalli" id="toc-predizione-intervalli" class="nav-link" data-scroll-target="#predizione-intervalli">Predizione + intervalli</a></li>
+  <li><a href="#residui" id="toc-residui" class="nav-link" data-scroll-target="#residui">Residui</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lab/01_02_Introduzione.html">Laboratory</a></li><li class="breadcrumb-item"><a href="../lab/15_16_OLS.html">15-16: OLS</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lab/01_02_Introduzione.html">Laboratory</a></li><li class="breadcrumb-item"><a href="../lab/15_16_OLS_Abalone.html">15-16: OLS (Abalone)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">15-16: OLS</h1>
+<h1 class="title">15-16: OLS (Abalone)</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -387,250 +407,482 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="3715235c" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ucimlrepo <span class="im">import</span> fetch_ucirepo </span>
+<div id="3fc68a23" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ucimlrepo <span class="im">import</span> fetch_ucirepo</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, mean_absolute_error, r2_score</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="b2953704" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fetch dataset </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>abalone <span class="op">=</span> fetch_ucirepo(<span class="bu">id</span><span class="op">=</span><span class="dv">1</span>) </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># data (as pandas dataframes) </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>X: pd.DataFrame <span class="op">=</span> abalone.data.features</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>y: pd.DataFrame <span class="op">=</span> abalone.data.targets.values</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="8257dd4e" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(X, columns<span class="op">=</span>[<span class="st">"Sex"</span>])</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>X[<span class="st">"Sex_F"</span>] <span class="op">=</span> X[<span class="st">"Sex_F"</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>X[<span class="st">"Sex_M"</span>] <span class="op">=</span> X[<span class="st">"Sex_M"</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>X[<span class="st">"Sex_I"</span>] <span class="op">=</span> X[<span class="st">"Sex_I"</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="d17f4111" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X.values</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>array([[0.455, 0.365, 0.095, ..., 0.   , 0.   , 1.   ],
-       [0.35 , 0.265, 0.09 , ..., 0.   , 0.   , 1.   ],
-       [0.53 , 0.42 , 0.135, ..., 1.   , 0.   , 0.   ],
-       ...,
-       [0.6  , 0.475, 0.205, ..., 0.   , 0.   , 1.   ],
-       [0.625, 0.485, 0.15 , ..., 1.   , 0.   , 0.   ],
-       [0.71 , 0.555, 0.195, ..., 0.   , 0.   , 1.   ]], shape=(4177, 10))</code></pre>
-</div>
-</div>
-<div id="ab9e783a" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> sm.OLS(y, X.values)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="54403183" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.fit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="44dc5a8c" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<table class="simpletable caption-top table table-sm table-striped small">
-<caption>OLS Regression Results</caption>
+<section id="caricamento-dati-one-hot-encoding" class="level2">
+<h2 class="anchored" data-anchor-id="caricamento-dati-one-hot-encoding">Caricamento dati + one-hot encoding</h2>
+<p>Il dataset ha una feature categoriale <code>Sex</code> (F/M/I). La trasformiamo in 3 colonne dummy (0/1).</p>
+<div id="901ed6f6" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>abalone <span class="op">=</span> fetch_ucirepo(<span class="bu">id</span><span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X: pd.DataFrame <span class="op">=</span> abalone.data.features.copy()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> abalone.data.targets.values.reshape(<span class="op">-</span><span class="dv">1</span>)  <span class="co"># 1D</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># one-hot su Sex</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(X, columns<span class="op">=</span>[<span class="st">"Sex"</span>], drop_first<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> [<span class="st">"Sex_F"</span>, <span class="st">"Sex_M"</span>, <span class="st">"Sex_I"</span>]:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    X[c] <span class="op">=</span> X[c].astype(<span class="bu">int</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>X.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Length</th>
+<th data-quarto-table-cell-role="th">Diameter</th>
+<th data-quarto-table-cell-role="th">Height</th>
+<th data-quarto-table-cell-role="th">Whole_weight</th>
+<th data-quarto-table-cell-role="th">Shucked_weight</th>
+<th data-quarto-table-cell-role="th">Viscera_weight</th>
+<th data-quarto-table-cell-role="th">Shell_weight</th>
+<th data-quarto-table-cell-role="th">Sex_F</th>
+<th data-quarto-table-cell-role="th">Sex_I</th>
+<th data-quarto-table-cell-role="th">Sex_M</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">Dep. Variable:</th>
-<td>y</td>
-<th data-quarto-table-cell-role="th">R-squared:</th>
-<td>0.538</td>
+<th data-quarto-table-cell-role="th">0</th>
+<td>0.455</td>
+<td>0.365</td>
+<td>0.095</td>
+<td>0.5140</td>
+<td>0.2245</td>
+<td>0.1010</td>
+<td>0.150</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">Model:</th>
-<td>OLS</td>
-<th data-quarto-table-cell-role="th">Adj. R-squared:</th>
-<td>0.537</td>
+<th data-quarto-table-cell-role="th">1</th>
+<td>0.350</td>
+<td>0.265</td>
+<td>0.090</td>
+<td>0.2255</td>
+<td>0.0995</td>
+<td>0.0485</td>
+<td>0.070</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">Method:</th>
-<td>Least Squares</td>
-<th data-quarto-table-cell-role="th">F-statistic:</th>
-<td>538.9</td>
+<th data-quarto-table-cell-role="th">2</th>
+<td>0.530</td>
+<td>0.420</td>
+<td>0.135</td>
+<td>0.6770</td>
+<td>0.2565</td>
+<td>0.1415</td>
+<td>0.210</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">Date:</th>
-<td>Tue, 03 Feb 2026</td>
-<th data-quarto-table-cell-role="th">Prob (F-statistic):</th>
-<td>0.00</td>
+<th data-quarto-table-cell-role="th">3</th>
+<td>0.440</td>
+<td>0.365</td>
+<td>0.125</td>
+<td>0.5160</td>
+<td>0.2155</td>
+<td>0.1140</td>
+<td>0.155</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">Time:</th>
-<td>20:30:45</td>
-<th data-quarto-table-cell-role="th">Log-Likelihood:</th>
-<td>-9204.1</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">No. Observations:</th>
-<td>4177</td>
-<th data-quarto-table-cell-role="th">AIC:</th>
-<td>1.843e+04</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Df Residuals:</th>
-<td>4167</td>
-<th data-quarto-table-cell-role="th">BIC:</th>
-<td>1.849e+04</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">Df Model:</th>
-<td>9</td>
-<th data-quarto-table-cell-role="th"></th>
-<td></td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">Covariance Type:</th>
-<td>nonrobust</td>
-<th data-quarto-table-cell-role="th"></th>
-<td></td>
+<th data-quarto-table-cell-role="th">4</th>
+<td>0.330</td>
+<td>0.255</td>
+<td>0.080</td>
+<td>0.2050</td>
+<td>0.0895</td>
+<td>0.0395</td>
+<td>0.055</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
 
+</div>
+</div>
+</div>
+</section>
+<section id="ols-con-intercetta-valutazione-su-test" class="level2">
+<h2 class="anchored" data-anchor-id="ols-con-intercetta-valutazione-su-test">OLS con intercetta + valutazione su test</h2>
+<p>In <code>statsmodels</code>, l’intercetta non è aggiunta automaticamente: la mettiamo con <code>add_constant</code>. Poi stimiamo su train e valutiamo su test con RMSE/MAE/R².</p>
+<div id="23022a10" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X_train_c <span class="op">=</span> sm.add_constant(X_train)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>X_test_c  <span class="op">=</span> sm.add_constant(X_test, has_constant<span class="op">=</span><span class="st">"add"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ols <span class="op">=</span> sm.OLS(y_train, X_train_c).fit()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ols.summary())</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> ols.predict(X_test_c)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>rmse <span class="op">=</span> np.sqrt(mean_squared_error(y_test, y_pred))</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>mae  <span class="op">=</span> mean_absolute_error(y_test, y_pred)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>r2   <span class="op">=</span> r2_score(y_test, y_pred)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Test RMSE: </span><span class="sc">{</span>rmse<span class="sc">:.3f}</span><span class="ss"> | MAE: </span><span class="sc">{</span>mae<span class="sc">:.3f}</span><span class="ss"> | R^2: </span><span class="sc">{</span>r2<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.535
+Model:                            OLS   Adj. R-squared:                  0.534
+Method:                 Least Squares   F-statistic:                     425.5
+Date:                Wed, 04 Feb 2026   Prob (F-statistic):               0.00
+Time:                        15:00:31   Log-Likelihood:                -7355.4
+No. Observations:                3341   AIC:                         1.473e+04
+Df Residuals:                    3331   BIC:                         1.479e+04
+Df Model:                           9                                         
+Covariance Type:            nonrobust                                         
+==================================================================================
+                     coef    std err          t      P&gt;|t|      [0.025      0.975]
+----------------------------------------------------------------------------------
+const              2.6537      0.235     11.299      0.000       2.193       3.114
+Length            -0.2016      2.080     -0.097      0.923      -4.281       3.877
+Diameter          11.1234      2.547      4.367      0.000       6.130      16.117
+Height            10.4453      1.615      6.467      0.000       7.278      13.612
+Whole_weight       8.9322      0.863     10.346      0.000       7.239      10.625
+Shucked_weight   -20.2565      0.967    -20.943      0.000     -22.153     -18.360
+Viscera_weight    -9.5589      1.470     -6.504      0.000     -12.441      -6.677
+Shell_weight       8.7924      1.308      6.724      0.000       6.228      11.356
+Sex_F              1.0898      0.108     10.136      0.000       0.879       1.301
+Sex_I              0.3708      0.090      4.140      0.000       0.195       0.546
+Sex_M              1.1931      0.099     12.068      0.000       0.999       1.387
+==============================================================================
+Omnibus:                      750.514   Durbin-Watson:                   1.980
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2218.560
+Skew:                           1.155   Prob(JB):                         0.00
+Kurtosis:                       6.256   Cond. No.                     1.88e+15
+==============================================================================
 
-<table class="simpletable caption-top table table-sm table-striped small">
-<tbody>
-<tr class="odd">
-<td></td>
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 2.72e-27. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
+Test RMSE: 2.212 | MAE: 1.593 | R^2: 0.548</code></pre>
+</div>
+</div>
+<section id="come-leggere-summary-in-modo-semplice" class="level3">
+<h3 class="anchored" data-anchor-id="come-leggere-summary-in-modo-semplice">Come leggere <code>summary()</code> (in modo semplice)</h3>
+<ul>
+<li><strong>R-squared / Adj. R-squared</strong>: quanto il modello spiega sul <em>training</em> (utile, ma non basta).</li>
+<li><strong>F-statistic</strong> e relativo <strong>Prob (F-statistic)</strong>: test globale “c’è almeno una feature utile?”.</li>
+<li>Tabella coefficienti:
+<ul>
+<li><strong>coef</strong>: effetto stimato (a parità delle altre variabili).</li>
+<li><strong>std err</strong>: incertezza della stima.</li>
+<li><strong>P&gt;|t|</strong>: se è piccola (es. &lt; 0.05), il coefficiente è “diverso da 0” nel modello.</li>
+<li><strong>[0.025, 0.975]</strong>: intervallo di confidenza al 95% del coefficiente (se include 0, effetto poco certo).</li>
+</ul></li>
+</ul>
+<p>In pratica: guarda sempre anche le metriche su <strong>test</strong> (RMSE/MAE/R²) e un controllo dei residui.</p>
+</section>
+</section>
+<section id="formula-interface-più-leggibile" class="level2">
+<h2 class="anchored" data-anchor-id="formula-interface-più-leggibile">Formula interface (più leggibile)</h2>
+<p>Con <code>smf.ols("y ~ x1 + x2 + ...", data=df)</code> i nomi restano chiari e la costante è inclusa di default. Qui usiamo le colonne già preprocessate.</p>
+<div id="57b70e6c" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_all <span class="op">=</span> X.copy()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_all[<span class="st">"Rings"</span>] <span class="op">=</span> y</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df_train <span class="op">=</span> df_all.loc[X_train.index].copy()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df_test  <span class="op">=</span> df_all.loc[X_test.index].copy()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>formula <span class="op">=</span> <span class="st">"Rings ~ "</span> <span class="op">+</span> <span class="st">" + "</span>.join([c <span class="cf">for</span> c <span class="kw">in</span> df_train.columns <span class="cf">if</span> c <span class="op">!=</span> <span class="st">"Rings"</span>])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>ols_f <span class="op">=</span> smf.ols(formula, data<span class="op">=</span>df_train).fit()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ols_f.summary())</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>y_pred_f <span class="op">=</span> ols_f.predict(df_test)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>rmse_f <span class="op">=</span> np.sqrt(mean_squared_error(df_test[<span class="st">"Rings"</span>], y_pred_f))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Test RMSE (formula): </span><span class="sc">{</span>rmse_f<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  Rings   R-squared:                       0.535
+Model:                            OLS   Adj. R-squared:                  0.534
+Method:                 Least Squares   F-statistic:                     425.5
+Date:                Wed, 04 Feb 2026   Prob (F-statistic):               0.00
+Time:                        15:00:31   Log-Likelihood:                -7355.4
+No. Observations:                3341   AIC:                         1.473e+04
+Df Residuals:                    3331   BIC:                         1.479e+04
+Df Model:                           9                                         
+Covariance Type:            nonrobust                                         
+==================================================================================
+                     coef    std err          t      P&gt;|t|      [0.025      0.975]
+----------------------------------------------------------------------------------
+Intercept          2.6537      0.235     11.299      0.000       2.193       3.114
+Length            -0.2016      2.080     -0.097      0.923      -4.281       3.877
+Diameter          11.1234      2.547      4.367      0.000       6.130      16.117
+Height            10.4453      1.615      6.467      0.000       7.278      13.612
+Whole_weight       8.9322      0.863     10.346      0.000       7.239      10.625
+Shucked_weight   -20.2565      0.967    -20.943      0.000     -22.153     -18.360
+Viscera_weight    -9.5589      1.470     -6.504      0.000     -12.441      -6.677
+Shell_weight       8.7924      1.308      6.724      0.000       6.228      11.356
+Sex_F              1.0898      0.108     10.136      0.000       0.879       1.301
+Sex_I              0.3708      0.090      4.140      0.000       0.195       0.546
+Sex_M              1.1931      0.099     12.068      0.000       0.999       1.387
+==============================================================================
+Omnibus:                      750.514   Durbin-Watson:                   1.980
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2218.560
+Skew:                           1.155   Prob(JB):                         0.00
+Kurtosis:                       6.256   Cond. No.                     1.88e+15
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 2.72e-27. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
+Test RMSE (formula): 2.212</code></pre>
+</div>
+</div>
+</section>
+<section id="intervalli-di-confidenza-dei-coefficienti" class="level2">
+<h2 class="anchored" data-anchor-id="intervalli-di-confidenza-dei-coefficienti">Intervalli di confidenza dei coefficienti</h2>
+<p>Utile per vedere quali coefficienti sono stimati con più precisione.</p>
+<div id="835c75d5" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ci <span class="op">=</span> ols.conf_int(alpha<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ci.columns <span class="op">=</span> [<span class="st">"CI_low"</span>, <span class="st">"CI_high"</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>coefs <span class="op">=</span> ols.params.rename(<span class="st">"coef"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>coef_table <span class="op">=</span> pd.concat([coefs, ci], axis<span class="op">=</span><span class="dv">1</span>).sort_values(<span class="st">"coef"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>coef_table.head(<span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">coef</th>
-<th data-quarto-table-cell-role="th">std err</th>
-<th data-quarto-table-cell-role="th">t</th>
-<th data-quarto-table-cell-role="th">P&gt;|t|</th>
-<th data-quarto-table-cell-role="th">[0.025</th>
-<th data-quarto-table-cell-role="th">0.975]</th>
+<th data-quarto-table-cell-role="th">CI_low</th>
+<th data-quarto-table-cell-role="th">CI_high</th>
 </tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">x1</th>
-<td>-0.4583</td>
-<td>1.809</td>
-<td>-0.253</td>
-<td>0.800</td>
-<td>-4.005</td>
-<td>3.089</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">x2</th>
-<td>11.0751</td>
-<td>2.227</td>
-<td>4.972</td>
-<td>0.000</td>
-<td>6.708</td>
-<td>15.442</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">x3</th>
-<td>10.7615</td>
-<td>1.536</td>
-<td>7.005</td>
-<td>0.000</td>
-<td>7.750</td>
-<td>13.773</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">x4</th>
-<td>8.9754</td>
-<td>0.725</td>
-<td>12.373</td>
-<td>0.000</td>
-<td>7.553</td>
-<td>10.398</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">x5</th>
-<td>-19.7869</td>
-<td>0.817</td>
-<td>-24.209</td>
-<td>0.000</td>
-<td>-21.389</td>
-<td>-18.184</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">x6</th>
-<td>-10.5818</td>
-<td>1.294</td>
-<td>-8.179</td>
-<td>0.000</td>
-<td>-13.118</td>
-<td>-8.045</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">x7</th>
-<td>8.7418</td>
-<td>1.125</td>
-<td>7.772</td>
-<td>0.000</td>
-<td>6.537</td>
-<td>10.947</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">x8</th>
-<td>3.8946</td>
-<td>0.292</td>
-<td>13.358</td>
-<td>0.000</td>
-<td>3.323</td>
-<td>4.466</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">x9</th>
-<td>3.0698</td>
-<td>0.267</td>
-<td>11.502</td>
-<td>0.000</td>
-<td>2.547</td>
-<td>3.593</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">x10</th>
-<td>3.9524</td>
-<td>0.285</td>
-<td>13.876</td>
-<td>0.000</td>
-<td>3.394</td>
-<td>4.511</td>
-</tr>
-</tbody>
-</table>
-
-
-<table class="simpletable caption-top table table-sm table-striped small">
+</thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">Omnibus:</th>
-<td>947.032</td>
-<th data-quarto-table-cell-role="th">Durbin-Watson:</th>
-<td>1.436</td>
+<th data-quarto-table-cell-role="th">Diameter</th>
+<td>11.123391</td>
+<td>6.129592</td>
+<td>16.117190</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">Prob(Omnibus):</th>
-<td>0.000</td>
-<th data-quarto-table-cell-role="th">Jarque-Bera (JB):</th>
-<td>2710.271</td>
+<th data-quarto-table-cell-role="th">Height</th>
+<td>10.445325</td>
+<td>7.278322</td>
+<td>13.612329</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">Skew:</th>
-<td>1.181</td>
-<th data-quarto-table-cell-role="th">Prob(JB):</th>
-<td>0.00</td>
+<th data-quarto-table-cell-role="th">Whole_weight</th>
+<td>8.932176</td>
+<td>7.239409</td>
+<td>10.624942</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">Kurtosis:</th>
-<td>6.162</td>
-<th data-quarto-table-cell-role="th">Cond. No.</th>
-<td>116.</td>
+<th data-quarto-table-cell-role="th">Shell_weight</th>
+<td>8.792378</td>
+<td>6.228441</td>
+<td>11.356315</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">const</th>
+<td>2.653678</td>
+<td>2.193204</td>
+<td>3.114152</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Sex_M</th>
+<td>1.193068</td>
+<td>0.999236</td>
+<td>1.386901</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Sex_F</th>
+<td>1.089792</td>
+<td>0.878976</td>
+<td>1.300608</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Sex_I</th>
+<td>0.370818</td>
+<td>0.195211</td>
+<td>0.546425</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Length</th>
+<td>-0.201554</td>
+<td>-4.280565</td>
+<td>3.877458</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Viscera_weight</th>
+<td>-9.558916</td>
+<td>-12.440667</td>
+<td>-6.677166</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Shucked_weight</th>
+<td>-20.256545</td>
+<td>-22.152940</td>
+<td>-18.360150</td>
 </tr>
 </tbody>
 </table>
-<br><br>Notes:<br>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+</div>
+</div>
+</div>
+</section>
+<section id="predizione-intervalli" class="level2">
+<h2 class="anchored" data-anchor-id="predizione-intervalli">Predizione + intervalli</h2>
+<ul>
+<li><code>get_prediction(...).summary_frame()</code> produce anche intervalli.</li>
+<li><code>mean_ci_*</code>: intervallo di confidenza della <strong>media</strong> E[Y|X].</li>
+<li><code>obs_ci_*</code>: intervallo di <strong>predizione</strong> per una nuova osservazione (più largo).</li>
+</ul>
+<div id="81e08b85" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> ols.get_prediction(X_test_c.iloc[:<span class="dv">5</span>])</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pred.summary_frame(alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">mean_se</th>
+<th data-quarto-table-cell-role="th">mean_ci_lower</th>
+<th data-quarto-table-cell-role="th">mean_ci_upper</th>
+<th data-quarto-table-cell-role="th">obs_ci_lower</th>
+<th data-quarto-table-cell-role="th">obs_ci_upper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">866</th>
+<td>11.761361</td>
+<td>0.123218</td>
+<td>11.519770</td>
+<td>12.002953</td>
+<td>7.459743</td>
+<td>16.062979</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1483</th>
+<td>10.241926</td>
+<td>0.095967</td>
+<td>10.053766</td>
+<td>10.430087</td>
+<td>5.942978</td>
+<td>14.540875</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">599</th>
+<td>14.001036</td>
+<td>0.119701</td>
+<td>13.766340</td>
+<td>14.235731</td>
+<td>9.699799</td>
+<td>18.302272</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1702</th>
+<td>11.995093</td>
+<td>0.079694</td>
+<td>11.838839</td>
+<td>12.151347</td>
+<td>7.697423</td>
+<td>16.292763</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">670</th>
+<td>11.161415</td>
+<td>0.094532</td>
+<td>10.976069</td>
+<td>11.346761</td>
+<td>6.862589</td>
+<td>15.460241</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="residui" class="level2">
+<h2 class="anchored" data-anchor-id="residui">Residui</h2>
+<ul>
+<li>Residui vs fitted: se vedi pattern → possibile non linearità / varianza non costante.</li>
+<li>Q-Q plot: se molto lontano dalla diagonale → residui non “gaussiani” (non sempre un disastro, ma è un segnale).</li>
+</ul>
+<div id="1f059436" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fitted <span class="op">=</span> ols.fittedvalues</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>resid  <span class="op">=</span> ols.resid</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.plot(fitted, resid, <span class="st">"."</span>, ms<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Valori stimati (fitted)"</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Residui"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Residuals vs Fitted"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>sm.qqplot(resid, line<span class="op">=</span><span class="st">"45"</span>, fit<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Q-Q plot residui"</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="15_16_OLS_Abalone_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 600x400 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="15_16_OLS_Abalone_files/figure-html/cell-8-output-3.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

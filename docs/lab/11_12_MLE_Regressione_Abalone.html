@@ -301,8 +301,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lab/15_16_OLS.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15-16: OLS</span></a>
+  <a href="../lab/15_16_OLS_Abalone.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15-16: OLS (Abalone)</span></a>
   </div>
 </li>
       </ul>
@@ -350,6 +350,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../exams/esame_2_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">02-01: Analisi distribuzione custom</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exams/esame_2_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02-02: Analisi dataset Gallstone</span></a>
   </div>
 </li>
       </ul>
@@ -404,12 +410,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> poisson.rvs(mu<span class="op">=</span>mu, size<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>samples</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>array([12,  8,  8, 10, 14, 16, 11,  5, 15,  8,  9,  9,  9,  7, 13, 15, 11,
-       11, 11,  6,  8,  8,  8, 10,  9,  9,  6, 13,  6,  8,  6, 11, 11,  9,
-        8, 11, 14,  6, 10, 11, 11, 13,  5, 12, 10,  8,  8,  9,  6, 13, 11,
-        4,  8, 15,  9,  7,  8,  8,  7, 10,  6, 10, 11,  5,  7, 13,  6,  9,
-       14, 11, 14, 14, 13, 12,  7, 16, 11,  6,  5,  4,  8,  7, 14, 13,  9,
-        8,  5,  8, 12,  8, 13, 12,  7, 14, 11,  9, 10,  5, 17, 15])</code></pre>
+<pre><code>array([ 8, 11, 11,  6, 12, 16, 11, 12,  8, 11, 12,  9,  9, 11,  7,  2, 11,
+        7,  7,  9, 11, 10,  7, 12, 14, 12, 12,  8,  9, 14,  9, 11, 10, 10,
+       12,  8,  6,  7,  9,  7, 18, 10, 14,  6, 12,  9, 13,  4, 14, 15, 12,
+       11,  7, 10,  9, 16, 11,  6,  6, 12,  6, 12,  9,  8, 11, 11, 13, 13,
+       13,  9, 13,  8,  9, 11, 11,  8,  9, 12, 12,  9, 10,  9, 11, 13, 17,
+        7,  8, 11, 11, 12,  9,  5, 17,  5,  8, 16,  7,  9,  6, 12])</code></pre>
 </div>
 </div>
 <div id="80d02b57" class="cell" data-execution_count="3">
@@ -424,6 +430,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p><strong>Attenzione!</strong> <code>logpmf</code> è la log-likelihood, ma per una variabile discreta, mentre non per quelle continue si usa logpdf.</p>
 <div id="06698c5e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lkls <span class="op">=</span> []</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">100</span>):</span>
@@ -460,16 +467,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           The returned value satisfies the termination criteria
           (using xtol = 1.48e-08 )
  success: True
-     fun: 2.52735058697955
-       x: 9.710000152660585
-     nit: 11
-    nfev: 14</code></pre>
+     fun: 2.5126746355148497
+       x: 10.130000118440515
+     nit: 12
+    nfev: 15</code></pre>
 </div>
 </div>
 <div id="700f264e" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>samples.mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>np.float64(9.71)</code></pre>
+<pre><code>np.float64(10.13)</code></pre>
 </div>
 </div>
 </section>
@@ -545,8 +552,8 @@ memory usage: 261.2+ KB</code></pre>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.coef_)</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.intercept_)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[2.46486711]]
-[9.88207124]</code></pre>
+<pre><code>[[2.46651499]]
+[9.90841066]</code></pre>
 </div>
 </div>
 <div id="ff824f79" class="cell" data-execution_count="19">
@@ -589,31 +596,31 @@ memory usage: 261.2+ KB</code></pre>
 <div id="0f1aa9cc" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
-<pre><code>array([[ 10.12855795,  12.61583294,  15.10310793,  17.59038292,
-         20.07765791,  22.5649329 ,  25.05220789,  27.53948288,
-         30.02675787,  32.51403286,  35.00130785,  37.48858284,
-         39.97585783,  42.46313282,  44.95040781,  47.4376828 ,
-         49.92495779,  52.41223278,  54.89950777,  57.38678276,
-         59.87405775,  62.36133274,  64.84860773,  67.33588272,
-         69.82315771,  72.3104327 ,  74.79770769,  77.28498268,
-         79.77225767,  82.25953266,  84.74680765,  87.23408264,
-         89.72135763,  92.20863262,  94.69590761,  97.1831826 ,
-         99.67045759, 102.15773258, 104.64500757, 107.13228256,
-        109.61955755, 112.10683254, 114.59410753, 117.08138252,
-        119.56865751, 122.0559325 , 124.54320749, 127.03048248,
-        129.51775747, 132.00503246, 134.49230745, 136.97958244,
-        139.46685743, 141.95413242, 144.44140741, 146.9286824 ,
-        149.41595739, 151.90323238, 154.39050737, 156.87778236,
-        159.36505735, 161.85233235, 164.33960734, 166.82688233,
-        169.31415732, 171.80143231, 174.2887073 , 176.77598229,
-        179.26325728, 181.75053227, 184.23780726, 186.72508225,
-        189.21235724, 191.69963223, 194.18690722, 196.67418221,
-        199.1614572 , 201.64873219, 204.13600718, 206.62328217,
-        209.11055716, 211.59783215, 214.08510714, 216.57238213,
-        219.05965712, 221.54693211, 224.0342071 , 226.52148209,
-        229.00875708, 231.49603207, 233.98330706, 236.47058205,
-        238.95785704, 241.44513203, 243.93240702, 246.41968201,
-        248.906957  , 251.39423199, 253.88150698, 256.36878197]])</code></pre>
+<pre><code>array([[ 10.15506215,  12.644     ,  15.13293785,  17.6218757 ,
+         20.11081355,  22.5997514 ,  25.08868925,  27.5776271 ,
+         30.06656495,  32.5555028 ,  35.04444065,  37.5333785 ,
+         40.02231635,  42.5112542 ,  45.00019205,  47.4891299 ,
+         49.97806775,  52.4670056 ,  54.95594345,  57.4448813 ,
+         59.93381915,  62.422757  ,  64.91169485,  67.4006327 ,
+         69.88957055,  72.3785084 ,  74.86744625,  77.3563841 ,
+         79.84532195,  82.3342598 ,  84.82319765,  87.3121355 ,
+         89.80107335,  92.2900112 ,  94.77894905,  97.2678869 ,
+         99.75682475, 102.2457626 , 104.73470045, 107.2236383 ,
+        109.71257615, 112.201514  , 114.69045185, 117.1793897 ,
+        119.66832755, 122.1572654 , 124.64620325, 127.1351411 ,
+        129.62407895, 132.1130168 , 134.60195465, 137.0908925 ,
+        139.57983035, 142.0687682 , 144.55770605, 147.0466439 ,
+        149.53558175, 152.0245196 , 154.51345745, 157.0023953 ,
+        159.49133315, 161.980271  , 164.46920885, 166.9581467 ,
+        169.44708455, 171.9360224 , 174.42496025, 176.9138981 ,
+        179.40283595, 181.8917738 , 184.38071165, 186.8696495 ,
+        189.35858735, 191.8475252 , 194.33646305, 196.8254009 ,
+        199.31433875, 201.8032766 , 204.29221445, 206.7811523 ,
+        209.27009015, 211.759028  , 214.24796585, 216.7369037 ,
+        219.22584155, 221.7147794 , 224.20371725, 226.6926551 ,
+        229.18159295, 231.6705308 , 234.15946865, 236.6484065 ,
+        239.13734435, 241.6262822 , 244.11522005, 246.6041579 ,
+        249.09309575, 251.5820336 , 254.07097145, 256.5599093 ]])</code></pre>
 </div>
 </div>
 <div id="5cb13907" class="cell" data-execution_count="23">
@@ -638,9 +645,9 @@ memory usage: 261.2+ KB</code></pre>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"ASE: </span><span class="sc">{</span><span class="bu">round</span>(ase,<span class="dv">2</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"R^2: </span><span class="sc">{</span><span class="bu">round</span>(r2,<span class="dv">2</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>MSE: 8.93
-ASE: 2.08
-R^2: 0.25</code></pre>
+<pre><code>MSE: 7.06
+ASE: 1.91
+R^2: 0.32</code></pre>
 </div>
 </div>
 
