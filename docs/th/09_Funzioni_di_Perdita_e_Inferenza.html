@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>funzioni-di-perdita-e-inferenza-statistica – IML</title>
+<title>funzioni_di_perdita_e_inferenza – IML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html">Funzioni di Perdita e Inferenza Statistica</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/09_Funzioni_di_Perdita_e_Inferenza.html">Funzioni di Perdita e Inferenza</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,14 +188,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trasformazione PCA e analisi delle componenti principali</span></a>
+  <a href="../th/08_Analisi_delle_componenti_principali.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi delle componenti principali</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Funzioni di Perdita e Inferenza Statistica</span></a>
+  <a href="../th/09_Funzioni_di_Perdita_e_Inferenza.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Funzioni di Perdita e Inferenza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,25 +207,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Selezione di Variabili e Regolarizzazione nella Regressione</span></a>
+ <span class="menu-text">Selezione di Variabili e Regolarizzazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/12. Gestione delle Variabili.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gestione delle Variabili</span></a>
+  <a href="../th/12_gestione_delle_variabili.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gestione delle variabili</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/13. Regressione Logistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regressione Logistica</span></a>
+  <a href="../th/13_Regressione_logistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regressione logistica</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/14. Analisi della varianza (ANOVA).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analisi della varianza (ANOVA)</span></a>
+  <a href="../th/14_Analisi_della_varianza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi della varianza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,7 +236,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/16. Test del Chi-quadro.html" class="sidebar-item-text sidebar-link">
+  <a href="../th/16_Test_del_chi-quadro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Test del Chi-quadro</span></a>
   </div>
 </li>
@@ -364,7 +364,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#funzioni-di-perdita-e-inferenza-statistica" id="toc-funzioni-di-perdita-e-inferenza-statistica" class="nav-link active" data-scroll-target="#funzioni-di-perdita-e-inferenza-statistica">Funzioni di Perdita e Inferenza Statistica</a>
+  <li><a href="#funzioni-di-perdita-e-inferenza" id="toc-funzioni-di-perdita-e-inferenza" class="nav-link active" data-scroll-target="#funzioni-di-perdita-e-inferenza">Funzioni di Perdita e Inferenza</a>
   <ul class="collapse">
   <li><a href="#cross-entropy-loss" id="toc-cross-entropy-loss" class="nav-link" data-scroll-target="#cross-entropy-loss">Cross-Entropy Loss</a>
   <ul class="collapse">
@@ -379,96 +379,95 @@ window.Quarto = {
   <li><a href="#caso-eteroschedastico-dipendenza-completa-da-x" id="toc-caso-eteroschedastico-dipendenza-completa-da-x" class="nav-link" data-scroll-target="#caso-eteroschedastico-dipendenza-completa-da-x">Caso eteroschedastico (dipendenza completa da <span class="math inline">\(x\)</span>)</a></li>
   </ul></li>
   <li><a href="#regressione-lineare-semplice" id="toc-regressione-lineare-semplice" class="nav-link" data-scroll-target="#regressione-lineare-semplice">Regressione Lineare Semplice</a></li>
-  <li><a href="#teorema-di-cochran-introduzione-intuitiva" id="toc-teorema-di-cochran-introduzione-intuitiva" class="nav-link" data-scroll-target="#teorema-di-cochran-introduzione-intuitiva">Teorema di Cochran — Introduzione intuitiva</a></li>
   <li><a href="#teorema-di-cochran" id="toc-teorema-di-cochran" class="nav-link" data-scroll-target="#teorema-di-cochran">Teorema di Cochran</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html">Funzioni di Perdita e Inferenza Statistica</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/09_Funzioni_di_Perdita_e_Inferenza.html">Funzioni di Perdita e Inferenza</a></li></ol></nav></header>
 
 
 
 
-<section id="funzioni-di-perdita-e-inferenza-statistica" class="level1">
-<h1>Funzioni di Perdita e Inferenza Statistica</h1>
+<section id="funzioni-di-perdita-e-inferenza" class="level1">
+<h1>Funzioni di Perdita e Inferenza</h1>
 <section id="cross-entropy-loss" class="level2">
 <h2 class="anchored" data-anchor-id="cross-entropy-loss">Cross-Entropy Loss</h2>
-<p>La <strong>Cross-Entropy Loss</strong> (entropia incrociata) è una funzione di perdita utilizzata quando la variabile target è <strong>categorica</strong>, in particolare nei problemi di classificazione multiclasse. Il suo uso è strettamente legato a modelli probabilistici che stimano, per ogni osservazione, una distribuzione di probabilità sulle classi possibili.</p>
-<p>Si consideri un dataset composto da <span class="math inline">\(n\)</span> osservazioni e <span class="math inline">\(m\)</span> categorie. Ogni osservazione appartiene a una sola categoria ed è rappresentata tramite un vettore <strong>one-hot</strong> <span class="math inline">\(b(i) \in \{0,1\}^m\)</span>, in cui vale <span class="math inline">\(b_j(i)=1\)</span> se l’osservazione <span class="math inline">\(i\)</span> appartiene alla classe <span class="math inline">\(j\)</span> e <span class="math inline">\(b_j(i)=0\)</span> altrimenti.</p>
-<p>Indichiamo con <span class="math inline">\(p_j(i)\)</span> la probabilità che l’osservazione <span class="math inline">\(i\)</span> appartenga alla categoria <span class="math inline">\(j\)</span>. Per ogni <span class="math inline">\(i\)</span> tali probabilità soddisfano i vincoli di una distribuzione discreta: <span class="math display">\[
+<p>La <strong>Cross-Entropy Loss</strong> (entropia incrociata) è una funzione di perdita utilizzata quando la variabile target è <strong>categorica</strong>, in particolare nei problemi di classificazione multiclasse. Il suo impiego è strettamente connesso a modelli probabilistici che, per ogni osservazione, stimano una distribuzione di probabilità sulle classi possibili.</p>
+<p>Si consideri un dataset formato da <span class="math inline">\(n\)</span> osservazioni e <span class="math inline">\(m\)</span> categorie. Ogni osservazione appartiene a una sola categoria ed è rappresentata tramite un vettore <strong>one-hot</strong> <span class="math inline">\(b(i) \in \{0,1\}^m\)</span>, tale che <span class="math inline">\(b_j(i)=1\)</span> se l’osservazione <span class="math inline">\(i\)</span> appartiene alla classe <span class="math inline">\(j\)</span> e <span class="math inline">\(b_j(i)=0\)</span> altrimenti.</p>
+<p>Indichiamo con <span class="math inline">\(p_j(i)\)</span> la probabilità che l’osservazione <span class="math inline">\(i\)</span> appartenga alla classe <span class="math inline">\(j\)</span>. Per ogni <span class="math inline">\(i\)</span>, queste quantità definiscono una distribuzione discreta, quindi soddisfano i vincoli <span class="math display">\[
 p_j(i) \ge 0,
 \qquad
 \sum_{j=1}^m p_j(i) = 1.
 \]</span></p>
-<p>Sfruttando la codifica one-hot, la probabilità dell’osservazione <span class="math inline">\(i\)</span> può essere scritta in forma compatta come <span class="math display">\[
+<p>Grazie alla codifica one-hot, la probabilità dell’osservazione <span class="math inline">\(i\)</span> può essere scritta in forma compatta come <span class="math display">\[
 P(Y(i)=j) = p_j(i) = \prod_{k=1}^m p_k(i)^{b_k(i)}.
-\]</span> Infatti, il prodotto seleziona automaticamente la probabilità associata alla classe osservata.</p>
-<p>La <strong>log-verosimiglianza</strong> dell’intero campione risulta quindi <span class="math display">\[
+\]</span> Il prodotto seleziona automaticamente il termine corrispondente alla classe osservata, poiché tutti gli altri esponenti sono nulli.</p>
+<p>La <strong>log-verosimiglianza</strong> dell’intero campione si ottiene sommando i contributi delle singole osservazioni e assume la forma <span class="math display">\[
 \ell = \sum_{i=1}^n \sum_{j=1}^m b_j(i)\,\log p_j(i).
-\]</span></p>
+\]</span> Massimizzare questa quantità equivale a rendere massima la probabilità assegnata dal modello alle classi effettivamente osservate.</p>
 <section id="caso-senza-dipendenza-da-x" class="level3">
 <h3 class="anchored" data-anchor-id="caso-senza-dipendenza-da-x">Caso senza dipendenza da <span class="math inline">\(x\)</span></h3>
-<p>Se le probabilità non dipendono dall’input, cioè <span class="math inline">\(p_j(i)=P_j\)</span> costante per tutte le osservazioni, il problema si riduce alla stima di una distribuzione categorica. La massimizzazione della log-verosimiglianza porta alla stima <span class="math display">\[
+<p>Se le probabilità non dipendono dall’input, cioè <span class="math inline">\(p_j(i)=P_j\)</span> è costante per tutte le osservazioni, il problema si riduce alla stima dei parametri di una distribuzione categorica. In questo caso la massimizzazione della log-verosimiglianza porta alla stima <span class="math display">\[
 \hat P_j = \frac{O_j}{n},
-\]</span> dove <span class="math inline">\(O_j\)</span> è il numero di osservazioni appartenenti alla classe <span class="math inline">\(j\)</span>. In questo caso, la stima coincide semplicemente con la frequenza empirica.</p>
+\]</span> dove <span class="math inline">\(O_j\)</span> indica il numero di osservazioni appartenenti alla classe <span class="math inline">\(j\)</span>. La stima coincide quindi con la frequenza empirica, risultato coerente con l’interpretazione probabilistica del modello.</p>
 </section>
 <section id="caso-con-dipendenza-da-x" class="level3">
 <h3 class="anchored" data-anchor-id="caso-con-dipendenza-da-x">Caso con dipendenza da <span class="math inline">\(x\)</span></h3>
-<p>Quando invece la probabilità della classe dipende dall’input <span class="math inline">\(x(i)\)</span>, si introduce un modello parametrico <span class="math display">\[
+<p>Quando la probabilità della classe dipende dall’input <span class="math inline">\(x(i)\)</span>, si introduce un modello parametrico del tipo <span class="math display">\[
 p_j(i) = \pi_j(x(i); \alpha,\beta,\gamma),
-\]</span> che associa a ogni osservazione una distribuzione di probabilità sulle classi. Un esempio fondamentale è la <strong>softmax</strong>, definita come <span class="math display">\[
+\]</span> che associa a ciascuna osservazione una distribuzione di probabilità sulle classi. Un esempio fondamentale è fornito dalla <strong>softmax</strong>, definita come <span class="math display">\[
 \pi_j(x) = \frac{\exp(\eta_j(x))}{\sum_{k=1}^m \exp(\eta_k(x))},
 \qquad
 \eta_j(x) = w_j^\top x + c_j.
-\]</span> In questo caso i parametri del modello vengono stimati numericamente massimizzando la log-verosimiglianza, tipicamente tramite algoritmi di ottimizzazione iterativa come la discesa del gradiente.</p>
+\]</span> La softmax garantisce automaticamente che le probabilità siano non negative e sommino a uno. In questo contesto, la Cross-Entropy Loss coincide con il negativo della log-verosimiglianza e la stima dei parametri avviene numericamente, tipicamente tramite algoritmi di ottimizzazione iterativa come la discesa del gradiente.</p>
 </section>
 <section id="cross-entropy-come-funzione-di-perdita" class="level3">
 <h3 class="anchored" data-anchor-id="cross-entropy-come-funzione-di-perdita">Cross-Entropy come funzione di perdita</h3>
-<p>Poiché l’addestramento dei modelli avviene per minimizzazione, si introduce la <strong>cross-entropy loss</strong> come l’opposto normalizzato della log-verosimiglianza: <span class="math display">\[
+<p>Poiché l’addestramento dei modelli di classificazione avviene tramite <strong>minimizzazione</strong> di una funzione obiettivo, la log-verosimiglianza viene riscritta cambiando segno e normalizzando rispetto al numero di osservazioni. Si ottiene così la <strong>cross-entropy loss</strong>, definita come <span class="math display">\[
 \text{loss}_{\text{CE}}(\alpha,\beta,\gamma)
 = -\frac{1}{n}\sum_{i=1}^n \sum_{j=1}^m b_j(i)\,\log \pi_j(x(i);\alpha,\beta,\gamma).
-\]</span> Questa quantità misura quanto la distribuzione predetta dal modello si discosta dalla distribuzione vera, rappresentata dal vettore one-hot.</p>
-<p>In termini di entropia incrociata tra il target <span class="math inline">\(b(i)\)</span> e la predizione <span class="math inline">\(\pi(x(i))\)</span>, la perdita può essere scritta come <span class="math display">\[
+\]</span> Questa quantità rappresenta il negativo della log-verosimiglianza media e misura quanto la distribuzione di probabilità predetta dal modello si discosta dalla distribuzione vera, che nel caso di classificazione supervisionata è codificata tramite vettori one-hot.</p>
+<p>La stessa espressione può essere interpretata in termini di <strong>entropia incrociata</strong> tra la distribuzione target <span class="math inline">\(b(i)\)</span> e la distribuzione predetta <span class="math inline">\(\pi(x(i))\)</span>. Per una singola osservazione vale <span class="math display">\[
 H(b,\pi) = -\sum_{j=1}^m b_j \log \pi_j,
-\qquad
+\]</span> e la funzione di perdita complessiva non è altro che la media di questa quantità sul campione: <span class="math display">\[
 \text{loss}_{\text{CE}} = \frac{1}{n}\sum_{i=1}^n H\bigl(b(i),\pi(x(i))\bigr).
 \]</span></p>
-<p>Dal punto di vista interpretativo, minimizzare la cross-entropy equivale a rendere massima la probabilità assegnata dal modello alla classe corretta, penalizzando fortemente le predizioni errate ma troppo “sicure”.</p>
-<p>Nella pratica, per garantire stabilità numerica, si introducono spesso piccoli accorgimenti come l’uso di un <span class="math inline">\(\varepsilon\)</span> per evitare <span class="math inline">\(\log 0\)</span>, oppure tecniche come <em>label smoothing</em> e pesi di classe per gestire dataset sbilanciati.</p>
+<p>Dal punto di vista interpretativo, minimizzare la cross-entropy equivale a rendere massima la probabilità assegnata dal modello alla classe corretta. L’uso del logaritmo fa sì che predizioni errate ma molto “sicure”, cioè con probabilità alta assegnata alla classe sbagliata, vengano penalizzate in modo particolarmente severo.</p>
+<p>Nella pratica computazionale è necessario prestare attenzione alla stabilità numerica. In genere si evita il problema di <span class="math inline">\(\log 0\)</span> introducendo un piccolo termine <span class="math inline">\(\varepsilon\)</span> nelle probabilità oppure lavorando direttamente con formulazioni numericamente stabili della softmax. Inoltre, in presenza di dataset sbilanciati o di rumore nelle etichette, si possono introdurre tecniche come il <em>label smoothing</em> o pesi di classe, che modificano la loss per rendere l’addestramento più robusto.</p>
 </section>
 </section>
 <section id="mean-squared-error-loss-mse" class="level2">
 <h2 class="anchored" data-anchor-id="mean-squared-error-loss-mse">Mean Squared Error Loss (MSE)</h2>
-<p>La <strong>Mean Squared Error (MSE)</strong> è una funzione di perdita tipicamente utilizzata quando la variabile risposta è quantitativa e si assume un modello <strong>gaussiano</strong> per gli errori. In particolare, si ipotizza che ogni osservazione segua una distribuzione normale <span class="math display">\[
+<p>La <strong>Mean Squared Error (MSE)</strong> è una funzione di perdita tipicamente utilizzata quando la variabile risposta è quantitativa e si assume un modello <strong>gaussiano</strong> per gli errori. In questo contesto si ipotizza che ciascuna osservazione segua una distribuzione normale <span class="math display">\[
 Y(i) \sim \mathcal{N}(\mu(i), \sigma^2(i)),
-\]</span> dove <span class="math inline">\(\mu(i)\)</span> è la media condizionata (eventualmente dipendente dagli input) e <span class="math inline">\(\sigma^2(i)\)</span> la varianza.</p>
-<p>Sotto questa ipotesi, la log-verosimiglianza del campione è <span class="math display">\[
+\]</span> dove <span class="math inline">\(\mu(i)\)</span> rappresenta la media condizionata, eventualmente dipendente dagli input, mentre <span class="math inline">\(\sigma^2(i)\)</span> indica la varianza.</p>
+<p>Sotto questa ipotesi, la log-verosimiglianza del campione può essere scritta come <span class="math display">\[
 \ell
 = \sum_{i=1}^n \left[
 -\log \sigma(i)
 - \log \sqrt{2\pi}
 - \frac{(Y(i)-\mu(i))^2}{2\sigma^2(i)}
 \right].
-\]</span></p>
+\]</span> Questa espressione mette in evidenza come lo scarto quadratico tra osservazioni e media giochi un ruolo centrale nel modello gaussiano.</p>
 <section id="parametri-costanti" class="level3">
 <h3 class="anchored" data-anchor-id="parametri-costanti">Parametri costanti</h3>
-<p>Nel caso più semplice si assume che <span class="math inline">\(\mu(i)=\mu\)</span> e <span class="math inline">\(\sigma(i)=\sigma\)</span> per ogni <span class="math inline">\(i\)</span>. La massimizzazione della log-verosimiglianza porta alle stime classiche della media e della varianza globali: la media campionaria per <span class="math inline">\(\mu\)</span> e la varianza campionaria (con denominatore <span class="math inline">\(n\)</span>) per <span class="math inline">\(\sigma^2\)</span> nel senso della massima verosimiglianza.</p>
+<p>Nel caso più semplice si assume che <span class="math inline">\(\mu(i)=\mu\)</span> e <span class="math inline">\(\sigma(i)=\sigma\)</span> per ogni osservazione. La massimizzazione della log-verosimiglianza conduce alle stime classiche: la media campionaria come stimatore di <span class="math inline">\(\mu\)</span> e la varianza campionaria con denominatore <span class="math inline">\(n\)</span> come stimatore di <span class="math inline">\(\sigma^2\)</span> nel senso della massima verosimiglianza. In questo scenario la MSE coincide con la varianza empirica attorno alla media stimata.</p>
 </section>
 <section id="caso-omoschedastico-varianza-costante" class="level3">
 <h3 class="anchored" data-anchor-id="caso-omoschedastico-varianza-costante">Caso omoschedastico (varianza costante)</h3>
-<p>Un caso molto rilevante in regressione è quello in cui la media dipende dagli input <span class="math inline">\(x(i)\)</span>, mentre la varianza è costante, cioè <span class="math inline">\(\sigma^2(i)=\sigma^2\)</span>. Indicando con <span class="math inline">\(\mu(x(i);\alpha,\beta,\gamma)\)</span> il modello parametrico per la media, la parte della log-verosimiglianza che dipende dai parametri della media è proporzionale alla somma dei quadrati degli errori. Di conseguenza, massimizzare la log-verosimiglianza equivale a minimizzare la <strong>MSE</strong>: <span class="math display">\[
+<p>Un caso fondamentale in regressione è quello in cui la media dipende dagli input <span class="math inline">\(x(i)\)</span>, mentre la varianza è costante, cioè <span class="math inline">\(\sigma^2(i)=\sigma^2\)</span>. Indicando con <span class="math inline">\(\mu(x(i);\alpha,\beta,\gamma)\)</span> un modello parametrico per la media, la parte della log-verosimiglianza che dipende da tali parametri è, a meno di costanti additive e moltiplicative, proporzionale alla somma dei quadrati dei residui. Ne segue che massimizzare la log-verosimiglianza equivale a minimizzare la <strong>MSE</strong>: <span class="math display">\[
 \text{loss}_{\text{MSE}}(\alpha,\beta,\gamma)
 = \frac{1}{n}\sum_{i=1}^n \bigl(Y(i)-\mu(x(i);\alpha,\beta,\gamma)\bigr)^2.
 \]</span></p>
-<p>Una volta stimata la media, la stima di massima verosimiglianza della deviazione standard è <span class="math display">\[
+<p>Una volta stimata la media, la stima di massima verosimiglianza della deviazione standard è data da <span class="math display">\[
 \hat{\sigma}
 = \sqrt{\text{loss}_{\text{MSE}}(\alpha,\beta,\gamma)},
-\]</span> mentre la stima di massima verosimiglianza della varianza è <span class="math display">\[
+\]</span> mentre la corrispondente stima della varianza risulta <span class="math display">\[
 \hat{\sigma}^2_{\text{MLE}}
 = \frac{1}{n}\sum_{i=1}^n \bigl(Y(i)-\hat{\mu}(i)\bigr)^2.
-\]</span> Dal punto di vista statistico, questo stimatore è distorto; lo stimatore <strong>non distorto</strong> della varianza utilizza invece il denominatore <span class="math inline">\(n-p\)</span>, dove <span class="math inline">\(p\)</span> è il numero di parametri stimati nel modello per la media.</p>
+\]</span> Dal punto di vista statistico questo stimatore è distorto; lo stimatore <strong>non distorto</strong> della varianza utilizza invece il denominatore <span class="math inline">\(n-p\)</span>, dove <span class="math inline">\(p\)</span> è il numero di parametri stimati nel modello per la media.</p>
 </section>
 <section id="caso-eteroschedastico-dipendenza-completa-da-x" class="level3">
 <h3 class="anchored" data-anchor-id="caso-eteroschedastico-dipendenza-completa-da-x">Caso eteroschedastico (dipendenza completa da <span class="math inline">\(x\)</span>)</h3>
@@ -478,46 +477,46 @@ Y(i) \sim \mathcal{N}(\mu(i), \sigma^2(i)),
 \log\bigl(2\pi \sigma^2(i)\bigr)
 + \frac{(Y(i)-\mu(i))^2}{\sigma^2(i)}
 \right].
-\]</span> Questo criterio corrisponde a una forma di <strong>weighted least squares</strong>, in cui ogni residuo è pesato con l’inverso della sua varianza. La stima dei parametri della media e della varianza non ammette in genere una soluzione chiusa e richiede metodi iterativi di ottimizzazione.</p>
+\]</span> Questo criterio corrisponde a una forma di <strong>weighted least squares</strong>, in cui ciascun residuo è pesato con l’inverso della sua varianza. La stima congiunta dei parametri della media e della varianza non ammette in generale una soluzione in forma chiusa e richiede l’uso di metodi di ottimizzazione iterativi.</p>
 </section>
 </section>
 <section id="regressione-lineare-semplice" class="level2">
 <h2 class="anchored" data-anchor-id="regressione-lineare-semplice">Regressione Lineare Semplice</h2>
-<p>Nel modello di <strong>regressione lineare semplice</strong>, si ipotizza che le variabili indipendenti <span class="math inline">\(x_i\)</span> siano deterministiche e che le variabili dipendenti <span class="math inline">\(Y_i\)</span> siano casuali. Si assume:</p>
-<p><span class="math display">\[
-Y_i \sim \mathcal{N}(\mu_i, \sigma^2), \quad \mu_i = \beta_0 + \beta_1 x_i
-\]</span></p>
-<p>La funzione di perdita da minimizzare è:</p>
-<p><span class="math display">\[
-\text{loss}_{\text{MSE}}(\beta_0, \beta_1) = \frac{1}{n} \sum_{i=1}^n (Y_i - \beta_0 - \beta_1 x_i)^2
-\]</span></p>
-<p>Le stime di massima verosimiglianza per i coefficienti sono:</p>
-<p><span class="math display">\[
-\hat{\beta}_1 = \frac{\sum(x_i Y_i) - n\bar{x}\bar{Y}}{\sum(x_i^2) - n\bar{x}^2}, \quad \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{x}
-\]</span></p>
-<p>La varianza degli errori stimata in modo <strong>non distorto</strong> è:</p>
-<p><span class="math display">\[
-S_e^2 = \frac{1}{n - 2} \sum (Y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)^2
-\]</span></p>
-</section>
-<section id="teorema-di-cochran-introduzione-intuitiva" class="level2">
-<h2 class="anchored" data-anchor-id="teorema-di-cochran-introduzione-intuitiva">Teorema di Cochran — Introduzione intuitiva</h2>
-<p>Il <strong>teorema di Cochran</strong> serve a capire come si può <strong>scomporre la variabilità dei dati</strong> in modo rigoroso quando si lavora con modelli lineari e ipotesi gaussiane. In particolare, fornisce la giustificazione teorica del fatto che, in molti modelli statistici, la variabilità totale può essere divisa in una parte <strong>spiegata dal modello</strong> e una parte <strong>non spiegata</strong>, detta residua.</p>
-<p>Il teorema si applica quando le osservazioni seguono una distribuzione normale con <strong>varianza costante</strong> e quando le stime dei parametri possono essere viste come <strong>proiezioni ortogonali</strong> su opportuni sottospazi. In questa situazione, il risultato fondamentale è che la componente stimata dal modello e quella residua sono <strong>indipendenti</strong> tra loro e che la somma dei quadrati dei residui segue una distribuzione <strong>chi-quadro</strong> con un numero di gradi di libertà ben definito.</p>
-<p>Questo è il motivo per cui il teorema di Cochran è alla base della regressione lineare, dell’<strong>ANOVA</strong> e dei <strong>test F</strong>: permette di confrontare in modo corretto la variabilità spiegata dal modello con quella dovuta al rumore, utilizzando distribuzioni note e risultati di inferenza statistica affidabili.</p>
+<p>Nel modello di <strong>regressione lineare semplice</strong> si assume che le variabili indipendenti <span class="math inline">\(x_i\)</span> siano deterministiche, mentre le variabili dipendenti <span class="math inline">\(Y_i\)</span> siano casuali. L’ipotesi di base è che ciascuna osservazione segua un modello gaussiano con media lineare e varianza costante: <span class="math display">\[
+Y_i \sim \mathcal{N}(\mu_i, \sigma^2),
+\qquad
+\mu_i = \beta_0 + \beta_1 x_i.
+\]</span> In questa formulazione <span class="math inline">\(\beta_0\)</span> rappresenta l’intercetta del modello, mentre <span class="math inline">\(\beta_1\)</span> quantifica l’effetto medio di una variazione unitaria di <span class="math inline">\(x\)</span> sulla risposta <span class="math inline">\(Y\)</span>.</p>
+<p>Assumendo indipendenza delle osservazioni e omoschedasticità, la massimizzazione della log-verosimiglianza gaussiana è equivalente alla minimizzazione della <strong>Mean Squared Error</strong>, definita come <span class="math display">\[
+\text{loss}_{\text{MSE}}(\beta_0, \beta_1)
+= \frac{1}{n} \sum_{i=1}^n \bigl(Y_i - \beta_0 - \beta_1 x_i\bigr)^2.
+\]</span> La stima dei parametri si riduce quindi a un problema di minimi quadrati.</p>
+<p>La soluzione analitica di questo problema fornisce le stime di massima verosimiglianza dei coefficienti, che coincidono con le stime dei minimi quadrati ordinari: <span class="math display">\[
+\hat{\beta}_1
+= \frac{\sum_{i=1}^n x_i Y_i - n \bar{x}\,\bar{Y}}
+{\sum_{i=1}^n x_i^2 - n \bar{x}^2},
+\qquad
+\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{x},
+\]</span> dove <span class="math inline">\(\bar{x}\)</span> e <span class="math inline">\(\bar{Y}\)</span> indicano le medie campionarie delle variabili indipendente e dipendente. La stima di <span class="math inline">\(\beta_1\)</span> può essere interpretata come il rapporto tra la covarianza campionaria tra <span class="math inline">\(x\)</span> e <span class="math inline">\(Y\)</span> e la varianza campionaria di <span class="math inline">\(x\)</span>.</p>
+<p>Una volta stimati i coefficienti, si procede alla stima della varianza degli errori. Lo stimatore di massima verosimiglianza utilizza il denominatore <span class="math inline">\(n\)</span> ed è quindi distorto. Lo stimatore <strong>non distorto</strong> della varianza degli errori è invece <span class="math display">\[
+S_e^2
+= \frac{1}{n - 2} \sum_{i=1}^n \bigl(Y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i\bigr)^2,
+\]</span> dove il termine <span class="math inline">\(n-2\)</span> rappresenta i gradi di libertà residui dopo la stima dei due parametri <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span>.</p>
 </section>
 <section id="teorema-di-cochran" class="level2">
 <h2 class="anchored" data-anchor-id="teorema-di-cochran">Teorema di Cochran</h2>
-<p>Si consideri un vettore aleatorio <span class="math inline">\(X = (X_1,\dots,X_n) \in \mathbb{R}^n\)</span> tale che le sue componenti siano indipendenti e identicamente distribuite secondo una normale con varianza comune, cioè <span class="math inline">\(X_i \sim \mathcal{N}(\mu_i, \sigma^2)\)</span>, e si assuma che il vettore dei valori medi <span class="math inline">\(\mu = (\mu_1,\dots,\mu_n)\)</span> appartenga a un sottospazio vettoriale <span class="math inline">\(V \subset \mathbb{R}^n\)</span> di dimensione <span class="math inline">\(k\)</span>.</p>
-<p>In questo contesto, il teorema di Cochran descrive la struttura geometrica e probabilistica della stima di <span class="math inline">\(\mu\)</span> e della variabilità residua. In particolare, lo stimatore di massima verosimiglianza di <span class="math inline">\(\mu\)</span> si ottiene come proiezione ortogonale del vettore osservato <span class="math inline">\(X\)</span> sul sottospazio <span class="math inline">\(V\)</span>. Indicando con <span class="math inline">\(\pi_V(X)\)</span> tale proiezione, vale <span class="math display">\[
-\hat{\mu} = \pi_V(X).
-\]</span> Questo risultato riflette il fatto che, nel modello gaussiano con varianza nota e omoschedastica, la stima ottimale del vettore dei parametri medi è quella che minimizza la distanza euclidea tra <span class="math inline">\(X\)</span> e il sottospazio dei valori ammissibili per <span class="math inline">\(\mu\)</span>.</p>
-<p>La parte di <span class="math inline">\(X\)</span> che non viene spiegata dal sottospazio <span class="math inline">\(V\)</span> è data dal residuo <span class="math inline">\(X - \pi_V(X)\)</span>. La sua norma al quadrato <span class="math display">\[
-W = \|X - \pi_V(X)\|^2
-\]</span> rappresenta la somma dei quadrati residui. Il teorema di Cochran afferma che questa quantità è indipendente dalla componente stimata <span class="math inline">\(\pi_V(X)\)</span> e che, una volta normalizzata per la varianza <span class="math inline">\(\sigma^2\)</span>, segue una distribuzione chi-quadro con <span class="math inline">\(n-k\)</span> gradi di libertà: <span class="math display">\[
-\frac{W}{\sigma^2} \sim \chi^2(n - k).
+<p>Il <strong>teorema di Cochran</strong> fornisce la base teorica per comprendere come la <strong>variabilità totale dei dati</strong> possa essere scomposta in modo rigoroso nei modelli lineari sotto ipotesi gaussiane. L’idea centrale è che, quando le osservazioni seguono una distribuzione normale con <strong>varianza costante</strong> e i parametri vengono stimati all’interno di un modello lineare, la parte dei dati spiegata dal modello e la parte residua possono essere trattate come componenti <strong>indipendenti</strong>, ciascuna con una struttura probabilistica ben definita. Questo risultato giustifica formalmente la scomposizione della varianza utilizzata in regressione lineare, <strong>ANOVA</strong> e <strong>test F</strong>.</p>
+<p>Si consideri un vettore aleatorio <span class="math inline">\(X=(X_1,\dots,X_n)\in\mathbb{R}^n\)</span> con componenti indipendenti tali che <span class="math display">\[
+X_i \sim \mathcal{N}(\mu_i,\sigma^2),
+\]</span> e si assuma che il vettore delle medie <span class="math inline">\(\mu=(\mu_1,\dots,\mu_n)\)</span> appartenga a un sottospazio vettoriale <span class="math inline">\(V\subset\mathbb{R}^n\)</span> di dimensione <span class="math inline">\(k\)</span>. In questo contesto, la stima di massima verosimiglianza di <span class="math inline">\(\mu\)</span> si ottiene come <strong>proiezione ortogonale</strong> del vettore osservato <span class="math inline">\(X\)</span> sul sottospazio <span class="math inline">\(V\)</span>. Indicando con <span class="math inline">\(\pi_V(X)\)</span> tale proiezione, vale <span class="math display">\[
+\hat{\mu}=\pi_V(X).
+\]</span> Dal punto di vista geometrico, questa stima è quella che minimizza la distanza euclidea tra <span class="math inline">\(X\)</span> e l’insieme dei vettori ammissibili per <span class="math inline">\(\mu\)</span>, coerentemente con il criterio dei minimi quadrati.</p>
+<p>La componente di <span class="math inline">\(X\)</span> non spiegata dal modello è il residuo <span class="math inline">\(X-\pi_V(X)\)</span>. La sua norma al quadrato <span class="math display">\[
+W=\|X-\pi_V(X)\|^2
+\]</span> rappresenta la <strong>somma dei quadrati residui</strong>. Il teorema di Cochran afferma che la quantità <span class="math inline">\(W\)</span> è <strong>indipendente</strong> dalla componente stimata <span class="math inline">\(\pi_V(X)\)</span> e che, normalizzata per la varianza comune <span class="math inline">\(\sigma^2\)</span>, segue una distribuzione chi-quadro con <span class="math inline">\(n-k\)</span> gradi di libertà: <span class="math display">\[
+\frac{W}{\sigma^2}\sim\chi^2(n-k).
 \]</span></p>
-<p>L’indipendenza tra la parte spiegata dal modello (la proiezione su <span class="math inline">\(V\)</span>) e la parte residua, insieme alla distribuzione chi-quadro della somma dei quadrati residui, costituisce il fondamento teorico della scomposizione della varianza. Questo risultato è centrale nei test <span class="math inline">\(F\)</span>, nell’analisi della varianza (ANOVA) e più in generale nell’inferenza statistica per i modelli di regressione lineare.</p>
+<p>L’indipendenza tra la parte spiegata dal modello e la parte residua, insieme alla distribuzione chi-quadro della somma dei quadrati residui, costituisce il fondamento teorico della <strong>scomposizione della varianza</strong>. È proprio questo risultato che rende possibile confrontare in modo corretto la variabilità spiegata dal modello con quella attribuibile al rumore, utilizzando distribuzioni note e strumenti di inferenza statistica affidabili nei modelli di regressione lineare.</p>
 
 
 </section>

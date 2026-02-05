@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>regressione-logistica – IML</title>
+<title>test_del_chi-quadro – IML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/13. Regressione Logistica.html">Regressione Logistica</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/16_Test_del_chi-quadro.html">Test del Chi-quadro</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,14 +188,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trasformazione PCA e analisi delle componenti principali</span></a>
+  <a href="../th/08_Analisi_delle_componenti_principali.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi delle componenti principali</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Funzioni di Perdita e Inferenza Statistica</span></a>
+  <a href="../th/09_Funzioni_di_Perdita_e_Inferenza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funzioni di Perdita e Inferenza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,25 +207,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Selezione di Variabili e Regolarizzazione nella Regressione</span></a>
+ <span class="menu-text">Selezione di Variabili e Regolarizzazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/12. Gestione delle Variabili.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gestione delle Variabili</span></a>
+  <a href="../th/12_gestione_delle_variabili.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gestione delle variabili</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/13. Regressione Logistica.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Regressione Logistica</span></a>
+  <a href="../th/13_Regressione_logistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regressione logistica</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/14. Analisi della varianza (ANOVA).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analisi della varianza (ANOVA)</span></a>
+  <a href="../th/14_Analisi_della_varianza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi della varianza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,7 +236,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/16. Test del Chi-quadro.html" class="sidebar-item-text sidebar-link">
+  <a href="../th/16_Test_del_chi-quadro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Test del Chi-quadro</span></a>
   </div>
 </li>
@@ -364,103 +364,106 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#regressione-logistica" id="toc-regressione-logistica" class="nav-link active" data-scroll-target="#regressione-logistica">Regressione Logistica</a>
+  <li><a href="#test-del-chi-quadro" id="toc-test-del-chi-quadro" class="nav-link active" data-scroll-target="#test-del-chi-quadro">Test del Chi-quadro</a>
   <ul class="collapse">
-  <li><a href="#stima-dei-parametri-mle-e-funzione-obiettivo" id="toc-stima-dei-parametri-mle-e-funzione-obiettivo" class="nav-link" data-scroll-target="#stima-dei-parametri-mle-e-funzione-obiettivo">Stima dei parametri (MLE) e funzione obiettivo</a></li>
-  <li><a href="#predizione" id="toc-predizione" class="nav-link" data-scroll-target="#predizione">Predizione</a></li>
-  <li><a href="#regressione-logistica-multinomiale" id="toc-regressione-logistica-multinomiale" class="nav-link" data-scroll-target="#regressione-logistica-multinomiale">Regressione Logistica Multinomiale</a>
+  <li><a href="#test-del-chi-quadro-elementare" id="toc-test-del-chi-quadro-elementare" class="nav-link" data-scroll-target="#test-del-chi-quadro-elementare">Test del Chi-quadro elementare</a></li>
+  <li><a href="#statistica-di-pearson" id="toc-statistica-di-pearson" class="nav-link" data-scroll-target="#statistica-di-pearson">Statistica di Pearson</a></li>
+  <li><a href="#estensione-a-distribuzioni-con-molti-valori-o-continue" id="toc-estensione-a-distribuzioni-con-molti-valori-o-continue" class="nav-link" data-scroll-target="#estensione-a-distribuzioni-con-molti-valori-o-continue">Estensione a distribuzioni con molti valori o continue</a></li>
+  <li><a href="#estensione-a-famiglie-parametriche" id="toc-estensione-a-famiglie-parametriche" class="nav-link" data-scroll-target="#estensione-a-famiglie-parametriche">Estensione a famiglie parametriche</a></li>
+  <li><a href="#test-su-tabelle-di-contingenza" id="toc-test-su-tabelle-di-contingenza" class="nav-link" data-scroll-target="#test-su-tabelle-di-contingenza">Test su tabelle di contingenza</a></li>
+  <li><a href="#versioni-esatte-del-test" id="toc-versioni-esatte-del-test" class="nav-link" data-scroll-target="#versioni-esatte-del-test">Versioni esatte del test</a>
   <ul class="collapse">
-  <li><a href="#one-vs-rest-alternativa" id="toc-one-vs-rest-alternativa" class="nav-link" data-scroll-target="#one-vs-rest-alternativa">One-vs-Rest (alternativa)</a></li>
+  <li><a href="#test-esatto-di-fisherirwin" id="toc-test-esatto-di-fisherirwin" class="nav-link" data-scroll-target="#test-esatto-di-fisherirwin">Test esatto di Fisher–Irwin</a></li>
   </ul></li>
-  <li><a href="#riepilogo-operativo" id="toc-riepilogo-operativo" class="nav-link" data-scroll-target="#riepilogo-operativo">Riepilogo operativo</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/13. Regressione Logistica.html">Regressione Logistica</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/16_Test_del_chi-quadro.html">Test del Chi-quadro</a></li></ol></nav></header>
 
 
 
 
-<section id="regressione-logistica" class="level1">
-<h1>Regressione Logistica</h1>
-<p>La regressione logistica si usa quando la <strong>risposta è dicotomica</strong> (0/1). Per ogni osservazione <span class="math inline">\(i=1,\dots,N\)</span> con vettore di input <span class="math inline">\(x^{(i)}=(x_1^{(i)},\dots,x_p^{(i)})\)</span>, si assume:</p>
-<p><span class="math display">\[
-Z_i \sim \text{Bernoulli}(p_i), \qquad p_i = f\!\big(x^{(i)}\big)
+<section id="test-del-chi-quadro" class="level1">
+<h1>Test del Chi-quadro</h1>
+<p>Il <strong>test del Chi-quadro</strong> è una famiglia di test statistici utilizzati per valutare se i dati osservati sono compatibili con una distribuzione teorica prefissata. L’idea di fondo è confrontare ciò che si osserva nel campione con ciò che ci si aspetterebbe se un certo modello probabilistico fosse vero, misurando la discrepanza tra osservato e atteso.</p>
+<section id="test-del-chi-quadro-elementare" class="level2">
+<h2 class="anchored" data-anchor-id="test-del-chi-quadro-elementare">Test del Chi-quadro elementare</h2>
+<p>Si consideri un campione <span class="math inline">\(X_1,\dots,X_n\)</span> di variabili aleatorie indipendenti, generate da una distribuzione incognita <span class="math inline">\(\varphi\)</span>, che può assumere <span class="math inline">\(K\)</span> valori distinti. L’obiettivo è verificare se <span class="math inline">\(\varphi\)</span> coincide con una distribuzione teorica nota <span class="math inline">\(\varphi_0\)</span>.</p>
+<p>L’ipotesi nulla afferma che i dati seguano esattamente la distribuzione teorica, <span class="math display">\[
+H_0:\ \varphi = \varphi_0,
+\]</span> mentre l’ipotesi alternativa sostiene che la distribuzione reale sia diversa, <span class="math display">\[
+H_1:\ \varphi \neq \varphi_0.
 \]</span></p>
-<p>dove <span class="math inline">\(f\)</span> è la <strong>sigmoide</strong> (logistica) applicata a un predittore lineare:</p>
-<p><span class="math display">\[
-f(x) = \sigma(\eta) = \sigma\!\big(\beta_0+\beta_1 x_1+\cdots+\beta_p x_p\big), \quad
-\sigma(z)=\frac{1}{1+e^{-z}}.
-\]</span></p>
-<section id="stima-dei-parametri-mle-e-funzione-obiettivo" class="level3">
-<h3 class="anchored" data-anchor-id="stima-dei-parametri-mle-e-funzione-obiettivo">Stima dei parametri (MLE) e funzione obiettivo</h3>
-<p>I parametri <span class="math inline">\(\beta=(\beta_0,\dots,\beta_p)\)</span> si stimano massimizzando la <strong>log-verosimiglianza</strong>:</p>
-<p><span class="math display">\[
-\ell(\beta)
-= \sum_{i=1}^N \Big[ Z_i \log p_i + (1-Z_i)\log(1-p_i) \Big],
-\qquad p_i=\sigma\!\big(\beta_0+\cdots+\beta_p x_p^{(i)}\big).
-\]</span></p>
-<p>Equivalente, si <strong>minimizza</strong> la <strong>cross-entropy</strong> (negativa della log-verosimiglianza media):</p>
-<p><span class="math display">\[
-\text{loss}_{\text{CE}}(\beta)
-= -\frac{1}{N}\sum_{i=1}^N \Big[ Z_i \log p_i + (1-Z_i)\log(1-p_i) \Big].
-\]</span></p>
-<p>In pratica si usa ottimizzazione numerica (es. <strong>IRLS/Newton-Raphson</strong> o discesa del gradiente) con versioni <strong>numericamente stabili</strong> (log-sum-exp).</p>
-<p><strong>Nota.</strong> Pur non avendo una distribuzione esatta chiusa forma per i coefficienti, gli MLE sono <strong>asintoticamente normali</strong>: è quindi possibile fare test (Wald, <strong>Likelihood Ratio</strong>, Score) e costruire IC usando la matrice di <strong>informazione di Fisher</strong>. Attenzione a <strong>separazione completa/quasi</strong>: l’MLE può non esistere; si usano penalizzazioni (es. <strong>Firth</strong>) o regolarizzazione.</p>
+<p>L’idea operativa del test è la seguente. Per ciascuno dei <span class="math inline">\(K\)</span> possibili valori, si conta quante osservazioni del campione assumono quel valore: questo numero è la <strong>frequenza osservata</strong> <span class="math inline">\(O_j\)</span> (e dipende solo dai dati).</p>
+<p>In parallelo, assumendo vera l’ipotesi nulla <span class="math inline">\(H_0\)</span>, si calcola quante osservazioni ci si aspetterebbe in quella stessa categoria sulla base della distribuzione teorica. Se sotto <span class="math inline">\(H_0\)</span> la probabilità della <span class="math inline">\(j\)</span>-esima categoria è <span class="math inline">\(p_j\)</span>, allora la <strong>frequenza attesa</strong> è <span class="math display">\[
+A_j = n \cdot p_j,
+\]</span> dove <span class="math inline">\(n\)</span> è la numerosità campionaria.</p>
+<p>Il confronto tra <span class="math inline">\(O_j\)</span> e <span class="math inline">\(A_j\)</span> è il cuore del test. Se <span class="math inline">\(H_0\)</span> è compatibile con i dati, le frequenze osservate dovrebbero essere vicine a quelle attese, salvo fluttuazioni casuali. Se invece il modello teorico non descrive bene i dati, emergono differenze sistematiche tra osservato e atteso in una o più categorie.</p>
 </section>
-<section id="predizione" class="level3">
-<h3 class="anchored" data-anchor-id="predizione">Predizione</h3>
-<p>Dati nuovi <span class="math inline">\(x\)</span>, il modello restituisce la <strong>probabilità</strong>:</p>
-<p><span class="math display">\[
-P(Z=1\mid x)=\sigma\!\big(\beta_0+\beta_1 x_1+\cdots+\beta_p x_p\big).
-\]</span></p>
-<p>Una soglia (es. 0.5) consente la classificazione; la scelta della soglia va calibrata (ROC/PR, costo degli errori).</p>
-</section>
-<section id="regressione-logistica-multinomiale" class="level2">
-<h2 class="anchored" data-anchor-id="regressione-logistica-multinomiale">Regressione Logistica Multinomiale</h2>
-<p>Quando la risposta ha <strong><span class="math inline">\(m&gt;2\)</span> categorie</strong> (<span class="math inline">\(Z_i\in\{1,\dots,m\}\)</span>), si usa la versione multiclasse. Con <strong>codifica one-hot</strong> <span class="math inline">\(b^{(i)}=(b^{(i)}_1,\dots,b^{(i)}_m)\)</span> (un 1 e il resto 0), si assume:</p>
-<p><span class="math display">\[
-B^{(i)} \sim \text{Multinomiale}\!\big(1;\ \pi(x^{(i)},W)\big),
-\]</span></p>
-<p>dove <span class="math inline">\(W\)</span> è la matrice dei parametri (includendo l’intercetta: si può porre una colonna di 1 in <span class="math inline">\(X\)</span> e avere <span class="math inline">\(W\in\mathbb{R}^{(p+1)\times m}\)</span>). Per ciascuna classe <span class="math inline">\(k\)</span>:</p>
-<p><span class="math display">\[
-g_k^{(i)} = w_{0k} + w_{1k} x_1^{(i)} + \cdots + w_{pk} x_p^{(i)} \quad \text{(logit)}
-\]</span></p>
-<p>e le <strong>probabilità</strong> sono date dalla <strong>softmax</strong>:</p>
-<p><span class="math display">\[
-\pi_k\!\big(x^{(i)},W\big) =
-\frac{e^{g_k^{(i)}}}{\sum_{h=1}^m e^{g_h^{(i)}}},
-\qquad \sum_{k=1}^m \pi_k(\cdot)=1.
-\]</span></p>
-<p>La <strong>log-verosimiglianza</strong> è:</p>
-<p><span class="math display">\[
-\ell(W) = \sum_{i=1}^N \sum_{k=1}^m b^{(i)}_k \log \pi_k\!\big(x^{(i)},W\big),
-\]</span></p>
-<p>e la <strong>loss</strong> da minimizzare è la <strong>cross-entropy media</strong>:</p>
-<p><span class="math display">\[
-\text{loss}(W) = -\frac{1}{N}\sum_{i=1}^N \sum_{k=1}^m b^{(i)}_k \log \pi_k\!\big(x^{(i)},W\big).
-\]</span></p>
-<p><strong>Identificabilità.</strong> Il parametro non è identificato a una traslazione comune dei logit: si impone un vincolo (p.es. togliere una classe di riferimento nel modello baseline-category logit, oppure vincoli di somma/centrazione) per avere stime univoche.</p>
-<section id="one-vs-rest-alternativa" class="level3">
-<h3 class="anchored" data-anchor-id="one-vs-rest-alternativa">One-vs-Rest (alternativa)</h3>
-<p>Si possono stimare <strong><span class="math inline">\(m\)</span> modelli binari</strong> (classe <span class="math inline">\(k\)</span> vs resto). È semplice, ma le probabilità <strong>non sommano a 1</strong>; utile come baseline, meno coerente probabilisticamente della softmax.</p>
+<section id="statistica-di-pearson" class="level2">
+<h2 class="anchored" data-anchor-id="statistica-di-pearson">Statistica di Pearson</h2>
+<p>La statistica del test, detta <strong>statistica di Pearson</strong>, è definita come <span class="math display">\[
+W = \sum_{j=1}^K \frac{(O_j - A_j)^2}{A_j}.
+\]</span> Questa quantità cresce quanto più le frequenze osservate si discostano da quelle teoriche, pesando lo scarto in modo relativo alla frequenza attesa.</p>
+<p>Sotto l’ipotesi nulla e assumendo che il campione sia sufficientemente grande (in modo che le frequenze attese non siano troppo piccole), la statistica <span class="math inline">\(W\)</span> ha approssimativamente una distribuzione <span class="math inline">\(\chi^2\)</span> con <span class="math inline">\(K-1\)</span> gradi di libertà. Questo risultato permette di confrontare il valore osservato di <span class="math inline">\(W\)</span> con i quantili della distribuzione <span class="math inline">\(\chi^2\)</span> e decidere se rigettare o meno <span class="math inline">\(H_0\)</span>.</p>
+<section id="statistica-alternativa-g" class="level4">
+<h4 class="anchored" data-anchor-id="statistica-alternativa-g">Statistica alternativa: <span class="math inline">\(G\)</span></h4>
+<p>Una variante più moderna della statistica di Pearson è la <strong>statistica <span class="math inline">\(G\)</span></strong>, spesso detta <em>likelihood ratio statistic</em>. Essa nasce dal confronto tra la verosimiglianza del modello sotto l’ipotesi nulla e quella del modello saturato, cioè perfettamente aderente ai dati osservati. La sua espressione è <span class="math display">\[
+G = 2 \sum_{j=1}^K O_j \log \frac{O_j}{A_j}.
+\]</span> Dal punto di vista interpretativo, anche <span class="math inline">\(G\)</span> misura quanto le frequenze osservate si discostano da quelle attese, ma lo fa in termini di informazione e verosimiglianza anziché tramite scarti quadratici. Sotto l’ipotesi nulla e in regime asintotico, la statistica <span class="math inline">\(G\)</span> ha approssimativamente una distribuzione <span class="math inline">\(\chi^2\)</span> con <span class="math inline">\(K-1\)</span> gradi di libertà, risultando quindi equivalente al test di Pearson dal punto di vista decisionale per campioni grandi.</p>
 </section>
 </section>
-<section id="riepilogo-operativo" class="level2">
-<h2 class="anchored" data-anchor-id="riepilogo-operativo">Riepilogo operativo</h2>
-<ul>
-<li><strong>Binaria</strong>: <span class="math inline">\(Z\sim\text{Bernoulli}(p)\)</span>, <span class="math inline">\(p=\sigma(X\beta)\)</span>; MLE via ottimizzazione; loss = cross-entropy.<br>
-</li>
-<li><strong>Multiclasse</strong>: <span class="math inline">\(B\sim\text{Multinomiale}(1;\pi)\)</span>, <span class="math inline">\(\pi=\text{softmax}(XW)\)</span>; loss = cross-entropy.<br>
-</li>
-<li><strong>Inferenza</strong>: test LR/Wald/Score con approssimazioni asintotiche; attenzione a separazione e a usare regolarizzazione se serve.<br>
-</li>
-<li><strong>Predizione</strong>: probabilità calibrate; scelta soglia e metriche (ROC/PR) secondo il problema.</li>
-</ul>
+<section id="estensione-a-distribuzioni-con-molti-valori-o-continue" class="level2">
+<h2 class="anchored" data-anchor-id="estensione-a-distribuzioni-con-molti-valori-o-continue">Estensione a distribuzioni con molti valori o continue</h2>
+<p>Quando la distribuzione da testare è continua, come nel caso della normale o dell’esponenziale, oppure quando il numero di valori distinti è molto grande, il test del Chi-quadro non si applica direttamente alle singole osservazioni. In questi casi si suddivide lo spazio dei valori possibili in <span class="math inline">\(K\)</span> intervalli, detti <em>bin</em>, e si riconduce il problema a un caso discreto.</p>
+<p>Per ciascun bin <span class="math inline">\(B_j\)</span>, la frequenza osservata è <span class="math display">\[
+O_j = \#\{X_i \in B_j\},
+\]</span> mentre la frequenza attesa sotto l’ipotesi nulla è <span class="math display">\[
+A_j = n \cdot P_{H_0}(X \in B_j),
+\]</span> dove la probabilità è calcolata usando la distribuzione teorica ipotizzata. Il test procede poi esattamente come nel caso discreto, calcolando una statistica di tipo <span class="math inline">\(\chi^2\)</span> (di Pearson o <span class="math inline">\(G\)</span>).</p>
+<p>Una scelta cruciale riguarda la costruzione dei bin. In pratica è consigliabile definirli in modo che le frequenze attese risultino il più possibile omogenee, idealmente equiprobabili sotto <span class="math inline">\(H_0\)</span>, così da rispettare più facilmente le condizioni di applicabilità e migliorare la qualità dell’approssimazione.</p>
+</section>
+<section id="estensione-a-famiglie-parametriche" class="level2">
+<h2 class="anchored" data-anchor-id="estensione-a-famiglie-parametriche">Estensione a famiglie parametriche</h2>
+<p>In molti casi non si dispone di una distribuzione teorica completamente specificata, ma si vuole verificare se i dati provengono da una certa <strong>famiglia parametrica</strong>, come ad esempio la famiglia delle distribuzioni normali, lasciando però ignoti i parametri. La situazione tipica è il test di gaussianità, in cui si ipotizza <span class="math display">\[
+X \sim \mathcal{N}(\mu,\sigma^2),
+\]</span> ma i parametri <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma^2\)</span> non sono noti a priori.</p>
+<p>La procedura segue la stessa logica del test di adattamento visto prima, con una differenza fondamentale: i parametri della distribuzione teorica vengono stimati a partire dal campione. In pratica si calcolano le stime campionarie <span class="math inline">\(\hat{\mu}\)</span> e <span class="math inline">\(\hat{\sigma}\)</span> e si costruiscono le frequenze attese usando la distribuzione <span class="math inline">\(\mathcal{N}(\hat{\mu},\hat{\sigma}^2)\)</span>. Su queste frequenze si calcola poi la statistica di Pearson <span class="math inline">\(W\)</span> oppure la statistica <span class="math inline">\(G\)</span>.</p>
+<p>Un aspetto cruciale riguarda i <strong>gradi di libertà</strong>. Ogni parametro stimato dai dati riduce l’informazione disponibile per il test. Di conseguenza, se il campione è suddiviso in <span class="math inline">\(K\)</span> classi e si stimano <span class="math inline">\(p\)</span> parametri, la statistica del test segue approssimativamente una distribuzione <span class="math display">\[
+\chi^2(K - 1 - p).
+\]</span> Nel caso della normale, in cui si stimano due parametri (<span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma\)</span>), i gradi di libertà diventano <span class="math inline">\(K - 3\)</span>.</p>
+</section>
+<section id="test-su-tabelle-di-contingenza" class="level2">
+<h2 class="anchored" data-anchor-id="test-su-tabelle-di-contingenza">Test su tabelle di contingenza</h2>
+<p>Il test del Chi-quadro trova un’applicazione molto importante nello studio dell’indipendenza tra due variabili categoriali. In questo contesto i dati vengono organizzati in una <strong>tabella di contingenza</strong>, in cui ogni cella contiene la frequenza osservata <span class="math inline">\(O_{ij}\)</span> corrispondente alla combinazione della <span class="math inline">\(i\)</span>-esima modalità della prima variabile con la <span class="math inline">\(j\)</span>-esima modalità della seconda.</p>
+<p>L’ipotesi nulla afferma che le due variabili siano indipendenti, mentre l’ipotesi alternativa sostiene l’esistenza di un’associazione tra di esse. Sotto l’ipotesi di indipendenza, la frequenza attesa nella cella <span class="math inline">\((i,j)\)</span> si ottiene combinando i totali marginali di riga e di colonna: <span class="math display">\[
+A_{ij} = \frac{(\text{totale riga } i)\,(\text{totale colonna } j)}{N},
+\]</span> dove <span class="math inline">\(N\)</span> è la numerosità totale del campione.</p>
+<p>La discrepanza tra frequenze osservate e attese può essere misurata tramite la statistica di Pearson <span class="math display">\[
+W = \sum_{i=1}^m \sum_{j=1}^n \frac{(O_{ij} - A_{ij})^2}{A_{ij}},
+\]</span> oppure tramite la statistica <span class="math inline">\(G\)</span> <span class="math display">\[
+G = 2 \sum_{i=1}^m \sum_{j=1}^n O_{ij} \log \frac{O_{ij}}{A_{ij}}.
+\]</span> In entrambi i casi, sotto l’ipotesi nulla e per campioni sufficientemente grandi, la statistica segue approssimativamente una distribuzione <span class="math inline">\(\chi^2\)</span> con <span class="math inline">\((m-1)(n-1)\)</span> gradi di libertà, dove <span class="math inline">\(m\)</span> e <span class="math inline">\(n\)</span> sono rispettivamente il numero di righe e di colonne della tabella.</p>
+</section>
+<section id="versioni-esatte-del-test" class="level2">
+<h2 class="anchored" data-anchor-id="versioni-esatte-del-test">Versioni esatte del test</h2>
+<p>Quando le frequenze attese risultano troppo piccole, l’approssimazione asintotica alla distribuzione <span class="math inline">\(\chi^2\)</span> non è più affidabile. In queste situazioni è necessario ricorrere a <strong>versioni esatte</strong> del test, che non si basano su limiti asintotici ma sulla distribuzione reale della statistica sotto l’ipotesi nulla.</p>
+<p>Un primo approccio consiste nella <strong>simulazione Monte Carlo</strong>. Si generano molti campioni artificiali assumendo vera <span class="math inline">\(H_0\)</span>, si calcola per ciascuno la statistica del test (ad esempio <span class="math inline">\(W\)</span> o <span class="math inline">\(G\)</span>) e si costruisce così una distribuzione empirica della statistica sotto l’ipotesi nulla. Il p-value viene stimato come la proporzione di simulazioni in cui la statistica simulata è almeno grande quanto quella osservata.</p>
+<p>Un secondo approccio, concettualmente più diretto ma computazionalmente più oneroso, è l’<strong>enumerazione esaustiva</strong>. In questo caso si considerano tutte le possibili configurazioni di conteggi compatibili con i vincoli imposti (ad esempio i totali di riga e colonna) e si calcola esattamente la distribuzione della statistica del test. Questo metodo è praticabile solo per problemi di dimensioni molto ridotte, poiché il numero di configurazioni cresce rapidamente.</p>
+<section id="test-esatto-di-fisherirwin" class="level3">
+<h3 class="anchored" data-anchor-id="test-esatto-di-fisherirwin">Test esatto di Fisher–Irwin</h3>
+<p>Un caso particolarmente importante di test esatto è il <strong>test di Fisher–Irwin</strong>, applicabile alle tabelle di contingenza <span class="math inline">\(2 \times 2\)</span> con totali fissati. In questo contesto, sotto l’ipotesi nulla di indipendenza tra le due variabili, l’intera tabella è determinata dal valore di una sola cella, ad esempio <span class="math inline">\(O_{11}\)</span>.</p>
+<p>La distribuzione esatta di <span class="math inline">\(O_{11}\)</span> sotto <span class="math inline">\(H_0\)</span> è una <strong>distribuzione ipergeometrica</strong>. Indicando con <span class="math inline">\(a\)</span> il totale della prima riga, con <span class="math inline">\(c\)</span> e <span class="math inline">\(d\)</span> i totali delle due colonne e con <span class="math inline">\(n\)</span> il totale complessivo, vale <span class="math display">\[
+P(O_{11} = k) = \frac{\binom{c}{k}\,\binom{d}{a - k}}{\binom{n}{a}}.
+\]</span> Questa formula fornisce la probabilità esatta di osservare il valore <span class="math inline">\(k\)</span> nella cella <span class="math inline">\((1,1)\)</span>, condizionatamente ai totali marginali.</p>
+<p>Il calcolo del <strong>p-value</strong> dipende dalla forma della distribuzione. Se la distribuzione è simmetrica, il p-value bilaterale si ottiene raddoppiando la probabilità di osservare un valore almeno così estremo nella coda considerata, <span class="math display">\[
+p = 2 \cdot P(O_{11} \le k_{\text{oss}}).
+\]</span> Nel caso generale, in cui la distribuzione non è simmetrica, il p-value si calcola sommando le probabilità di tutti gli esiti che risultano almeno tanto improbabili quanto quello osservato, secondo la distribuzione ipergeometrica sotto <span class="math inline">\(H_0\)</span>.</p>
 
 
+</section>
 </section>
 </section>
 

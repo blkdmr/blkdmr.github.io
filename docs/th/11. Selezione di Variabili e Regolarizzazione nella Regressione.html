@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html">Selezione di Variabili e Regolarizzazione nella Regressione</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html">Selezione di Variabili e Regolarizzazione</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,14 +188,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trasformazione PCA e analisi delle componenti principali</span></a>
+  <a href="../th/08_Analisi_delle_componenti_principali.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi delle componenti principali</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Funzioni di Perdita e Inferenza Statistica</span></a>
+  <a href="../th/09_Funzioni_di_Perdita_e_Inferenza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funzioni di Perdita e Inferenza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,25 +207,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Selezione di Variabili e Regolarizzazione nella Regressione</span></a>
+ <span class="menu-text">Selezione di Variabili e Regolarizzazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/12. Gestione delle Variabili.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gestione delle Variabili</span></a>
+  <a href="../th/12_gestione_delle_variabili.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gestione delle variabili</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/13. Regressione Logistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regressione Logistica</span></a>
+  <a href="../th/13_Regressione_logistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regressione logistica</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/14. Analisi della varianza (ANOVA).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analisi della varianza (ANOVA)</span></a>
+  <a href="../th/14_Analisi_della_varianza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi della varianza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,7 +236,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/16. Test del Chi-quadro.html" class="sidebar-item-text sidebar-link">
+  <a href="../th/16_Test_del_chi-quadro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Test del Chi-quadro</span></a>
   </div>
 </li>
@@ -364,7 +364,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#selezione-di-variabili-e-regolarizzazione-nella-regressione" id="toc-selezione-di-variabili-e-regolarizzazione-nella-regressione" class="nav-link active" data-scroll-target="#selezione-di-variabili-e-regolarizzazione-nella-regressione">Selezione di Variabili e Regolarizzazione nella Regressione</a>
+  <li><a href="#selezione-di-variabili-e-regolarizzazione" id="toc-selezione-di-variabili-e-regolarizzazione" class="nav-link active" data-scroll-target="#selezione-di-variabili-e-regolarizzazione">Selezione di Variabili e Regolarizzazione</a>
   <ul class="collapse">
   <li><a href="#metodi-stepwise" id="toc-metodi-stepwise" class="nav-link" data-scroll-target="#metodi-stepwise">Metodi Stepwise</a>
   <ul class="collapse">
@@ -393,13 +393,13 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html">Selezione di Variabili e Regolarizzazione nella Regressione</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html">Selezione di Variabili e Regolarizzazione</a></li></ol></nav></header>
 
 
 
 
-<section id="selezione-di-variabili-e-regolarizzazione-nella-regressione" class="level1">
-<h1>Selezione di Variabili e Regolarizzazione nella Regressione</h1>
+<section id="selezione-di-variabili-e-regolarizzazione" class="level1">
+<h1>Selezione di Variabili e Regolarizzazione</h1>
 <section id="metodi-stepwise" class="level2">
 <h2 class="anchored" data-anchor-id="metodi-stepwise">Metodi Stepwise</h2>
 <p>I <strong>metodi stepwise</strong> sono procedure automatiche per la selezione delle variabili in un modello di regressione. L’obiettivo è costruire un modello che sia sufficientemente <strong>parsimonioso</strong>, evitando variabili inutili, ma che mantenga una buona <strong>capacità di adattamento</strong> ai dati.</p>

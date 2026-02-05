@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>trasformazione-pca-e-analisi-delle-componenti-principali – IML</title>
+<title>analisi_delle_componenti_principali – IML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html">Trasformazione PCA e analisi delle componenti principali</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/08_Analisi_delle_componenti_principali.html">Analisi delle componenti principali</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,14 +188,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Trasformazione PCA e analisi delle componenti principali</span></a>
+  <a href="../th/08_Analisi_delle_componenti_principali.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Analisi delle componenti principali</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Funzioni di Perdita e Inferenza Statistica</span></a>
+  <a href="../th/09_Funzioni_di_Perdita_e_Inferenza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funzioni di Perdita e Inferenza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,25 +207,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Selezione di Variabili e Regolarizzazione nella Regressione</span></a>
+ <span class="menu-text">Selezione di Variabili e Regolarizzazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/12. Gestione delle Variabili.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gestione delle Variabili</span></a>
+  <a href="../th/12_gestione_delle_variabili.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gestione delle variabili</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/13. Regressione Logistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regressione Logistica</span></a>
+  <a href="../th/13_Regressione_logistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regressione logistica</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/14. Analisi della varianza (ANOVA).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analisi della varianza (ANOVA)</span></a>
+  <a href="../th/14_Analisi_della_varianza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi della varianza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,7 +236,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/16. Test del Chi-quadro.html" class="sidebar-item-text sidebar-link">
+  <a href="../th/16_Test_del_chi-quadro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Test del Chi-quadro</span></a>
   </div>
 </li>
@@ -364,7 +364,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#trasformazione-pca-e-analisi-delle-componenti-principali" id="toc-trasformazione-pca-e-analisi-delle-componenti-principali" class="nav-link active" data-scroll-target="#trasformazione-pca-e-analisi-delle-componenti-principali">Trasformazione PCA e analisi delle componenti principali</a>
+  <li><a href="#analisi-delle-componenti-principali" id="toc-analisi-delle-componenti-principali" class="nav-link active" data-scroll-target="#analisi-delle-componenti-principali">Analisi delle componenti principali</a>
   <ul class="collapse">
   <li><a href="#factor-analysis" id="toc-factor-analysis" class="nav-link" data-scroll-target="#factor-analysis">Factor Analysis</a></li>
   <li><a href="#distribuzione-gaussiana-multidimensionale" id="toc-distribuzione-gaussiana-multidimensionale" class="nav-link" data-scroll-target="#distribuzione-gaussiana-multidimensionale">Distribuzione Gaussiana Multidimensionale</a></li>
@@ -375,78 +375,135 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html">Trasformazione PCA e analisi delle componenti principali</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/08_Analisi_delle_componenti_principali.html">Analisi delle componenti principali</a></li></ol></nav></header>
 
 
 
 
-<section id="trasformazione-pca-e-analisi-delle-componenti-principali" class="level1">
-<h1>Trasformazione PCA e analisi delle componenti principali</h1>
-<p>La PCA (Principal Component Analysis) è una trasformazione lineare che consente di selezionare le componenti più importanti dei dati, semplificando la loro struttura mediante una rotazione degli assi di riferimento. Consideriamo una matrice di covarianza <span class="math inline">\(\Sigma = C(X)\)</span>:</p>
-<ul>
-<li><p><span class="math inline">\(\Sigma\)</span> è quadrata, simmetrica e definita non negativa, e quindi ammette una decomposizione spettrale.</p></li>
-<li><p>Possiede <span class="math inline">\(m\)</span> autovettori <span class="math inline">\(v_j \in \mathbb{R}^m\)</span>, con corrispondenti autovalori <span class="math inline">\(\lambda_j\)</span>, tali che:</p></li>
-</ul>
-<p><span class="math display">\[\Sigma v_j = \lambda_j v_j, \quad j=1,\dots,m\]</span></p>
-<p>Questi autovettori sono ortogonali e possono essere normalizzati a norma 1:</p>
-<p><span class="math display">\[v_j \cdot v_k = \begin{cases} 1 &amp; \text{se } j=k\\ 0 &amp; \text{altrimenti} \end{cases}\]</span></p>
-<p>Costruiamo la matrice degli autovettori:</p>
-<p><span class="math display">\[V = [v_1, v_2, \dots, v_m], \quad V^T V = I \quad \text{e} \quad V^T = V^{-1}\]</span></p>
-<p>Quindi <span class="math inline">\(V\)</span> è una matrice ortogonale che rappresenta una rotazione. La matrice di covarianza può essere scritta come:</p>
-<p><span class="math display">\[\Sigma = \sum_{i=1}^m \lambda_i v_i v_i^T\]</span></p>
-<p>Utilizzando la matrice <span class="math inline">\(V\)</span>, definiamo la trasformazione lineare:</p>
-<p><span class="math display">\[Y = V^T X\]</span></p>
-<p>Questa operazione ruota e scompone le componenti originali di <span class="math inline">\(X\)</span>, diagonalizzando la matrice di covarianza:</p>
-<p><span class="math display">\[C(Y) = V^T \Sigma V = \Lambda = \text{diag}(\lambda_1, \lambda_2, \dots, \lambda_m)\]</span></p>
-<p>Esistono due approcci principali alla PCA:</p>
-<ul>
-<li><p><strong>Primo approccio:</strong> Traslazione dei dati nell’origine, rotazione tramite PCA, poi standardizzazione.</p></li>
-<li><p><strong>Secondo approccio:</strong> Traslazione nell’origine, standardizzazione preliminare, rotazione PCA basata sulla matrice di correlazione <span class="math inline">\(g(X)\)</span>, quindi standardizzazione finale.</p></li>
-</ul>
-<p>Il secondo metodo è preferibile quando le variabili hanno scale molto diverse, perché permette un’analisi più equilibrata.</p>
+<section id="analisi-delle-componenti-principali" class="level1">
+<h1>Analisi delle componenti principali</h1>
+<p>La PCA (Principal Component Analysis) è una trasformazione lineare che permette di ridurre la dimensionalità dei dati mantenendo quanta più informazione possibile. L’idea è quella di individuare nuove variabili, dette <strong>componenti principali</strong>, ottenute come combinazioni lineari delle variabili originali, tali da spiegare in modo ottimale la variabilità dei dati. Operativamente, la PCA può essere interpretata come una <strong>rotazione del sistema di riferimento</strong> che rende la struttura dei dati più semplice.</p>
+<p>Si consideri la matrice di covarianza dei dati <span class="math inline">\(X\)</span>, indicata con <span class="math inline">\(\Sigma = C(X)\)</span>. Questa matrice è quadrata, simmetrica e definita non negativa; di conseguenza ammette una decomposizione spettrale. Esistono quindi <span class="math inline">\(m\)</span> autovettori <span class="math inline">\(v_j \in \mathbb{R}^m\)</span> e autovalori associati <span class="math inline">\(\lambda_j\)</span> tali che</p>
+<p><span class="math display">\[
+\Sigma v_j = \lambda_j v_j, \qquad j = 1,\dots,m.
+\]</span></p>
+<p>Gli autovettori associati a una matrice simmetrica sono ortogonali tra loro e possono essere scelti a norma unitaria. In particolare vale</p>
+<p><span class="math display">\[
+v_j \cdot v_k =
+\begin{cases}
+1 &amp; \text{se } j = k, \\
+0 &amp; \text{se } j \neq k.
+\end{cases}
+\]</span></p>
+<p>Raccogliendo gli autovettori in una matrice</p>
+<p><span class="math display">\[
+V = [v_1, v_2, \dots, v_m],
+\]</span></p>
+<p>si ottiene una matrice ortogonale, per cui</p>
+<p><span class="math display">\[
+V^T V = I \qquad \text{e} \qquad V^{-1} = V^T.
+\]</span></p>
+<p>La matrice <span class="math inline">\(V\)</span> rappresenta quindi una rotazione nello spazio delle variabili. In termini di autovalori e autovettori, la matrice di covarianza può essere scritta come</p>
+<p><span class="math display">\[
+\Sigma = \sum_{i=1}^m \lambda_i \, v_i v_i^T.
+\]</span></p>
+<p>La trasformazione PCA è definita introducendo le nuove variabili</p>
+<p><span class="math display">\[
+Y = V^T X,
+\]</span></p>
+<p>che corrispondono alle coordinate di <span class="math inline">\(X\)</span> nel nuovo sistema di riferimento dato dagli autovettori. In questo nuovo spazio la matrice di covarianza risulta diagonalizzata,</p>
+<p><span class="math display">\[
+C(Y) = V^T \Sigma V = \Lambda = \operatorname{diag}(\lambda_1, \lambda_2, \dots, \lambda_m),
+\]</span></p>
+<p>dove ciascun autovalore <span class="math inline">\(\lambda_j\)</span> rappresenta la varianza spiegata dalla <span class="math inline">\(j\)</span>-esima componente principale. Le componenti sono quindi scorrelate e ordinate per importanza decrescente in base al valore degli autovalori.</p>
+<p>Dal punto di vista operativo, esistono due approcci principali alla PCA. Nel primo approccio i dati vengono prima traslati nell’origine sottraendo la media, poi ruotati tramite la PCA calcolata sulla matrice di covarianza, ed eventualmente standardizzati in un secondo momento. Nel secondo approccio, invece, si effettua prima la traslazione nell’origine e una standardizzazione delle variabili, quindi si applica la PCA sulla matrice di correlazione <span class="math inline">\(g(X)\)</span>, seguita da una standardizzazione finale.</p>
+<p>Il secondo approccio è generalmente preferibile quando le variabili originali hanno scale molto diverse, poiché evita che le componenti principali siano dominate dalle variabili con varianza numericamente più grande e conduce a un’analisi più equilibrata.</p>
 <section id="factor-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="factor-analysis">Factor Analysis</h2>
-<p>L’analisi fattoriale sintetizza un insieme di variabili in un numero ridotto di “fattori” significativi e indipendenti.</p>
-<p>Ad esempio, in un dataset relativo alle misure corporee, potremmo identificare fattori come:</p>
-<ul>
-<li><p><span class="math inline">\(f_1\)</span>: dimensione globale del corpo</p></li>
-<li><p><span class="math inline">\(f_2\)</span>: larghezza</p></li>
-<li><p><span class="math inline">\(f_3\)</span>: età o sviluppo muscolare</p></li>
-<li><p><span class="math inline">\(f_4\)</span>: differenze specifiche</p></li>
-</ul>
-<p>Quando le variabili sono molte, alcune componenti PCA avranno varianza molto bassa e potranno essere ignorate senza perdere molta informazione, riducendo la dimensionalità da <span class="math inline">\(m\)</span> a <span class="math inline">\(k\)</span>.</p>
-<p>I coefficienti associati a ciascun fattore (factor loadings) indicano l’importanza e il segno delle variabili originali in ciascun fattore.</p>
-<p>La PCA mantiene la somma delle varianze costante:</p>
-<p><span class="math display">\[\mathrm{Var}(x_1) + \dots + \mathrm{Var}(x_m) = \mathrm{Var}(y_1) + \dots + \mathrm{Var}(y_m)\]</span></p>
-<p>Gli autovalori <span class="math inline">\(\lambda_j\)</span> sono solitamente ordinati in modo decrescente, e uno scree plot aiuta a decidere quante componenti trattenere.</p>
+<p>L’analisi fattoriale ha l’obiettivo di descrivere un insieme potenzialmente ampio di variabili osservate tramite un numero ridotto di <strong>fattori latenti</strong>, interpretabili come dimensioni concettuali sottostanti e tra loro indipendenti. L’idea è che le variabili originali siano manifestazioni osservabili di pochi fattori non direttamente misurabili.</p>
+<p>In un contesto come quello delle misure corporee, ad esempio, è naturale pensare che molte variabili siano influenzate da caratteristiche comuni. Un fattore potrebbe rappresentare la dimensione globale del corpo, un altro la larghezza, un altro ancora l’età o il grado di sviluppo muscolare, mentre fattori residui possono catturare differenze più specifiche o locali. In questo modo, strutture complesse vengono ricondotte a poche componenti interpretabili.</p>
+<p>Quando il numero di variabili <span class="math inline">\(m\)</span> è elevato, molte delle componenti ottenute tramite PCA presentano una varianza molto bassa. Tali componenti contribuiscono poco alla variabilità complessiva dei dati e possono essere trascurate senza perdita informativa rilevante, riducendo così la dimensionalità effettiva da <span class="math inline">\(m\)</span> a un numero più contenuto <span class="math inline">\(k\)</span>.</p>
+<p>I <strong>factor loadings</strong>, ossia i coefficienti che legano ciascuna variabile osservata ai fattori, descrivono il peso e il segno del contributo di ogni variabile all’interno di un fattore. Valori elevati in modulo indicano che la variabile è fortemente associata a quel fattore, facilitandone l’interpretazione sostantiva.</p>
+<p>Dal punto di vista della varianza, la PCA conserva la varianza totale del sistema. In particolare, la somma delle varianze delle variabili originali coincide con la somma delle varianze delle componenti trasformate,</p>
+<p><span class="math display">\[
+\mathrm{Var}(x_1) + \dots + \mathrm{Var}(x_m)
+=
+\mathrm{Var}(y_1) + \dots + \mathrm{Var}(y_m).
+\]</span></p>
+<p>Gli autovalori <span class="math inline">\(\lambda_j\)</span> della matrice di covarianza (o di correlazione) misurano la varianza spiegata da ciascuna componente e sono ordinati in modo decrescente. Uno strumento grafico comunemente utilizzato per decidere quante componenti o fattori trattenere è lo <strong>scree plot</strong>, che rappresenta gli autovalori in funzione dell’indice della componente e consente di individuare un punto di flesso oltre il quale il contributo informativo delle componenti diventa trascurabile.</p>
 </section>
 <section id="distribuzione-gaussiana-multidimensionale" class="level2">
 <h2 class="anchored" data-anchor-id="distribuzione-gaussiana-multidimensionale">Distribuzione Gaussiana Multidimensionale</h2>
-<p>Un vettore <span class="math inline">\(X=(X_1, \dots, X_p)\)</span> con distribuzione gaussiana multidimensionale <span class="math inline">\(N(\mu, \Sigma)\)</span> è definito dai parametri:</p>
-<ul>
-<li><span class="math inline">\(\mu\)</span>: vettore medio (<span class="math inline">\(\mathbb{R}^p\)</span>)</li>
-<li><span class="math inline">\(\Sigma\)</span>: matrice di covarianza (<span class="math inline">\(\mathbb{R}^{p \times p}\)</span>)</li>
-</ul>
-<p>La funzione di densità (pdf) per <span class="math inline">\(X\)</span> è:</p>
-<p><span class="math display">\[f_X(x) = \frac{1}{(2\pi)^{p/2}\sqrt{\det \Sigma}} \exp\left(-\frac{1}{2}(x - \mu)^T \Sigma^{-1}(x - \mu)\right)\]</span></p>
-<p>Se le componenti di <span class="math inline">\(X\)</span> sono indipendenti, <span class="math inline">\(\Sigma\)</span> diventa diagonale, e le curve di livello sono ellissi allineate con gli assi. Altrimenti, avremo rotazioni e allungamenti delle ellissi.</p>
+<p>Un vettore aleatorio <span class="math inline">\(X = (X_1, \dots, X_p)\)</span> segue una distribuzione gaussiana multidimensionale con parametri <span class="math inline">\((\mu, \Sigma)\)</span>, indicata con <span class="math inline">\(N(\mu, \Sigma)\)</span>, se la sua distribuzione è completamente determinata da un vettore medio e da una matrice di covarianza. Il vettore medio <span class="math inline">\(\mu \in \mathbb{R}^p\)</span> raccoglie le medie delle singole componenti, mentre la matrice di covarianza <span class="math inline">\(\Sigma \in \mathbb{R}^{p \times p}\)</span> descrive sia le varianze marginali sia le dipendenze lineari tra le componenti.</p>
+<p>La funzione di densità di probabilità associata a <span class="math inline">\(X\)</span> è data da</p>
+<p><span class="math display">\[
+f_X(x) = \frac{1}{(2\pi)^{p/2} \sqrt{\det \Sigma}}
+\exp\!\left(
+-\frac{1}{2}(x - \mu)^T \Sigma^{-1} (x - \mu)
+\right),
+\]</span></p>
+<p>dove il termine quadratico nell’esponente misura la distanza di <span class="math inline">\(x\)</span> dalla media <span class="math inline">\(\mu\)</span> tenendo conto della struttura di correlazione imposta da <span class="math inline">\(\Sigma\)</span>. La matrice <span class="math inline">\(\Sigma\)</span> deve essere simmetrica e definita positiva, in modo da garantire l’esistenza dell’inversa e la normalizzazione della densità.</p>
+<p>Se le componenti di <span class="math inline">\(X\)</span> sono indipendenti, tutte le covarianze incrociate sono nulle e la matrice <span class="math inline">\(\Sigma\)</span> risulta diagonale. In questo caso la densità multidimensionale si fattorizza nel prodotto delle densità marginali e le curve di livello della distribuzione sono ellissi (o iper-ellissi) allineate con gli assi coordinati.</p>
+<p>Quando invece le componenti non sono indipendenti, la matrice di covarianza contiene termini fuori diagonale. Geometricamente, ciò si traduce in ellissi di livello ruotate e deformate, il cui orientamento e allungamento riflettono le correlazioni e le diverse scale di variabilità delle variabili originali.</p>
 </section>
 <section id="legge-di-dirichlet" class="level2">
 <h2 class="anchored" data-anchor-id="legge-di-dirichlet">Legge di Dirichlet</h2>
-<p>La legge di Dirichlet, spesso nota come distribuzione di Dirichlet, è una distribuzione di probabilità su insiemi di proporzioni. Immagina di avere un insieme di categorie e di voler modellare come si distribuisce una probabilità tra di esse. La distribuzione di Dirichlet ti dà un insieme di proporzioni (che sommano a 1), ed è spesso usata come una distribuzione a priori in modelli bayesiani. In pratica, ti permette di esprimere in modo flessibile la tua incertezza sulle probabilità di categorie, ed è molto usata per problemi come il clustering o le distribuzioni di temi nei modelli di topic.</p>
-<p><strong>Nota.</strong> Immagina di voler dividere una torta tra amici. La distribuzione di Dirichlet ti aiuta a modellare, prima di vederli, come pensi che la torta verrà divisa. Magari pensi che un amico ne prenderà di più, altri di meno, ma non sai esattamente quanto. La Dirichlet ti dà una “famiglia di possibilità” su come si potrebbero distribuire le fette. Una volta che dividi la torta, avrai proporzioni concrete. In sostanza, è un modo per rappresentare le tue aspettative iniziali su come suddividere qualcosa.</p>
-<p>La distribuzione di Dirichlet genera vettori <span class="math inline">\(X=(X_1, \dots, X_m)\)</span> tali che <span class="math inline">\(X_i \geq 0\)</span> e <span class="math inline">\(\sum X_i=1\)</span>. Scriviamo <span class="math inline">\(X \sim \text{Dirichlet}(\alpha)\)</span> con parametri <span class="math inline">\(\alpha_i &gt; 0\)</span>. La sua pdf è:</p>
-<p><span class="math display">\[f_X(x) = C_\alpha x_1^{\alpha_1-1}\dots x_m^{\alpha_m-1}\]</span></p>
-<p>Dove la media di <span class="math inline">\(X\)</span> è:</p>
-<p><span class="math display">\[\mathbb{E}(X) = \frac{\alpha}{\sum_{i=1}^m \alpha_i}\]</span></p>
-<p>Per <span class="math inline">\(m=2\)</span> la Dirichlet coincide con la distribuzione Beta.</p>
+<p>La legge di Dirichlet è una distribuzione di probabilità definita su vettori di <strong>proporzioni</strong>, ed è utilizzata quando si vuole modellare l’incertezza su come una quantità totale venga suddivisa tra più categorie. È particolarmente importante in ambito bayesiano, dove compare spesso come distribuzione <em>a priori</em> per vettori di probabilità, ad esempio nei modelli di clustering, nei modelli a miscela e nei topic model.</p>
+<p>Formalmente, la distribuzione di Dirichlet genera vettori aleatori</p>
+<p><span class="math display">\[
+X = (X_1, \dots, X_m)
+\]</span></p>
+<p>tali che ogni componente sia non negativa e che la somma totale valga uno,</p>
+<p><span class="math display">\[
+X_i \ge 0, \qquad \sum_{i=1}^m X_i = 1.
+\]</span></p>
+<p>Si scrive</p>
+<p><span class="math display">\[
+X \sim \text{Dirichlet}(\alpha),
+\]</span></p>
+<p>dove il parametro <span class="math inline">\(\alpha = (\alpha_1, \dots, \alpha_m)\)</span> soddisfa <span class="math inline">\(\alpha_i &gt; 0\)</span> per ogni <span class="math inline">\(i\)</span>. I parametri <span class="math inline">\(\alpha_i\)</span> controllano la forma della distribuzione e riflettono il peso relativo attribuito a ciascuna categoria.</p>
+<p>La funzione di densità di probabilità è data da</p>
+<p><span class="math display">\[
+f_X(x) = C_\alpha \, x_1^{\alpha_1 - 1} \cdots x_m^{\alpha_m - 1},
+\]</span></p>
+<p>dove <span class="math inline">\(C_\alpha\)</span> è una costante di normalizzazione che dipende dal vettore <span class="math inline">\(\alpha\)</span> e garantisce che la densità integri a uno sul simplesso <span class="math inline">\(\{x : x_i \ge 0,\ \sum x_i = 1\}\)</span>.</p>
+<p>La media della distribuzione di Dirichlet ha una forma particolarmente semplice ed è pari a</p>
+<p><span class="math display">\[
+\mathbb{E}(X_i) = \frac{\alpha_i}{\sum_{j=1}^m \alpha_j},
+\]</span></p>
+<p>oppure, in forma vettoriale,</p>
+<p><span class="math display">\[
+\mathbb{E}(X) = \frac{\alpha}{\sum_{i=1}^m \alpha_i}.
+\]</span></p>
+<p>Questo mostra che il parametro <span class="math inline">\(\alpha\)</span> può essere interpretato come un insieme di <em>pseudoconteggi</em>: il rapporto tra ciascun <span class="math inline">\(\alpha_i\)</span> e la loro somma determina il valore medio delle proporzioni.</p>
+<p>Nel caso particolare <span class="math inline">\(m = 2\)</span>, la distribuzione di Dirichlet si riduce alla distribuzione <strong>Beta</strong>, che modella una singola proporzione su <span class="math inline">\([0,1]\)</span>. La Dirichlet può quindi essere vista come una generalizzazione multivariata della Beta, adatta a descrivere simultaneamente più probabilità che devono sommare a uno.</p>
 </section>
 <section id="distribuzione-multinomiale" class="level2">
 <h2 class="anchored" data-anchor-id="distribuzione-multinomiale">Distribuzione Multinomiale</h2>
-<p>La multinomiale è quella distribuzione che descrive la probabilità di contare quante volte si verificano diversi risultati quando fai molte prove, un po’ come un’estensione della binomiale. Se tiri un dado molte volte e vuoi sapere quanti “1”, “2”, “3” e così via escono, la multinomiale ti dà proprio la probabilità di quelle combinazioni. La cosa fondamentale è che hai più categorie di esito e vuoi sapere come si distribuiscono i conteggi.</p>
-<p>Generalizzazione della distribuzione binomiale con <span class="math inline">\(m\)</span> categorie. Sia <span class="math inline">\(X=(X_1, \dots, X_m)\)</span> multinomiale con parametri <span class="math inline">\(n\)</span> e <span class="math inline">\(p=(p_1,\dots,p_m)\)</span>, con <span class="math inline">\(\sum p_i=1\)</span>. Ogni <span class="math inline">\(X_i\)</span> indica il conteggio degli esiti nella categoria <span class="math inline">\(i\)</span> su <span class="math inline">\(n\)</span> prove:</p>
-<p><span class="math display">\[P(X=x)=\frac{n!}{x_1!\dots x_m!}p_1^{x_1}\dots p_m^{x_m},\quad \sum x_i=n\]</span></p>
-<p>Le componenti <span class="math inline">\(X_i\)</span> sono variabili binomiali dipendenti, e la multinomiale permette di calcolare probabilità in esperimenti con più di due possibili risultati.</p>
+<p>La distribuzione multinomiale descrive il comportamento dei <strong>conteggi</strong> associati a più categorie quando si ripete uno stesso esperimento un numero fissato di volte. Può essere vista come una naturale estensione della distribuzione binomiale al caso in cui gli esiti possibili non siano due, ma <span class="math inline">\(m \ge 2\)</span>. Un esempio tipico è il lancio ripetuto di un dado: ogni lancio produce uno tra <span class="math inline">\(m=6\)</span> risultati possibili e, dopo <span class="math inline">\(n\)</span> lanci, si è interessati a contare quante volte compare ciascuna faccia.</p>
+<p>Formalmente, si considera un vettore aleatorio</p>
+<p><span class="math display">\[
+X = (X_1, \dots, X_m),
+\]</span></p>
+<p>dove <span class="math inline">\(X_i\)</span> rappresenta il numero di volte in cui si osserva l’esito appartenente alla categoria <span class="math inline">\(i\)</span> su un totale di <span class="math inline">\(n\)</span> prove indipendenti. Il modello è parametrizzato da un vettore di probabilità</p>
+<p><span class="math display">\[
+p = (p_1, \dots, p_m), \qquad \sum_{i=1}^m p_i = 1,
+\]</span></p>
+<p>che descrive la probabilità di ciascun esito in una singola prova. Si scrive allora</p>
+<p><span class="math display">\[
+X \sim \text{Multinomiale}(n, p).
+\]</span></p>
+<p>La funzione di massa di probabilità è data da</p>
+<p><span class="math display">\[
+P(X = x)
+=
+\frac{n!}{x_1! \cdots x_m!}
+\, p_1^{x_1} \cdots p_m^{x_m},
+\qquad
+\sum_{i=1}^m x_i = n.
+\]</span></p>
+<p>Il coefficiente combinatorio tiene conto di tutti i possibili ordini in cui i diversi esiti possono verificarsi nelle <span class="math inline">\(n\)</span> prove, mentre il prodotto dei termini <span class="math inline">\(p_i^{x_i}\)</span> pesa ciascuna configurazione in base alle probabilità delle singole categorie.</p>
+<p>Ciascuna componente <span class="math inline">\(X_i\)</span> ha distribuzione binomiale marginale con parametri <span class="math inline">\((n, p_i)\)</span>, ma le componenti non sono indipendenti tra loro. Il vincolo <span class="math inline">\(\sum_i X_i = n\)</span> implica infatti che un aumento in un conteggio debba essere compensato da una diminuzione in almeno un altro. La distribuzione multinomiale è quindi lo strumento naturale per modellare esperimenti con più di due esiti possibili, quando l’interesse è rivolto alla distribuzione congiunta dei conteggi.</p>
 
 
 </section>

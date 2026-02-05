@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>gestione-delle-variabili – IML</title>
+<title>regressione_logistica – IML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/12. Gestione delle Variabili.html">Gestione delle Variabili</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/13_Regressione_logistica.html">Regressione logistica</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,14 +188,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trasformazione PCA e analisi delle componenti principali</span></a>
+  <a href="../th/08_Analisi_delle_componenti_principali.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi delle componenti principali</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Funzioni di Perdita e Inferenza Statistica</span></a>
+  <a href="../th/09_Funzioni_di_Perdita_e_Inferenza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funzioni di Perdita e Inferenza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,25 +207,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Selezione di Variabili e Regolarizzazione nella Regressione</span></a>
+ <span class="menu-text">Selezione di Variabili e Regolarizzazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/12. Gestione delle Variabili.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Gestione delle Variabili</span></a>
+  <a href="../th/12_gestione_delle_variabili.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gestione delle variabili</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/13. Regressione Logistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regressione Logistica</span></a>
+  <a href="../th/13_Regressione_logistica.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Regressione logistica</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/14. Analisi della varianza (ANOVA).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analisi della varianza (ANOVA)</span></a>
+  <a href="../th/14_Analisi_della_varianza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi della varianza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,7 +236,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/16. Test del Chi-quadro.html" class="sidebar-item-text sidebar-link">
+  <a href="../th/16_Test_del_chi-quadro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Test del Chi-quadro</span></a>
   </div>
 </li>
@@ -364,252 +364,79 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#gestione-delle-variabili" id="toc-gestione-delle-variabili" class="nav-link active" data-scroll-target="#gestione-delle-variabili">Gestione delle Variabili</a>
+  <li><a href="#regressione-logistica" id="toc-regressione-logistica" class="nav-link active" data-scroll-target="#regressione-logistica">Regressione logistica</a>
   <ul class="collapse">
-  <li><a href="#variabili-dicotomiche" id="toc-variabili-dicotomiche" class="nav-link" data-scroll-target="#variabili-dicotomiche">Variabili Dicotomiche</a>
-  <ul class="collapse">
-  <li><a href="#come-variabili-esplicative-di-ingresso" id="toc-come-variabili-esplicative-di-ingresso" class="nav-link" data-scroll-target="#come-variabili-esplicative-di-ingresso">Come variabili esplicative (di ingresso)</a></li>
-  <li><a href="#come-variabili-di-risposta" id="toc-come-variabili-di-risposta" class="nav-link" data-scroll-target="#come-variabili-di-risposta">Come variabili di risposta</a></li>
-  </ul></li>
-  <li><a href="#variabili-categoriche" id="toc-variabili-categoriche" class="nav-link" data-scroll-target="#variabili-categoriche">Variabili Categoriche</a>
-  <ul class="collapse">
-  <li><a href="#nominali" id="toc-nominali" class="nav-link" data-scroll-target="#nominali">Nominali</a></li>
-  <li><a href="#ordinali" id="toc-ordinali" class="nav-link" data-scroll-target="#ordinali">Ordinali</a></li>
-  </ul></li>
-  <li><a href="#variabili-categoriche-come-risposta" id="toc-variabili-categoriche-come-risposta" class="nav-link" data-scroll-target="#variabili-categoriche-come-risposta">Variabili categoriche come risposta</a></li>
-  <li><a href="#variabili-categoriche-come-ingresso" id="toc-variabili-categoriche-come-ingresso" class="nav-link" data-scroll-target="#variabili-categoriche-come-ingresso">Variabili categoriche come ingresso</a>
-  <ul class="collapse">
-  <li><a href="#codifica-one-hot-con-categoria-di-riferimento" id="toc-codifica-one-hot-con-categoria-di-riferimento" class="nav-link" data-scroll-target="#codifica-one-hot-con-categoria-di-riferimento">Codifica one-hot (con categoria di riferimento)</a></li>
-  </ul></li>
-  <li><a href="#cosa-succede-nello-stepwise" id="toc-cosa-succede-nello-stepwise" class="nav-link" data-scroll-target="#cosa-succede-nello-stepwise">Cosa succede nello stepwise</a></li>
-  <li><a href="#variabili-numeriche" id="toc-variabili-numeriche" class="nav-link" data-scroll-target="#variabili-numeriche">Variabili Numeriche</a>
-  <ul class="collapse">
-  <li><a href="#tipo-differenza" id="toc-tipo-differenza" class="nav-link" data-scroll-target="#tipo-differenza">Tipo “differenza”</a></li>
-  <li><a href="#tipo-rapporto" id="toc-tipo-rapporto" class="nav-link" data-scroll-target="#tipo-rapporto">Tipo “rapporto”</a></li>
-  <li><a href="#effetti-delle-trasformazioni" id="toc-effetti-delle-trasformazioni" class="nav-link" data-scroll-target="#effetti-delle-trasformazioni">Effetti delle trasformazioni</a></li>
-  </ul></li>
+  <li><a href="#stima-dei-parametri-e-funzione-obiettivo" id="toc-stima-dei-parametri-e-funzione-obiettivo" class="nav-link" data-scroll-target="#stima-dei-parametri-e-funzione-obiettivo">Stima dei parametri e funzione obiettivo</a></li>
+  <li><a href="#predizione" id="toc-predizione" class="nav-link" data-scroll-target="#predizione">Predizione</a></li>
+  <li><a href="#regressione-logistica-multinomiale" id="toc-regressione-logistica-multinomiale" class="nav-link" data-scroll-target="#regressione-logistica-multinomiale">Regressione logistica multinomiale</a></li>
+  <li><a href="#one-vs-rest" id="toc-one-vs-rest" class="nav-link" data-scroll-target="#one-vs-rest">One-vs-Rest</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/12. Gestione delle Variabili.html">Gestione delle Variabili</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/13_Regressione_logistica.html">Regressione logistica</a></li></ol></nav></header>
 
 
 
 
-<section id="gestione-delle-variabili" class="level1">
-<h1>Gestione delle Variabili</h1>
-<p>Quando si costruisce un modello statistico (non solo di regressione), è fondamentale gestire correttamente le <strong>variabili</strong> in base alla loro natura. Le principali tipologie sono:</p>
-<ul>
-<li><strong>Dichotomiche</strong>: due soli livelli (es. sì/no, vero/falso, maschio/femmina)</li>
-<li><strong>Categoriche</strong>: più di due livelli (es. stagione, regione, titolo di studio)</li>
-<li><strong>Numeriche</strong>: variabili quantitative (continue o discrete)</li>
-</ul>
-<section id="variabili-dicotomiche" class="level2">
-<h2 class="anchored" data-anchor-id="variabili-dicotomiche">Variabili Dicotomiche</h2>
-<section id="come-variabili-esplicative-di-ingresso" class="level3">
-<h3 class="anchored" data-anchor-id="come-variabili-esplicative-di-ingresso">Come variabili esplicative (di ingresso)</h3>
-<p>Le variabili dicotomiche possono essere codificate con qualsiasi coppia di numeri, ma per semplicità (e interpretabilità) si usa quasi sempre <strong>0 e 1</strong>.</p>
-<p>Se la variabile <span class="math inline">\(x_i = 1\)</span> rappresenta “femmina”, allora il coefficiente <span class="math inline">\(\beta_1\)</span> misura quanto, <strong>in media</strong>, le donne differiscono dagli uomini (gruppo di riferimento) nella variabile risposta <span class="math inline">\(Y\)</span>.</p>
-<p>Questo tipo di variabile è molto comune anche nei <strong>disegni sperimentali</strong>, perché consente confronti semplici e immediati.</p>
-</section>
-<section id="come-variabili-di-risposta" class="level3">
-<h3 class="anchored" data-anchor-id="come-variabili-di-risposta">Come variabili di risposta</h3>
-<p>Le dicotomiche <strong>non sono adatte</strong> come risposta in un modello di regressione lineare classica. In questi casi si usano modelli specifici:</p>
-<ul>
-<li><strong>Regressione logistica</strong>: se la risposta è binaria</li>
-<li><strong>Analisi discriminante</strong>: in alternativa alla regressione</li>
-<li><strong>Modelli di classificazione</strong>: alberi, reti neurali, random forest, ecc.</li>
-</ul>
-</section>
-</section>
-<section id="variabili-categoriche" class="level2">
-<h2 class="anchored" data-anchor-id="variabili-categoriche">Variabili Categoriche</h2>
-<p>Le variabili categoriche possono essere suddivise in due sottotipi:</p>
-<section id="nominali" class="level3">
-<h3 class="anchored" data-anchor-id="nominali">Nominali</h3>
-<p>Non hanno un ordine naturale. Alcuni esempi: - Regione di provenienza, tipo di carburante, stagione dell’anno, tipo di veicolo…</p>
-</section>
-<section id="ordinali" class="level3">
-<h3 class="anchored" data-anchor-id="ordinali">Ordinali</h3>
-<p>Hanno un <strong>ordine intrinseco</strong>, anche se non sempre le “distanze” tra le categorie sono significative.</p>
-<p>Esempi: livello di istruzione, gravità di un sintomo, classifica sportiva (I, II, III…).</p>
-<p>A volte si codificano gli ordinali con numeri interi (1, 2, 3…), ma bisogna fare attenzione: ciò introduce implicitamente una distanza tra i livelli che potrebbe non essere reale.</p>
-<p>Esempio: codifica del <strong>titolo di studio</strong> con diversi criteri.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Titolo</th>
-<th>Valore 1</th>
-<th>Valore 2</th>
-<th>Valore 3</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Nessuno</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>5 anni di scuola</td>
-</tr>
-<tr class="even">
-<td>Elementari</td>
-<td>2</td>
-<td>10</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Medie</td>
-<td>3</td>
-<td>20</td>
-<td>8</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Maturità</td>
-<td>4</td>
-<td>30</td>
-<td>≠13</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Laurea</td>
-<td>5</td>
-<td>40</td>
-<td>16</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Laurea magistrale</td>
-<td>6</td>
-<td>50</td>
-<td>18</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Dottorato</td>
-<td>7</td>
-<td>60</td>
-<td>21</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="variabili-categoriche-come-risposta" class="level2">
-<h2 class="anchored" data-anchor-id="variabili-categoriche-come-risposta">Variabili categoriche come risposta</h2>
-<p>Quando la variabile risposta è categorica (es. classificazione), <strong>non</strong> si usa la regressione lineare. Si passa a:</p>
-<ul>
-<li>Regressione logistica (binaria o multinomiale)</li>
-<li>Alberi decisionali, foreste casuali, reti neurali, ecc.</li>
-</ul>
-</section>
-<section id="variabili-categoriche-come-ingresso" class="level2">
-<h2 class="anchored" data-anchor-id="variabili-categoriche-come-ingresso">Variabili categoriche come ingresso</h2>
-<p>In regressione, una variabile categorica con <span class="math inline">\(k\)</span> categorie va trasformata in <strong><span class="math inline">\(k-1\)</span> variabili dicotomiche</strong> (dummy), altrimenti si creerebbe collinearità.</p>
-<section id="codifica-one-hot-con-categoria-di-riferimento" class="level3">
-<h3 class="anchored" data-anchor-id="codifica-one-hot-con-categoria-di-riferimento">Codifica one-hot (con categoria di riferimento)</h3>
-<p>Si sceglie una categoria come <strong>default</strong> (es. inverno) e si costruiscono <span class="math inline">\(k-1\)</span> colonne binarie.</p>
-<p>Esempio con 4 stagioni:</p>
-<div class="line-block">x₀ | primavera | estate | autunno | inverno (default) |</div>
-<p>|-|–|–||-| | 1 | 1 | 0 | 0 | 0 | | 1 | 0 | 1 | 0 | 0 | | 1 | 0 | 0 | 1 | 0 | | 1 | 0 | 0 | 0 | 1 (implicita) |</p>
-<p>L’equazione del modello diventa:</p>
-<p><span class="math display">\[
-Y = \beta_0 + \beta_{\text{pri}} x_{\text{pri}} + \beta_{\text{est}} x_{\text{est}} + \beta_{\text{aut}} x_{\text{aut}} + \varepsilon
+<section id="regressione-logistica" class="level1">
+<h1>Regressione logistica</h1>
+<p>La regressione logistica viene utilizzata quando la variabile risposta è <strong>dicotomica</strong>, tipicamente codificata come <span class="math inline">\(0/1\)</span>. Per ogni osservazione <span class="math inline">\(i=1,\dots,N\)</span>, associata a un vettore di input <span class="math inline">\(x^{(i)}=(x_1^{(i)},\dots,x_p^{(i)})\)</span>, si assume che la risposta <span class="math inline">\(Z_i\)</span> segua una distribuzione di Bernoulli con parametro <span class="math inline">\(p_i\)</span>: <span class="math display">\[
+Z_i \sim \text{Bernoulli}(p_i), \qquad p_i = f\!\big(x^{(i)}\big).
 \]</span></p>
-<p>La categoria “inverno” è inclusa <strong>nel termine noto <span class="math inline">\(\beta_0\)</span></strong>. Gli altri coefficienti esprimono le <strong>differenze rispetto al default</strong>.</p>
-<p>Esempio:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Coefficiente</th>
-<th>Valore</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\beta_0\)</span> (inverno)</td>
-<td>16.4</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\beta_1\)</span> (primavera)</td>
-<td>5.4</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\beta_2\)</span> (estate)</td>
-<td>6.7</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\beta_3\)</span> (autunno)</td>
-<td>1.8</td>
-</tr>
-</tbody>
-</table>
-<p>Allora:</p>
-<div class="line-block">Stagione | Y atteso |</div>
-<p>||-| | Inverno | 16.4 | | Primavera | 21.8 | | Estate | 23.1 | | Autunno | 18.2 |</p>
-<p>Si possono testare ipotesi come:</p>
-<ul>
-<li><span class="math inline">\(H_0: \beta_3 = 0\)</span> → autunno = inverno</li>
-<li><span class="math inline">\(H_0: \beta_1 = \beta_2\)</span> → primavera = estate</li>
-</ul>
-</section>
-</section>
-<section id="cosa-succede-nello-stepwise" class="level2">
-<h2 class="anchored" data-anchor-id="cosa-succede-nello-stepwise">Cosa succede nello stepwise</h2>
-<p>Quando si usa la <strong>stepwise backward</strong>, se una variabile dummy viene eliminata significa che <strong>non è distinguibile dal default</strong> (es. <span class="math inline">\(\beta_3 = 0\)</span> per autunno).</p>
-<p>La nuova codifica raggruppa autunno e inverno:</p>
-<div class="line-block">Stagione | primavera | estate |</div>
-<p>||–|–| | Primavera | 1 | 0 | | Estate | 0 | 1 | | Autunno | 0 | 0 | | Inverno | 0 | 0 |</p>
-<p>Ora autunno è trattato <strong>come inverno</strong>.</p>
-<p>Se si vuole confrontare direttamente <strong>primavera ed estate</strong>, si può:</p>
-<ol type="1">
-<li>Fare un <strong>test manuale</strong>: <span class="math inline">\(H_0: \beta_1 = \beta_2\)</span></li>
-<li>Cambiare il <strong>default</strong> e rifare la codifica (es. default = estate)</li>
-</ol>
-<p><strong>Attenzione.</strong> Ogni categoria aggiunta aumenta <span class="math inline">\(p\)</span> → occhio al <strong>rapporto <span class="math inline">\(n/p\)</span></strong>. È possibile accorpare categorie rare in macro-categorie, o anche eliminare alcune righe.</p>
-</section>
-<section id="variabili-numeriche" class="level2">
-<h2 class="anchored" data-anchor-id="variabili-numeriche">Variabili Numeriche</h2>
-<section id="tipo-differenza" class="level3">
-<h3 class="anchored" data-anchor-id="tipo-differenza">Tipo “differenza”</h3>
-<p>Non richiedono trasformazioni particolari. Esempi: statura, peso, QI, consumi.</p>
-</section>
-<section id="tipo-rapporto" class="level3">
-<h3 class="anchored" data-anchor-id="tipo-rapporto">Tipo “rapporto”</h3>
-<p>Quando le variabili sono <strong>positive</strong> e distribuite su ordini di grandezza diversi (es. reddito, popolazione), conviene usare il <strong>logaritmo</strong>.</p>
-<p>Esempio:</p>
+<p>La probabilità <span class="math inline">\(p_i\)</span> è modellata tramite una <strong>sigmoide</strong> applicata a un predittore lineare. In particolare si pone</p>
 <p><span class="math display">\[
-Y = \beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p + \varepsilon
+p_i = \sigma(\eta_i), \qquad
+\eta_i = \beta_0 + \beta_1 x_1^{(i)} + \cdots + \beta_p x_p^{(i)},
+\]</span> dove la funzione sigmoide è definita come <span class="math display">\[
+\sigma(z) = \frac{1}{1+e^{-z}}.
+\]</span> In questo modo il predittore lineare <span class="math inline">\(\eta_i\)</span> può assumere qualunque valore reale, mentre la sigmoide garantisce che <span class="math inline">\(p_i \in (0,1)\)</span>.</p>
+<section id="stima-dei-parametri-e-funzione-obiettivo" class="level2">
+<h2 class="anchored" data-anchor-id="stima-dei-parametri-e-funzione-obiettivo">Stima dei parametri e funzione obiettivo</h2>
+<p>Il vettore dei parametri <span class="math inline">\(\beta=(\beta_0,\dots,\beta_p)\)</span> viene stimato tramite <strong>massima verosimiglianza</strong>. La log-verosimiglianza associata al campione è <span class="math display">\[
+\ell(\beta)
+= \sum_{i=1}^N \Big[ Z_i \log p_i + (1-Z_i)\log(1-p_i) \Big],
+\qquad
+p_i=\sigma(\eta_i).
 \]</span></p>
-<p>Se <span class="math inline">\(x_1\)</span> è di tipo rapporto, si può usare <span class="math inline">\(\log x_1\)</span> per linearizzare la relazione o normalizzare la distribuzione.</p>
+<p>Massimizzare questa quantità è equivalente a minimizzare la <strong>cross-entropy</strong>, ossia la negativa della log-verosimiglianza media: <span class="math display">\[
+\text{loss}_{\text{CE}}(\beta)
+= -\frac{1}{N}\sum_{i=1}^N \Big[ Z_i \log p_i + (1-Z_i)\log(1-p_i) \Big].
+\]</span> Questa funzione obiettivo è convessa rispetto ai parametri e coincide con la funzione di perdita comunemente usata nei modelli di classificazione binaria.</p>
+<p>Dal punto di vista computazionale, la stima dei parametri richiede metodi di ottimizzazione numerica, come Newton–Raphson o il metodo IRLS (Iteratively Reweighted Least Squares), oppure algoritmi di discesa del gradiente. In pratica si utilizzano formulazioni <strong>numericamente stabili</strong> della loss, ad esempio basate su trasformazioni tipo log-sum-exp, per evitare problemi di overflow o underflow.</p>
+<p>Pur non esistendo una distribuzione esatta in forma chiusa per gli stimatori <span class="math inline">\(\hat\beta\)</span>, gli stimatori di massima verosimiglianza sono <strong>asintoticamente normali</strong>. Questo consente di costruire intervalli di confidenza e test di ipotesi (Wald, Likelihood Ratio, Score) utilizzando la matrice di <strong>informazione di Fisher</strong>. Un aspetto critico è la presenza di <strong>separazione completa o quasi</strong> dei dati: in tali casi l’MLE può non esistere o divergere, e si ricorre a tecniche di penalizzazione, come la correzione di Firth, o alla regolarizzazione.</p>
 </section>
-<section id="effetti-delle-trasformazioni" class="level3">
-<h3 class="anchored" data-anchor-id="effetti-delle-trasformazioni">Effetti delle trasformazioni</h3>
-<ul>
-<li>Le <strong>trasformazioni lineari</strong> (es. cambio unità) <strong>non alterano</strong> le conclusioni statistiche (test, <span class="math inline">\(R^2\)</span>), ma cambiano i coefficienti.</li>
-<li>Le <strong>trasformazioni non lineari</strong> (es. logaritmo, radice quadrata) possono migliorare la <strong>normalità</strong> dei residui o la <strong>linearità</strong> della relazione.</li>
-</ul>
-<p>Esempio di regressione logaritmica su <span class="math inline">\(Y\)</span>:</p>
-<p><span class="math display">\[
-\log Y = \beta_0 + \beta_1 x_1 + \cdots \quad \Rightarrow \quad Y = e^{\beta_0} \cdot e^{\beta_1 x_1} \cdot \cdots
+<section id="predizione" class="level2">
+<h2 class="anchored" data-anchor-id="predizione">Predizione</h2>
+<p>Dato un nuovo vettore di input <span class="math inline">\(x\)</span>, il modello di regressione logistica restituisce direttamente una <strong>probabilità</strong> di appartenenza alla classe positiva: <span class="math display">\[
+P(Z=1\mid x)=\sigma\!\big(\beta_0+\beta_1 x_1+\cdots+\beta_p x_p\big).
+\]</span> Questa quantità rappresenta una stima di <span class="math inline">\(P(Z=1\mid X=x)\)</span> e non una decisione discreta. La classificazione si ottiene introducendo una <strong>soglia</strong> sulla probabilità, ad esempio <span class="math inline">\(0.5\)</span>, ma tale scelta non è intrinseca al modello. In pratica la soglia va calibrata in funzione dell’obiettivo applicativo, tenendo conto del compromesso tra errori di tipo diverso, spesso tramite curve ROC o Precision–Recall e funzioni di costo asimmetriche.</p>
+</section>
+<section id="regressione-logistica-multinomiale" class="level2">
+<h2 class="anchored" data-anchor-id="regressione-logistica-multinomiale">Regressione logistica multinomiale</h2>
+<p>Quando la variabile risposta assume <strong>più di due categorie</strong> (<span class="math inline">\(m&gt;2\)</span>), <span class="math inline">\(Z_i\in\{1,\dots,m\}\)</span>, la regressione logistica si estende al caso multiclasse. Si utilizza una <strong>codifica one-hot</strong> della risposta, indicata con <span class="math inline">\(b^{(i)}=(b^{(i)}_1,\dots,b^{(i)}_m)\)</span>, dove un solo elemento vale 1 e gli altri 0. In questo caso si assume <span class="math display">\[
+B^{(i)} \sim \text{Multinomiale}\!\big(1;\ \pi(x^{(i)},W)\big),
+\]</span> dove <span class="math inline">\(\pi(x^{(i)},W)\)</span> è il vettore delle probabilità di classe e <span class="math inline">\(W\)</span> è la matrice dei parametri del modello. Inserendo esplicitamente l’intercetta, si può considerare <span class="math inline">\(W\in\mathbb{R}^{(p+1)\times m}\)</span>.</p>
+<p>Per ciascuna classe <span class="math inline">\(k\)</span> si definisce un <strong>logit</strong> lineare <span class="math display">\[
+g_k^{(i)} = w_{0k} + w_{1k} x_1^{(i)} + \cdots + w_{pk} x_p^{(i)},
+\]</span> e le probabilità di appartenenza alle classi sono ottenute tramite la funzione <strong>softmax</strong>: <span class="math display">\[
+\pi_k\!\big(x^{(i)},W\big) =
+\frac{e^{g_k^{(i)}}}{\sum_{h=1}^m e^{g_h^{(i)}}},
+\qquad \sum_{k=1}^m \pi_k(\cdot)=1.
+\]</span> La softmax generalizza la sigmoide al caso multiclasse, garantendo probabilità positive che sommano a uno.</p>
+<p>La <strong>log-verosimiglianza</strong> del campione assume la forma <span class="math display">\[
+\ell(W) = \sum_{i=1}^N \sum_{k=1}^m b^{(i)}_k \log \pi_k\!\big(x^{(i)},W\big),
+\]</span> e la funzione obiettivo da minimizzare è la <strong>cross-entropy media</strong>: <span class="math display">\[
+\text{loss}(W) = -\frac{1}{N}\sum_{i=1}^N \sum_{k=1}^m b^{(i)}_k \log \pi_k\!\big(x^{(i)},W\big).
 \]</span></p>
-<p>Se <span class="math inline">\(\beta_1 = \log(1.4)\)</span>, significa che l’effetto di <span class="math inline">\(x_1\)</span> è un <strong>+40%</strong> su <span class="math inline">\(Y\)</span>.</p>
+<p>Un aspetto teorico rilevante è l’<strong>identificabilità</strong> del modello: i logit sono definiti a meno di una traslazione comune, che non modifica le probabilità softmax. Per ottenere stime univoche è quindi necessario imporre un vincolo, ad esempio fissando una classe di riferimento (modello baseline-category logit) oppure imponendo condizioni di somma o di centratura sui parametri.</p>
+</section>
+<section id="one-vs-rest" class="level2">
+<h2 class="anchored" data-anchor-id="one-vs-rest">One-vs-Rest</h2>
+<p>Un approccio alternativo alla regressione logistica multinomiale consiste nello stimare <strong><span class="math inline">\(m\)</span> modelli binari distinti</strong>, uno per ciascuna classe, confrontando la classe <span class="math inline">\(k\)</span> contro il resto delle classi. Questo schema, noto come <em>one-vs-rest</em>, è concettualmente semplice e facile da implementare, poiché riduce il problema multiclasse a una collezione di problemi binari standard. Tuttavia, le probabilità stimate dai singoli modelli non sono coerenti tra loro e in generale <strong>non sommano a 1</strong>, per cui non ammettono un’interpretazione probabilistica congiunta. Per questo motivo il metodo è spesso usato come baseline o in contesti applicativi semplici, mentre risulta meno rigoroso rispetto alla formulazione multinomiale con softmax.</p>
 
 
-</section>
 </section>
 </section>
 

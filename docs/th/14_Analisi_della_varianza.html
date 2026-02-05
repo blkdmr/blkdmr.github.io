@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>analisi-della-varianza-(anova – IML</title>
+<title>analisi_della_varianza – IML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/14. Analisi della varianza (ANOVA).html">Analisi della varianza (ANOVA)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/14_Analisi_della_varianza.html">Analisi della varianza</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,14 +188,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trasformazione PCA e analisi delle componenti principali</span></a>
+  <a href="../th/08_Analisi_delle_componenti_principali.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi delle componenti principali</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Funzioni di Perdita e Inferenza Statistica</span></a>
+  <a href="../th/09_Funzioni_di_Perdita_e_Inferenza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funzioni di Perdita e Inferenza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,25 +207,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Selezione di Variabili e Regolarizzazione nella Regressione</span></a>
+ <span class="menu-text">Selezione di Variabili e Regolarizzazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/12. Gestione delle Variabili.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gestione delle Variabili</span></a>
+  <a href="../th/12_gestione_delle_variabili.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gestione delle variabili</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/13. Regressione Logistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regressione Logistica</span></a>
+  <a href="../th/13_Regressione_logistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regressione logistica</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/14. Analisi della varianza (ANOVA).html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Analisi della varianza (ANOVA)</span></a>
+  <a href="../th/14_Analisi_della_varianza.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Analisi della varianza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,7 +236,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/16. Test del Chi-quadro.html" class="sidebar-item-text sidebar-link">
+  <a href="../th/16_Test_del_chi-quadro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Test del Chi-quadro</span></a>
   </div>
 </li>
@@ -364,7 +364,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#analisi-della-varianza-anova" id="toc-analisi-della-varianza-anova" class="nav-link active" data-scroll-target="#analisi-della-varianza-anova">Analisi della varianza (ANOVA)</a>
+  <li><a href="#analisi-della-varianza" id="toc-analisi-della-varianza" class="nav-link active" data-scroll-target="#analisi-della-varianza">Analisi della varianza</a>
   <ul class="collapse">
   <li><a href="#anova-a-una-via" id="toc-anova-a-una-via" class="nav-link" data-scroll-target="#anova-a-una-via">ANOVA a una via</a></li>
   <li><a href="#stima-dei-parametri" id="toc-stima-dei-parametri" class="nav-link" data-scroll-target="#stima-dei-parametri">Stima dei parametri</a></li>
@@ -375,88 +375,98 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/14. Analisi della varianza (ANOVA).html">Analisi della varianza (ANOVA)</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/14_Analisi_della_varianza.html">Analisi della varianza</a></li></ol></nav></header>
 
 
 
 
-<section id="analisi-della-varianza-anova" class="level1">
-<h1>Analisi della varianza (ANOVA)</h1>
-<p>L’analisi della varianza, o ANOVA, è una tecnica statistica pensata per valutare se una variabile numerica <span class="math inline">\(Y\)</span> dipenda significativamente da una o più variabili di ingresso di tipo <strong>categorico</strong>. A differenza della regressione tradizionale, dove le covariate sono numeriche, qui le variabili esplicative assumono un numero limitato di categorie (come gruppi, livelli o etichette).</p>
-<p>Il modello generale prevede che l’output <span class="math inline">\(Y\)</span> dipenda dalle variabili categoriche con <strong>rumore additivo gaussiano omoschedastico</strong>, cioè con varianza costante e distribuzione normale. Esistono diverse versioni dell’ANOVA a seconda del numero di fattori coinvolti:</p>
-<ul>
-<li><strong>ANOVA a una via</strong>: prevede un solo fattore categorico, ad esempio il tipo di ospedale in cui è avvenuto il parto.</li>
-<li><strong>ANOVA a due vie</strong>: coinvolge due fattori categorici, ad esempio ospedale e tipo di trattamento, con una singola osservazione per ogni combinazione.</li>
-<li><strong>ANOVA a due vie con repliche</strong>: quando ci sono più osservazioni per ogni combinazione dei due fattori.</li>
-</ul>
+<section id="analisi-della-varianza" class="level1">
+<h1>Analisi della varianza</h1>
+<p>L’analisi della varianza, o ANOVA, è una tecnica statistica utilizzata per studiare la dipendenza di una variabile numerica <span class="math inline">\(Y\)</span> da una o più variabili esplicative di tipo <strong>categorico</strong>. L’idea di fondo è confrontare le medie di <span class="math inline">\(Y\)</span> tra diversi gruppi e stabilire se le differenze osservate possano essere attribuite al caso oppure siano statisticamente significative.</p>
+<p>A differenza della regressione lineare classica, in cui le covariate sono numeriche, nell’ANOVA i regressori assumono un numero finito di modalità, come gruppi, livelli o trattamenti. Il modello statistico sottostante assume che la variabile risposta sia affetta da <strong>rumore additivo gaussiano omoschedastico</strong>, cioè errori indipendenti, normalmente distribuiti e con varianza costante.</p>
+<p>A seconda del numero di fattori considerati, si distinguono diverse configurazioni. Nell’ANOVA a una via è presente un solo fattore categorico; nell’ANOVA a due vie entrano in gioco due fattori; infine, nell’ANOVA a due vie con repliche si hanno più osservazioni per ciascuna combinazione dei livelli dei fattori.</p>
 <section id="anova-a-una-via" class="level2">
 <h2 class="anchored" data-anchor-id="anova-a-una-via">ANOVA a una via</h2>
-<p>Nel caso più semplice, ogni osservazione <span class="math inline">\(Y_{ij}\)</span> è associata a un gruppo <span class="math inline">\(i\)</span> (cioè a una categoria del fattore) e a una replica <span class="math inline">\(j\)</span> all’interno di quel gruppo. Si assume che:</p>
+<p>Nel caso più semplice si considera un unico fattore categoriale con <span class="math inline">\(m\)</span> livelli. Ogni osservazione <span class="math inline">\(Y_{ij}\)</span> appartiene al gruppo <span class="math inline">\(i\)</span> ed è la <span class="math inline">\(j\)</span>-esima replica all’interno di quel gruppo. Il modello è</p>
 <p><span class="math display">\[
-Y_{ij} = \mu_i + \varepsilon_{ij}, \quad \text{con } \varepsilon_{ij} \sim \mathcal{N}(0, \sigma^2),
+Y_{ij} = \mu_i + \varepsilon_{ij}, \qquad \varepsilon_{ij} \sim \mathcal{N}(0, \sigma^2),
 \]</span></p>
-<p>dove ogni gruppo ha una propria media <span class="math inline">\(\mu_i\)</span> ma con varianza comune <span class="math inline">\(\sigma^2\)</span>. L’indice <span class="math inline">\(i\)</span> varia da 1 a <span class="math inline">\(m\)</span> (numero di gruppi), mentre <span class="math inline">\(j\)</span> va da 1 a <span class="math inline">\(n_i\)</span> (numero di osservazioni nel gruppo <span class="math inline">\(i\)</span>).</p>
-<p>L’obiettivo è verificare se almeno una delle medie <span class="math inline">\(\mu_i\)</span> differisca dalle altre. In altre parole, se <span class="math inline">\(Y\)</span> <strong>dipende dal gruppo</strong> di appartenenza.</p>
+<p>dove <span class="math inline">\(\mu_i\)</span> rappresenta la media del gruppo <span class="math inline">\(i\)</span> e <span class="math inline">\(\sigma^2\)</span> è la varianza comune a tutti i gruppi. L’indice <span class="math inline">\(i = 1,\dots,m\)</span> identifica i gruppi, mentre <span class="math inline">\(j = 1,\dots,n_i\)</span> indica le osservazioni disponibili nel gruppo <span class="math inline">\(i\)</span>.</p>
+<p>L’ipotesi nulla del test ANOVA a una via afferma che tutte le medie di gruppo coincidano,</p>
+<p><span class="math display">\[
+H_0:\ \mu_1 = \mu_2 = \dots = \mu_m,
+\]</span></p>
+<p>mentre l’alternativa sostiene che almeno una media sia diversa. In termini interpretativi, il test verifica se la variabilità osservata tra le medie dei gruppi sia sufficientemente grande rispetto alla variabilità interna ai gruppi. Se così non fosse, le differenze tra gruppi possono essere spiegate come semplici fluttuazioni casuali; in caso contrario, si conclude che la variabile risposta <span class="math inline">\(Y\)</span> dipende in modo significativo dal gruppo di appartenenza.</p>
 </section>
 <section id="stima-dei-parametri" class="level2">
 <h2 class="anchored" data-anchor-id="stima-dei-parametri">Stima dei parametri</h2>
-<p>Per ogni gruppo si può calcolare la media campionaria <span class="math inline">\(\bar Y_i\)</span> e la varianza campionaria <span class="math inline">\(S_i^2\)</span>. Le medie hanno distribuzione:</p>
+<p>Nel modello ANOVA a una via, per ciascun gruppo <span class="math inline">\(i\)</span> si stimano i parametri tramite le statistiche campionarie. In particolare, la media campionaria <span class="math inline">\(\bar Y_i\)</span> fornisce una stima naturale della media di gruppo <span class="math inline">\(\mu_i\)</span>, mentre la varianza campionaria <span class="math inline">\(S_i^2\)</span> stima la varianza comune <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>Sotto le ipotesi del modello, la media campionaria di ciascun gruppo ha distribuzione normale,</p>
 <p><span class="math display">\[
-\bar Y_i \sim \mathcal{N}\left( \mu_i, \frac{\sigma^2}{n_i} \right),
+\bar Y_i \sim \mathcal{N}\!\left( \mu_i, \frac{\sigma^2}{n_i} \right),
 \]</span></p>
-<p>mentre ciascuna <span class="math inline">\(S_i^2\)</span> è uno stimatore non distorto della varianza comune <span class="math inline">\(\sigma^2\)</span>.</p>
-<p>Per ottenere una stima globale della varianza, si utilizza la <strong>devianza within</strong> (cioè interna ai gruppi), definita come:</p>
+<p>poiché è la media di <span class="math inline">\(n_i\)</span> osservazioni indipendenti gaussiane con varianza <span class="math inline">\(\sigma^2\)</span>. Le varianze campionarie <span class="math inline">\(S_i^2\)</span> sono invece stimatori non distorti della stessa varianza <span class="math inline">\(\sigma^2\)</span>, ma basati solo sulle osservazioni del singolo gruppo.</p>
+<p>Per sfruttare l’ipotesi di varianza comune, si introduce una stima globale ottenuta aggregando l’informazione di tutti i gruppi. A questo scopo si definisce la <strong>devianza within</strong> (o devianza interna ai gruppi),</p>
 <p><span class="math display">\[
-\mathrm{SS}_W = \sum_{i=1}^m \sum_{j=1}^{n_i} (Y_{ij} - \bar Y_i)^2.
+\mathrm{SS}_W = \sum_{i=1}^m \sum_{j=1}^{n_i} \bigl(Y_{ij} - \bar Y_i\bigr)^2,
 \]</span></p>
-<p>Da qui, si ottiene la stima pooled della varianza:</p>
+<p>che misura la variabilità delle osservazioni attorno alle rispettive medie di gruppo. Dividendo questa quantità per i gradi di libertà residui <span class="math inline">\(N - m\)</span>, con <span class="math inline">\(N = \sum_{i=1}^m n_i\)</span>, si ottiene la stima pooled della varianza,</p>
 <p><span class="math display">\[
-S_p^2 = \frac{\mathrm{SS}_W}{N - m},
+S_p^2 = \frac{\mathrm{SS}_W}{N - m}.
 \]</span></p>
-<p>dove <span class="math inline">\(N = \sum_{i=1}^m n_i\)</span> è il numero totale di osservazioni. Questo stimatore segue (sotto ipotesi) una distribuzione chi-quadrato:</p>
+<p>Sotto le ipotesi del modello, questa statistica ha una distribuzione chi-quadrato scalata,</p>
 <p><span class="math display">\[
-\frac{(N - m) S_p^2}{\sigma^2} \sim \chi^2_{N - m}.
+\frac{(N - m) S_p^2}{\sigma^2} \sim \chi^2_{N - m},
 \]</span></p>
-<p>Parallelamente, si calcola anche la <strong>devianza totale</strong>:</p>
+<p>risultato che è fondamentale per la costruzione del test ANOVA.</p>
+<p>Accanto alla devianza interna, si considera la <strong>devianza totale</strong>,</p>
 <p><span class="math display">\[
-\mathrm{SS}_Y = \sum_{i=1}^m \sum_{j=1}^{n_i} (Y_{ij} - \bar Y)^2,
+\mathrm{SS}_Y = \sum_{i=1}^m \sum_{j=1}^{n_i} \bigl(Y_{ij} - \bar Y\bigr)^2,
 \]</span></p>
-<p>dove <span class="math inline">\(\bar Y\)</span> è la media complessiva di tutte le osservazioni. La <strong>devianza between</strong>, cioè tra gruppi, è allora:</p>
+<p>dove <span class="math inline">\(\bar Y\)</span> è la media complessiva di tutte le osservazioni. Questa quantità misura la variabilità totale di <span class="math inline">\(Y\)</span> senza tenere conto della struttura a gruppi.</p>
+<p>La parte di variabilità attribuibile alle differenze tra i gruppi è descritta dalla <strong>devianza between</strong>,</p>
 <p><span class="math display">\[
-\mathrm{SS}_B = \sum_{i=1}^m n_i (\bar Y_i - \bar Y)^2.
+\mathrm{SS}_B = \sum_{i=1}^m n_i \bigl(\bar Y_i - \bar Y\bigr)^2,
 \]</span></p>
-<p>Tutti e tre questi termini sono legati dalla classica <strong>identità delle devianze</strong>:</p>
+<p>che confronta le medie di gruppo con la media globale, pesandole per le rispettive numerosità.</p>
+<p>Queste tre devianze sono legate dalla classica <strong>identità delle devianze</strong>,</p>
 <p><span class="math display">\[
-\mathrm{SS}_Y = \mathrm{SS}_B + \mathrm{SS}_W.
+\mathrm{SS}_Y = \mathrm{SS}_B + \mathrm{SS}_W,
 \]</span></p>
+<p>che formalizza l’idea centrale dell’ANOVA: la variabilità totale della risposta può essere scomposta in una componente dovuta alle differenze tra gruppi e una componente dovuta alla variabilità interna ai gruppi.</p>
 </section>
 <section id="il-test-anova" class="level2">
 <h2 class="anchored" data-anchor-id="il-test-anova">Il test ANOVA</h2>
-<p>Per verificare se le medie <span class="math inline">\(\mu_i\)</span> siano tutte uguali, si imposta il seguente test:</p>
+<p>Per stabilire se le medie di gruppo siano tutte uguali si formalizza il problema come un test di ipotesi. L’ipotesi nulla afferma che non vi siano differenze sistematiche tra i gruppi,</p>
 <p><span class="math display">\[
-H_0: \mu_1 = \mu_2 = \dots = \mu_m, \quad \text{contro} \quad H_A: \text{non tutte le } \mu_i \text{ sono uguali}.
+H_0: \mu_1 = \mu_2 = \dots = \mu_m,
 \]</span></p>
-<p>La statistica del test è data da:</p>
+<p>mentre l’ipotesi alternativa sostiene che almeno una delle medie differisca dalle altre.</p>
+<p>L’idea centrale del test ANOVA è confrontare due stime della varianza <span class="math inline">\(\sigma^2\)</span>: una basata sulla variabilità <strong>tra</strong> i gruppi e una basata sulla variabilità <strong>interna</strong> ai gruppi. La prima è ottenuta dividendo la devianza between per i suoi gradi di libertà,</p>
 <p><span class="math display">\[
-F = \frac{S_B^2}{S_p^2} = \frac{\mathrm{SS}_B / (m - 1)}{\mathrm{SS}_W / (N - m)}.
+S_B^2 = \frac{\mathrm{SS}_B}{m - 1},
 \]</span></p>
-<p>Sotto <span class="math inline">\(H_0\)</span>, questa quantità segue una distribuzione <span class="math inline">\(F\)</span> con <span class="math inline">\(m-1\)</span> e <span class="math inline">\(N - m\)</span> gradi di libertà:</p>
+<p>mentre la seconda coincide con la stima pooled già introdotta,</p>
+<p><span class="math display">\[
+S_p^2 = \frac{\mathrm{SS}_W}{N - m}.
+\]</span></p>
+<p>La statistica test è quindi il loro rapporto,</p>
+<p><span class="math display">\[
+F = \frac{S_B^2}{S_p^2}
+  = \frac{\mathrm{SS}_B / (m - 1)}{\mathrm{SS}_W / (N - m)}.
+\]</span></p>
+<p>Sotto l’ipotesi nulla, entrambe le quantità al numeratore e al denominatore stimano la stessa varianza <span class="math inline">\(\sigma^2\)</span>, e il loro rapporto segue una distribuzione di Fisher–Snedecor con <span class="math inline">\(m-1\)</span> e <span class="math inline">\(N-m\)</span> gradi di libertà,</p>
 <p><span class="math display">\[
 F \sim F(m - 1,\ N - m).
 \]</span></p>
-<p>Se il valore osservato di <span class="math inline">\(F\)</span> è troppo grande rispetto alla distribuzione teorica (cioè se <span class="math inline">\(F &gt; F_{\alpha}(m - 1,\ N - m)\)</span> per un certo livello di significatività <span class="math inline">\(\alpha\)</span>), si rifiuta l’ipotesi nulla e si conclude che almeno un gruppo differisce.</p>
+<p>Il criterio decisionale consiste nel confrontare il valore osservato della statistica con il quantile superiore della distribuzione <span class="math inline">\(F\)</span>. Se il valore di <span class="math inline">\(F\)</span> risulta sufficientemente grande, ossia maggiore del quantile critico <span class="math inline">\(F_{\alpha}(m-1, N-m)\)</span> per un livello di significatività <span class="math inline">\(\alpha\)</span>, si rifiuta l’ipotesi nulla. In tal caso si conclude che la variabilità tra le medie di gruppo è troppo elevata per essere spiegata dal solo rumore interno, e quindi che almeno un gruppo presenta una media diversa dalle altre.</p>
 </section>
 <section id="aspetti-operativi" class="level2">
 <h2 class="anchored" data-anchor-id="aspetti-operativi">Aspetti operativi</h2>
-<p>I dati per l’ANOVA possono essere raccolti in due formati principali. Il <strong>formato wide</strong> prevede una colonna per ogni gruppo, mentre il <strong>formato long (stacked)</strong> è più adatto per software statistici e contiene una colonna con l’etichetta del gruppo e una colonna con la variabile di interesse.</p>
-<p>Dopo aver effettuato l’ANOVA, è buona prassi controllare i <strong>residui</strong> per verificare che le ipotesi del modello siano soddisfatte. In particolare, è importante che:</p>
-<ul>
-<li>i residui siano distribuiti normalmente,</li>
-<li>la varianza sia costante tra i gruppi (omoschedasticità),</li>
-<li>non ci siano outlier evidenti.</li>
-</ul>
-<p>Se queste condizioni non sono rispettate, si possono applicare <strong>trasformazioni</strong> sulla variabile <span class="math inline">\(Y\)</span>, come logaritmo o radice quadrata, per migliorare l’aderenza ai presupposti.</p>
-<p>Infine, se il test ANOVA non è significativo, si può trattare l’intero dataset come un singolo campione proveniente da una distribuzione gaussiana comune, ignorando il fattore categoriale.</p>
+<p>Dal punto di vista pratico, i dati per un’analisi ANOVA possono essere organizzati secondo due strutture principali. Nel <strong>formato wide</strong> ogni gruppo è rappresentato da una colonna distinta, ciascuna contenente le osservazioni relative a quel livello del fattore. Nel <strong>formato long</strong> (o stacked), invece, tutte le osservazioni sono raccolte in un’unica colonna numerica, affiancata da una colonna categoriale che indica il gruppo di appartenenza. Quest’ultimo formato è in genere preferito dai software statistici e risulta più flessibile quando si passa a modelli con più fattori.</p>
+<p>Una volta stimato il modello e svolto il test ANOVA, è fondamentale verificare a posteriori la validità delle ipotesi su cui il modello si basa. Questo controllo viene effettuato analizzando i <strong>residui</strong>, ossia le differenze tra le osservazioni e le corrispondenti medie di gruppo. In particolare, ci si aspetta che i residui siano approssimativamente normali, che mostrino una variabilità simile nei diversi gruppi (omoschedasticità) e che non presentino valori anomali particolarmente influenti.</p>
+<p>Qualora queste condizioni risultino violate, una strategia comune consiste nell’applicare una trasformazione alla variabile risposta <span class="math inline">\(Y\)</span>, come il logaritmo o la radice quadrata. Tali trasformazioni possono ridurre l’asimmetria, stabilizzare la varianza e rendere più plausibili le assunzioni del modello.</p>
+<p>Infine, se il test ANOVA non risulta significativo, non vi è evidenza statistica di differenze tra le medie di gruppo. In questo caso è ragionevole trattare l’intero insieme di dati come un unico campione proveniente da una stessa distribuzione gaussiana, ignorando il fattore categoriale senza perdita informativa rilevante.</p>
 
 
 </section>

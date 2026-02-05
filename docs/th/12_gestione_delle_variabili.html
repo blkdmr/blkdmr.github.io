@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>test-del-chi-quadro – IML</title>
+<title>gestione_delle_variabili – IML</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/16. Test del Chi-quadro.html">Test del Chi-quadro</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/12_gestione_delle_variabili.html">Gestione delle variabili</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,14 +188,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/08. Trasformazione PCA e analisi delle componenti principali.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trasformazione PCA e analisi delle componenti principali</span></a>
+  <a href="../th/08_Analisi_delle_componenti_principali.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi delle componenti principali</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/09. Funzioni di Perdita e Inferenza Statistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Funzioni di Perdita e Inferenza Statistica</span></a>
+  <a href="../th/09_Funzioni_di_Perdita_e_Inferenza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Funzioni di Perdita e Inferenza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -207,25 +207,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../th/11. Selezione di Variabili e Regolarizzazione nella Regressione.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Selezione di Variabili e Regolarizzazione nella Regressione</span></a>
+ <span class="menu-text">Selezione di Variabili e Regolarizzazione</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/12. Gestione delle Variabili.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gestione delle Variabili</span></a>
+  <a href="../th/12_gestione_delle_variabili.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Gestione delle variabili</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/13. Regressione Logistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Regressione Logistica</span></a>
+  <a href="../th/13_Regressione_logistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regressione logistica</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/14. Analisi della varianza (ANOVA).html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analisi della varianza (ANOVA)</span></a>
+  <a href="../th/14_Analisi_della_varianza.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analisi della varianza</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -236,7 +236,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../th/16. Test del Chi-quadro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../th/16_Test_del_chi-quadro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Test del Chi-quadro</span></a>
   </div>
 </li>
@@ -364,154 +364,192 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#test-del-chi-quadro" id="toc-test-del-chi-quadro" class="nav-link active" data-scroll-target="#test-del-chi-quadro">Test del Chi-quadro</a>
+  <li><a href="#gestione-delle-variabili" id="toc-gestione-delle-variabili" class="nav-link active" data-scroll-target="#gestione-delle-variabili">Gestione delle variabili</a>
   <ul class="collapse">
-  <li><a href="#tipi-di-test-del-chi-quadro" id="toc-tipi-di-test-del-chi-quadro" class="nav-link" data-scroll-target="#tipi-di-test-del-chi-quadro">Tipi di test del Chi-quadro</a></li>
-  <li><a href="#test-del-chi-quadro-elementare" id="toc-test-del-chi-quadro-elementare" class="nav-link" data-scroll-target="#test-del-chi-quadro-elementare">Test del Chi-quadro elementare</a></li>
-  <li><a href="#estensione-a-distribuzioni-con-molti-valori-o-continue" id="toc-estensione-a-distribuzioni-con-molti-valori-o-continue" class="nav-link" data-scroll-target="#estensione-a-distribuzioni-con-molti-valori-o-continue">Estensione a distribuzioni con molti valori o continue</a></li>
-  <li><a href="#estensione-a-famiglie-parametriche" id="toc-estensione-a-famiglie-parametriche" class="nav-link" data-scroll-target="#estensione-a-famiglie-parametriche">Estensione a famiglie parametriche</a></li>
-  <li><a href="#test-su-tabelle-di-contingenza" id="toc-test-su-tabelle-di-contingenza" class="nav-link" data-scroll-target="#test-su-tabelle-di-contingenza">Test su tabelle di contingenza</a></li>
-  <li><a href="#versioni-esatte-del-test" id="toc-versioni-esatte-del-test" class="nav-link" data-scroll-target="#versioni-esatte-del-test">Versioni esatte del test</a></li>
-  <li><a href="#test-esatto-di-fisher-irwin" id="toc-test-esatto-di-fisher-irwin" class="nav-link" data-scroll-target="#test-esatto-di-fisher-irwin">Test esatto di Fisher-Irwin</a></li>
-  <li><a href="#conclusione" id="toc-conclusione" class="nav-link" data-scroll-target="#conclusione">Conclusione</a></li>
+  <li><a href="#variabili-dicotomiche" id="toc-variabili-dicotomiche" class="nav-link" data-scroll-target="#variabili-dicotomiche">Variabili dicotomiche</a>
+  <ul class="collapse">
+  <li><a href="#come-variabili-esplicative" id="toc-come-variabili-esplicative" class="nav-link" data-scroll-target="#come-variabili-esplicative">Come variabili esplicative</a></li>
+  <li><a href="#come-variabili-di-risposta" id="toc-come-variabili-di-risposta" class="nav-link" data-scroll-target="#come-variabili-di-risposta">Come variabili di risposta</a></li>
+  </ul></li>
+  <li><a href="#variabili-categoriche" id="toc-variabili-categoriche" class="nav-link" data-scroll-target="#variabili-categoriche">Variabili categoriche</a>
+  <ul class="collapse">
+  <li><a href="#come-variabili-di-risposta-1" id="toc-come-variabili-di-risposta-1" class="nav-link" data-scroll-target="#come-variabili-di-risposta-1">Come variabili di risposta</a></li>
+  <li><a href="#come-variabili-di-ingresso" id="toc-come-variabili-di-ingresso" class="nav-link" data-scroll-target="#come-variabili-di-ingresso">Come variabili di ingresso</a></li>
+  </ul></li>
+  <li><a href="#codifica-one-hot-con-categoria-di-riferimento" id="toc-codifica-one-hot-con-categoria-di-riferimento" class="nav-link" data-scroll-target="#codifica-one-hot-con-categoria-di-riferimento">Codifica one-hot con categoria di riferimento</a></li>
+  <li><a href="#effetto-della-selezione-stepwise" id="toc-effetto-della-selezione-stepwise" class="nav-link" data-scroll-target="#effetto-della-selezione-stepwise">Effetto della selezione stepwise</a></li>
+  <li><a href="#variabili-numeriche" id="toc-variabili-numeriche" class="nav-link" data-scroll-target="#variabili-numeriche">Variabili numeriche</a>
+  <ul class="collapse">
+  <li><a href="#variabili-di-tipo-differenza" id="toc-variabili-di-tipo-differenza" class="nav-link" data-scroll-target="#variabili-di-tipo-differenza">Variabili di tipo “differenza”</a></li>
+  <li><a href="#variabili-di-tipo-rapporto" id="toc-variabili-di-tipo-rapporto" class="nav-link" data-scroll-target="#variabili-di-tipo-rapporto">Variabili di tipo “rapporto”</a></li>
+  <li><a href="#effetti-delle-trasformazioni" id="toc-effetti-delle-trasformazioni" class="nav-link" data-scroll-target="#effetti-delle-trasformazioni">Effetti delle trasformazioni</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/16. Test del Chi-quadro.html">Test del Chi-quadro</a></li></ol></nav></header>
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../th/01. Richiami di probabilità.html">Theory</a></li><li class="breadcrumb-item"><a href="../th/12_gestione_delle_variabili.html">Gestione delle variabili</a></li></ol></nav></header>
 
 
 
 
-<section id="test-del-chi-quadro" class="level1">
-<h1>Test del Chi-quadro</h1>
-<p>Il test del Chi-quadro è un insieme di test statistici utilizzati per verificare se i dati osservati seguono una determinata distribuzione teorica. Esistono diverse varianti, ognuna adatta a contesti specifici.</p>
-<section id="tipi-di-test-del-chi-quadro" class="level3">
-<h3 class="anchored" data-anchor-id="tipi-di-test-del-chi-quadro">Tipi di test del Chi-quadro</h3>
-<ol type="1">
-<li><strong>Test elementare per distribuzioni discrete semplici</strong>, ad esempio per verificare se un dado è truccato.</li>
-<li><strong>Test su distribuzioni qualsiasi</strong>, anche continue o con molti valori distinti.</li>
-<li><strong>Test per famiglie di distribuzioni con parametri ignoti</strong>, come la verifica della gaussianità.</li>
-<li><strong>Test basato su tabelle di contingenza</strong>, per controllare l’indipendenza tra due variabili categoriali.</li>
-</ol>
+<section id="gestione-delle-variabili" class="level1">
+<h1>Gestione delle variabili</h1>
+<p>Quando si costruisce un modello statistico, non solo di regressione, è essenziale trattare correttamente le <strong>variabili</strong> in base alla loro natura. In generale si distinguono variabili dicotomiche, categoriche e numeriche, e questa distinzione influisce direttamente sul tipo di modello utilizzabile e sull’interpretazione dei parametri.</p>
+<p>Le <strong>variabili dicotomiche</strong> hanno due soli livelli, come sì/no o vero/falso. Le <strong>variabili categoriche</strong> presentano più di due modalità, ad esempio la stagione o la regione di provenienza. Le <strong>variabili numeriche</strong>, infine, rappresentano quantità misurabili e possono essere continue o discrete.</p>
+<section id="variabili-dicotomiche" class="level2">
+<h2 class="anchored" data-anchor-id="variabili-dicotomiche">Variabili dicotomiche</h2>
+<section id="come-variabili-esplicative" class="level3">
+<h3 class="anchored" data-anchor-id="come-variabili-esplicative">Come variabili esplicative</h3>
+<p>Quando una variabile dicotomica è usata come ingresso, viene quasi sempre codificata con i valori <strong>0 e 1</strong>, anche se in teoria qualsiasi coppia di numeri distinti sarebbe possibile. Questa scelta rende immediata l’interpretazione dei coefficienti.</p>
+<p>Se, ad esempio, <span class="math inline">\(x_i=1\)</span> indica “femmina” e <span class="math inline">\(x_i=0\)</span> “maschio”, allora il coefficiente <span class="math inline">\(\beta_1\)</span> associato a <span class="math inline">\(x_i\)</span> misura la differenza media nella risposta <span class="math inline">\(Y\)</span> tra il gruppo femminile e il gruppo di riferimento (maschile), a parità delle altre variabili. Per questo motivo le dicotomiche sono molto comuni anche nei <strong>disegni sperimentali</strong>, dove permettono confronti diretti tra trattamento e controllo.</p>
 </section>
-<section id="test-del-chi-quadro-elementare" class="level3">
-<h3 class="anchored" data-anchor-id="test-del-chi-quadro-elementare">Test del Chi-quadro elementare</h3>
-<p>Si supponga di avere un campione <span class="math inline">\(X_1, ..., X_n\)</span> generato da una legge incognita <span class="math inline">\(\varphi\)</span>, che può assumere <span class="math inline">\(K\)</span> valori distinti. Si vuole verificare se questa distribuzione coincide con una distribuzione teorica prefissata <span class="math inline">\(\varphi_0\)</span>.</p>
-<section id="ipotesi" class="level4">
-<h4 class="anchored" data-anchor-id="ipotesi">Ipotesi:</h4>
-<ul>
-<li><span class="math inline">\(H_0: \varphi = \varphi_0\)</span></li>
-<li><span class="math inline">\(H_1: \varphi \ne \varphi_0\)</span></li>
-</ul>
-</section>
-<section id="esempio" class="level4">
-<h4 class="anchored" data-anchor-id="esempio">Esempio</h4>
-<p>Verificare se un dado è equo: <span class="math inline">\(\varphi_0 = (1/6, 1/6, ..., 1/6)\)</span>.</p>
-<p>Si calcolano le frequenze osservate: <span class="math display">\[
-O_j = \#\{ i: X_i = j \} \quad \text{per } j = 1, ..., K
-\]</span></p>
-<p>e i valori attesi: <span class="math display">\[
-A_j = n \cdot \varphi_0(j)
-\]</span></p>
-</section>
-<section id="statistica-di-pearson" class="level4">
-<h4 class="anchored" data-anchor-id="statistica-di-pearson">Statistica di Pearson</h4>
-<p>La statistica che misura la discrepanza tra osservato e atteso è: <span class="math display">\[
-W = \sum_{j=1}^K \frac{(O_j - A_j)^2}{A_j}
-\]</span> Sotto l’ipotesi nulla e per campioni abbastanza grandi, <span class="math inline">\(W\)</span> segue approssimativamente una distribuzione <span class="math inline">\(\chi^2\)</span> con <span class="math inline">\(K - 1\)</span> gradi di libertà.</p>
-</section>
-<section id="statistica-alternativa-g" class="level4">
-<h4 class="anchored" data-anchor-id="statistica-alternativa-g">Statistica alternativa: G</h4>
-<p>Una variante più moderna utilizza la cosiddetta statistica G: <span class="math display">\[
-G = 2 \sum_{j=1}^K O_j \log \frac{O_j}{A_j}
-\]</span> Anche <span class="math inline">\(G\)</span> approssima una distribuzione <span class="math inline">\(\chi^2(K - 1)\)</span>.</p>
-</section>
-<section id="condizioni-di-applicabilità" class="level4">
-<h4 class="anchored" data-anchor-id="condizioni-di-applicabilità">Condizioni di applicabilità</h4>
-<p>Affinché l’approssimazione sia valida, si richiede: - <span class="math inline">\(A_j \ge 1\)</span> per tutti i <span class="math inline">\(j\)</span> - almeno l’80% degli <span class="math inline">\(A_j\)</span> sia maggiore di 5</p>
+<section id="come-variabili-di-risposta" class="level3">
+<h3 class="anchored" data-anchor-id="come-variabili-di-risposta">Come variabili di risposta</h3>
+<p>Una variabile dicotomica non è adatta come risposta in un modello di regressione lineare classica, perché le ipotesi di normalità e omoschedasticità risultano violate. In questi casi si utilizzano modelli specifici per la classificazione, come la <strong>regressione logistica</strong> nel caso binario, l’analisi discriminante o, più in generale, modelli di machine learning per la classificazione.</p>
 </section>
 </section>
-<section id="estensione-a-distribuzioni-con-molti-valori-o-continue" class="level3">
-<h3 class="anchored" data-anchor-id="estensione-a-distribuzioni-con-molti-valori-o-continue">Estensione a distribuzioni con molti valori o continue</h3>
-<p>Quando la distribuzione da testare è continua (es. esponenziale, normale) o ha molti valori, si suddivide lo spazio in <span class="math inline">\(K\)</span> intervalli (detti “bin”) e si contano le frequenze osservate nei bin.</p>
-<p>Per ciascun bin <span class="math inline">\(B_j\)</span>, si ha: - <span class="math inline">\(O_j = \# \{ X_i \in B_j \}\)</span> - <span class="math inline">\(A_j = n \cdot P_{H_0}(X \in B_j)\)</span></p>
-<p><strong>Suggerimento:</strong> scegliere bin in modo che i <span class="math inline">\(A_j\)</span> siano più omogenei possibili (equiprobabili sotto <span class="math inline">\(H_0\)</span>).</p>
+<section id="variabili-categoriche" class="level2">
+<h2 class="anchored" data-anchor-id="variabili-categoriche">Variabili categoriche</h2>
+<p>Le variabili categoriche si distinguono in <strong>nominali</strong> e <strong>ordinali</strong>. Le nominali non hanno un ordine naturale tra le categorie, come nel caso della regione di provenienza o del tipo di carburante. Le ordinali, invece, presentano un ordine intrinseco, ad esempio il livello di istruzione o il grado di gravità di un sintomo.</p>
+<p>Talvolta le variabili ordinali vengono codificate con numeri interi crescenti, ma questa scelta va fatta con cautela, perché introduce implicitamente una nozione di distanza tra le categorie che potrebbe non essere giustificata dal fenomeno osservato.</p>
+<section id="come-variabili-di-risposta-1" class="level3">
+<h3 class="anchored" data-anchor-id="come-variabili-di-risposta-1">Come variabili di risposta</h3>
+<p>Quando la variabile risposta è categorica, il modello di regressione lineare non è appropriato. A seconda del numero di categorie, si ricorre alla regressione logistica binaria o multinomiale, oppure a modelli di classificazione più generali come alberi decisionali, foreste casuali o reti neurali.</p>
 </section>
-<section id="estensione-a-famiglie-parametriche" class="level3">
-<h3 class="anchored" data-anchor-id="estensione-a-famiglie-parametriche">Estensione a famiglie parametriche</h3>
-<p>A volte non si ha una distribuzione teorica fissata, ma si vuole verificare se i dati provengono da una certa famiglia (es. Normali) con parametri ignoti.</p>
-<section id="esempio-1" class="level4">
-<h4 class="anchored" data-anchor-id="esempio-1">Esempio</h4>
-<p>Si vuole testare se <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>, ma <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma\)</span> non sono noti. In tal caso: - si stimano <span class="math inline">\(\hat{\mu}\)</span> e <span class="math inline">\(\hat{\sigma}\)</span> dal campione - si calcola <span class="math inline">\(W\)</span> o <span class="math inline">\(G\)</span> sulla base della distribuzione <span class="math inline">\(N(\hat{\mu}, \hat{\sigma}^2)\)</span></p>
-<p><strong>Nota importante:</strong> si perdono gradi di libertà per ogni parametro stimato. Ad esempio, se si stimano 2 parametri, la statistica segue <span class="math inline">\(\chi^2(K - 3)\)</span>.</p>
+<section id="come-variabili-di-ingresso" class="level3">
+<h3 class="anchored" data-anchor-id="come-variabili-di-ingresso">Come variabili di ingresso</h3>
+<p>In un modello di regressione, una variabile categorica con <span class="math inline">\(k\)</span> livelli non può essere inserita direttamente come numero. Deve essere trasformata in <strong><span class="math inline">\(k-1\)</span> variabili dicotomiche</strong>, dette <em>dummy</em>, scegliendo una categoria come riferimento. Questa scelta evita problemi di collinearità e consente di interpretare i coefficienti come differenze rispetto al livello di riferimento.</p>
 </section>
 </section>
-<section id="test-su-tabelle-di-contingenza" class="level3">
-<h3 class="anchored" data-anchor-id="test-su-tabelle-di-contingenza">Test su tabelle di contingenza</h3>
-<p>Quando si vogliono confrontare due variabili categoriali (es. trattamento e guarigione), si costruisce una tabella che riporta le frequenze <span class="math inline">\(O_{ij}\)</span>.</p>
-<section id="ipotesi-1" class="level4">
-<h4 class="anchored" data-anchor-id="ipotesi-1">Ipotesi:</h4>
-<ul>
-<li><span class="math inline">\(H_0\)</span>: le due variabili sono indipendenti</li>
-<li><span class="math inline">\(H_1\)</span>: le variabili sono associate</li>
-</ul>
+<section id="codifica-one-hot-con-categoria-di-riferimento" class="level2">
+<h2 class="anchored" data-anchor-id="codifica-one-hot-con-categoria-di-riferimento">Codifica one-hot con categoria di riferimento</h2>
+<p>Nel caso di una variabile categorica con <span class="math inline">\(k\)</span> livelli, la codifica one-hot richiede di scegliere una categoria come <strong>riferimento</strong> (o <em>default</em>) e di costruire solo <span class="math inline">\(k-1\)</span> variabili binarie. La categoria di riferimento non compare esplicitamente nel modello, ma è assorbita nel termine noto.</p>
+<p>Se, ad esempio, la variabile <em>stagione</em> ha quattro livelli (inverno, primavera, estate, autunno) e si sceglie <strong>inverno</strong> come default, il modello lineare assume la forma <span class="math display">\[
+Y = \beta_0 + \beta_{\text{pri}} x_{\text{pri}} + \beta_{\text{est}} x_{\text{est}} + \beta_{\text{aut}} x_{\text{aut}} + \varepsilon.
+\]</span> In questa parametrizzazione, <span class="math inline">\(\beta_0\)</span> rappresenta il valore atteso di <span class="math inline">\(Y\)</span> per la categoria di riferimento (inverno), mentre ciascun coefficiente associato alle dummy misura la <strong>differenza media rispetto al default</strong>.</p>
+<p>Considerando, ad esempio, le seguenti stime:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Coefficiente</th>
+<th>Valore</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\beta_0\)</span> (inverno)</td>
+<td>16.4</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\beta_{\text{pri}}\)</span> (primavera)</td>
+<td>5.4</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\beta_{\text{est}}\)</span> (estate)</td>
+<td>6.7</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\beta_{\text{aut}}\)</span> (autunno)</td>
+<td>1.8</td>
+</tr>
+</tbody>
+</table>
+<p>i valori attesi della risposta risultano:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Stagione</th>
+<th><span class="math inline">\(E[Y]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Inverno</td>
+<td>16.4</td>
+</tr>
+<tr class="even">
+<td>Primavera</td>
+<td>21.8</td>
+</tr>
+<tr class="odd">
+<td>Estate</td>
+<td>23.1</td>
+</tr>
+<tr class="even">
+<td>Autunno</td>
+<td>18.2</td>
+</tr>
+</tbody>
+</table>
+<p>L’interpretazione è immediata: ciascun coefficiente indica di quanto la media della risposta cambia rispetto all’inverno. Questa codifica consente anche di formulare test di ipotesi mirati, ad esempio verificare se l’autunno è indistinguibile dall’inverno tramite <span class="math inline">\(H_0:\beta_{\text{aut}}=0\)</span>, oppure confrontare direttamente primavera ed estate con <span class="math inline">\(H_0:\beta_{\text{pri}}=\beta_{\text{est}}\)</span>.</p>
 </section>
-<section id="valori-attesi" class="level4">
-<h4 class="anchored" data-anchor-id="valori-attesi">Valori attesi:</h4>
-<p><span class="math display">\[
-A_{ij} = \frac{\text{Totale riga } i \cdot \text{Totale colonna } j}{N}
-\]</span></p>
+<section id="effetto-della-selezione-stepwise" class="level2">
+<h2 class="anchored" data-anchor-id="effetto-della-selezione-stepwise">Effetto della selezione stepwise</h2>
+<p>Quando si applica una procedura di <strong>stepwise backward</strong>, può accadere che una delle variabili dummy venga eliminata dal modello. Questo va interpretato come evidenza del fatto che quella categoria non è statisticamente distinguibile dalla categoria di riferimento. Se, ad esempio, la dummy per l’autunno viene rimossa, il modello sta suggerendo che autunno e inverno possono essere considerati equivalenti rispetto alla risposta.</p>
+<p>In termini di codifica, la situazione diventa:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Stagione</th>
+<th>primavera</th>
+<th>estate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Primavera</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Estate</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Autunno</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Inverno</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Autunno viene quindi trattato <strong>come inverno</strong>, poiché entrambe le categorie condividono la stessa combinazione di dummy.</p>
+<p>Se l’interesse è confrontare direttamente due categorie non di riferimento, come primavera ed estate, ci sono due possibilità concettualmente equivalenti. La prima consiste nel formulare un test lineare sui parametri, ad esempio <span class="math inline">\(H_0:\beta_{\text{pri}}=\beta_{\text{est}}\)</span>. La seconda è cambiare la categoria di riferimento, ad esempio ponendo estate come default, e ricodificare il modello.</p>
+<p>Va infine ricordato che ogni categoria aggiuntiva aumenta il numero di parametri <span class="math inline">\(p\)</span>. È quindi importante monitorare il rapporto <span class="math inline">\(n/p\)</span>: in presenza di categorie rare può essere opportuno accorparle in macro-categorie, oppure valutare l’esclusione di alcune osservazioni, per mantenere il modello stabile e interpretabile.</p>
 </section>
-<section id="statistica-di-pearson-1" class="level4">
-<h4 class="anchored" data-anchor-id="statistica-di-pearson-1">Statistica di Pearson:</h4>
-<p><span class="math display">\[
-W = \sum_{i=1}^m \sum_{j=1}^n \frac{(O_{ij} - A_{ij})^2}{A_{ij}} \sim \chi^2((m - 1)(n - 1))
-\]</span></p>
+<section id="variabili-numeriche" class="level2">
+<h2 class="anchored" data-anchor-id="variabili-numeriche">Variabili numeriche</h2>
+<p>Le variabili numeriche rappresentano quantità misurabili e, a differenza delle categoriche, possono entrare direttamente in un modello di regressione. Tuttavia, il loro <strong>significato statistico</strong> e la loro <strong>scala</strong> influenzano il modo in cui è opportuno utilizzarle.</p>
+<section id="variabili-di-tipo-differenza" class="level3">
+<h3 class="anchored" data-anchor-id="variabili-di-tipo-differenza">Variabili di tipo “differenza”</h3>
+<p>Le variabili di tipo differenza sono quelle per cui ha senso interpretare direttamente una variazione additiva. Esempi tipici sono statura, peso, quoziente intellettivo o consumi espressi in unità fisiche standard. In questi casi non sono richieste trasformazioni particolari: il coefficiente di regressione misura semplicemente la variazione media della risposta associata a un incremento unitario della variabile.</p>
 </section>
-<section id="statistica-g" class="level4">
-<h4 class="anchored" data-anchor-id="statistica-g">Statistica G:</h4>
-<p><span class="math display">\[
-G = 2 \sum_{i,j} O_{ij} \log \frac{O_{ij}}{A_{ij}} \sim \chi^2((m - 1)(n - 1))
-\]</span></p>
+<section id="variabili-di-tipo-rapporto" class="level3">
+<h3 class="anchored" data-anchor-id="variabili-di-tipo-rapporto">Variabili di tipo “rapporto”</h3>
+<p>Le variabili di tipo rapporto sono definite su valori <strong>positivi</strong> e spesso presentano una distribuzione fortemente asimmetrica o estesa su più ordini di grandezza, come reddito, popolazione o fatturato. In questi casi è frequente applicare una <strong>trasformazione logaritmica</strong>.</p>
+<p>In un modello lineare del tipo <span class="math display">\[
+Y = \beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p + \varepsilon,
+\]</span> se <span class="math inline">\(x_1\)</span> è una variabile di tipo rapporto, l’uso di <span class="math inline">\(\log x_1\)</span> può rendere la relazione più vicina alla linearità e ridurre l’asimmetria della distribuzione, migliorando il comportamento dei residui.</p>
 </section>
-</section>
-<section id="versioni-esatte-del-test" class="level3">
-<h3 class="anchored" data-anchor-id="versioni-esatte-del-test">Versioni esatte del test</h3>
-<p>Quando le frequenze attese sono troppo piccole, la distribuzione <span class="math inline">\(\chi^2\)</span> non è più un’approssimazione affidabile. In questi casi si usano:</p>
-<section id="simulazione-monte-carlo" class="level4">
-<h4 class="anchored" data-anchor-id="simulazione-monte-carlo">Simulazione Monte Carlo:</h4>
-<ul>
-<li>si generano molteplici campioni sotto <span class="math inline">\(H_0\)</span> e si costruisce la distribuzione empirica di <span class="math inline">\(W\)</span>.</li>
-</ul>
-</section>
-<section id="enumerazione-esaustiva" class="level4">
-<h4 class="anchored" data-anchor-id="enumerazione-esaustiva">Enumerazione esaustiva:</h4>
-<ul>
-<li>si calcolano esattamente tutte le possibili combinazioni di conteggi compatibili con i totali e si valuta la distribuzione esatta di <span class="math inline">\(W\)</span>.</li>
-</ul>
-</section>
-</section>
-<section id="test-esatto-di-fisher-irwin" class="level3">
-<h3 class="anchored" data-anchor-id="test-esatto-di-fisher-irwin">Test esatto di Fisher-Irwin</h3>
-<p>Per tabelle <span class="math inline">\(2 \times 2\)</span> con totali fissi, è possibile calcolare esattamente la distribuzione del conteggio in una cella (ad esempio <span class="math inline">\(O_{11}\)</span>) sotto <span class="math inline">\(H_0\)</span>.</p>
-<p>Si utilizza la <strong>distribuzione ipergeometrica</strong>: <span class="math display">\[
-P(O_{11} = k) = \frac{\binom{c}{k} \binom{d}{a - k}}{\binom{n}{a}}
-\]</span> dove <span class="math inline">\(a\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(d\)</span>, <span class="math inline">\(n\)</span> sono i totali delle righe e colonne.</p>
-<section id="calcolo-del-p-value" class="level4">
-<h4 class="anchored" data-anchor-id="calcolo-del-p-value">Calcolo del p-value:</h4>
-<ul>
-<li>se la distribuzione è simmetrica: <span class="math inline">\(p = 2 \cdot P(O_{11} \le k_{\text{oss}})\)</span></li>
-<li>altrimenti: si sommano le probabilità di tutti gli esiti con probabilità inferiore o uguale a quella osservata</li>
-</ul>
-</section>
-</section>
-<section id="conclusione" class="level3">
-<h3 class="anchored" data-anchor-id="conclusione">Conclusione</h3>
-<p>Il test del Chi-quadro è uno strumento molto utile per confrontare distribuzioni, verificare indipendenza o adattamento a modelli teorici. Tuttavia, la sua applicabilità richiede attenzione alle frequenze attese, alla numerosità del campione e al tipo di ipotesi testata. In caso di dubbio, è sempre consigliabile affiancare al test anche un’analisi visiva dei dati.</p>
+<section id="effetti-delle-trasformazioni" class="level3">
+<h3 class="anchored" data-anchor-id="effetti-delle-trasformazioni">Effetti delle trasformazioni</h3>
+<p>Le <strong>trasformazioni lineari</strong>, come il cambio di unità di misura o una riscalatura affine, non modificano le conclusioni statistiche fondamentali del modello, come i test di ipotesi o il valore di <span class="math inline">\(R^2\)</span>, anche se cambiano il valore numerico dei coefficienti.</p>
+<p>Le <strong>trasformazioni non lineari</strong>, come il logaritmo o la radice quadrata, hanno invece un impatto più sostanziale: possono migliorare la normalità dei residui, la stabilità della varianza e la linearità della relazione tra risposta e predittori, rendendo il modello più adeguato alle ipotesi teoriche.</p>
+<p>Un caso frequente è la regressione logaritmica sulla risposta: <span class="math display">\[
+\log Y = \beta_0 + \beta_1 x_1 + \cdots,
+\]</span> che, riscritta sulla scala originale, diventa <span class="math display">\[
+Y = e^{\beta_0}\cdot e^{\beta_1 x_1}\cdot \cdots.
+\]</span> In questa formulazione i coefficienti hanno un’interpretazione <strong>moltiplicativa</strong>. Ad esempio, se <span class="math inline">\(\beta_1=\log(1.4)\)</span>, un aumento unitario di <span class="math inline">\(x_1\)</span> è associato a un incremento medio di circa <strong>+40%</strong> di <span class="math inline">\(Y\)</span>, a parità delle altre variabili.</p>
 
 
+</section>
 </section>
 </section>
 
