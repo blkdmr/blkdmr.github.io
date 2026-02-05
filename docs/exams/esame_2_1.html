@@ -437,28 +437,28 @@ window.Quarto = {
 <p><strong>1. Consideriamo dei componenti meccanici delicati che hanno tempi di vita casuali con distribuzione a due parametri <span class="math inline">\(a&gt;0\)</span>, <span class="math inline">\(b&gt;0\)</span>, che segue questa formula:</strong></p>
 <p><span class="math display">\[F(t)=P(T \le t) = 1 - e^{(-at^2-bt)}\]</span></p>
 <p><strong>1.1 Generare un campione con questa legge, con <span class="math inline">\(a=0.01\)</span> e <span class="math inline">\(b=0.01\)</span>, tracciarne la densità e stimare media e deviazione standard al <span class="math inline">\(95\%\)</span> di confidenza. Stimare anche la mediana puntualmente.</strong></p>
-<div id="198dd89d" class="cell" data-execution_count="435">
+<div id="198dd89d" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> rv_continuous</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="22f58ff9" class="cell" data-execution_count="436">
+<div id="22f58ff9" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.01</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.01</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n_samples <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> t: <span class="dv">1</span> <span class="op">-</span> np.exp(<span class="op">-</span>a <span class="op">*</span> (t<span class="op">**</span><span class="dv">2</span>) <span class="op">-</span>b <span class="op">*</span> t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="baa1149b" class="cell" data-execution_count="437">
+<div id="baa1149b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>,<span class="dv">20</span>, n_samples)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Prendi un valore <span class="math inline">\(u \in (0,1)\)</span>, lo interpreti come probabilità cumulativa, e poi fai <span class="math inline">\(t = F^{-1}(u)\)</span>. Questo si chiama inverse transform sampling.</p>
 <section id="creazione-di-una-distribuzione-custom-in-scipy" class="level1">
 <h1>Creazione di una distribuzione custom in SciPy</h1>
-<div id="918c8b75" class="cell" data-execution_count="438">
+<div id="918c8b75" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomDist(rv_continuous):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _cdf(<span class="va">self</span>, t, a, b):</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> np.exp(<span class="op">-</span>a <span class="op">*</span> (t<span class="op">**</span><span class="dv">2</span>) <span class="op">-</span>b <span class="op">*</span> t)</span>
@@ -473,7 +473,7 @@ window.Quarto = {
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> CustomDist(a<span class="op">=</span><span class="dv">0</span>, name<span class="op">=</span><span class="st">"custom"</span>)</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> dist.rvs(a<span class="op">=</span><span class="fl">0.01</span>, b<span class="op">=</span><span class="fl">0.01</span>, size<span class="op">=</span><span class="dv">1000</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="d5f59e1a" class="cell" data-execution_count="439">
+<div id="d5f59e1a" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(samples)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -486,7 +486,7 @@ window.Quarto = {
 </div>
 <section id="stima-della-media-con-ic" class="level2">
 <h2 class="anchored" data-anchor-id="stima-della-media-con-ic">Stima della media con IC</h2>
-<div id="3f8ec929" class="cell" data-execution_count="440">
+<div id="3f8ec929" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> t</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -507,10 +507,10 @@ window.Quarto = {
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"IC </span><span class="sc">{</span>conf<span class="sc">:.0%}</span><span class="ss"> per la media: [</span><span class="sc">{</span>ci_low<span class="sc">:.6f}</span><span class="ss">, </span><span class="sc">{</span>ci_high<span class="sc">:.6f}</span><span class="ss">]"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IC 95% per la media: [8.396207, 8.986630]</code></pre>
+<pre><code>IC 95% per la media: [8.084911, 8.677167]</code></pre>
 </div>
 </div>
-<div id="daba7fa4" class="cell" data-execution_count="441">
+<div id="daba7fa4" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> chi2</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -530,32 +530,32 @@ window.Quarto = {
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"IC </span><span class="sc">{</span>conf<span class="sc">:.0%}</span><span class="ss"> per la varianza: [</span><span class="sc">{</span>ci_low<span class="sc">:.6f}</span><span class="ss">, </span><span class="sc">{</span>ci_high<span class="sc">:.6f}</span><span class="ss">]"</span>)</span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"IC </span><span class="sc">{</span>conf<span class="sc">:.0%}</span><span class="ss"> per la std: [</span><span class="sc">{</span>np<span class="sc">.</span>sqrt(ci_low)<span class="sc">:.6f}</span><span class="ss">, </span><span class="sc">{</span>np<span class="sc">.</span>sqrt(ci_high)<span class="sc">:.6f}</span><span class="ss">]"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IC 95% per la varianza: [20.771081, 24.755314]
-IC 95% per la std: [4.557530, 4.975471]</code></pre>
+<pre><code>IC 95% per la varianza: [20.900328, 24.909353]
+IC 95% per la std: [4.571688, 4.990927]</code></pre>
 </div>
 </div>
 </section>
 <section id="calcolo-della-mediana" class="level2">
 <h2 class="anchored" data-anchor-id="calcolo-della-mediana">Calcolo della mediana</h2>
-<div id="e30c6ba5" class="cell" data-execution_count="442">
+<div id="e30c6ba5" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>median <span class="op">=</span> np.median(samples)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Median: </span><span class="sc">{</span>median<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Median: 8.06003334147718</code></pre>
+<pre><code>Median: 7.903974478311714</code></pre>
 </div>
 </div>
 </section>
 <section id="mle-dei-parametri-custom" class="level2">
 <h2 class="anchored" data-anchor-id="mle-dei-parametri-custom">MLE dei parametri custom</h2>
 <p><strong>1.2 Calcolare gli stimatori MLE di a e b per questa distribuzione, a partire dal campione qui a fianco.</strong></p>
-<div id="a0437a76" class="cell" data-execution_count="443">
+<div id="a0437a76" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> pd.read_excel(<span class="st">"inml25tst02.xlsx"</span>, sheet_name<span class="op">=</span><span class="st">"Es 1"</span>, header<span class="op">=</span><span class="va">None</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> base.drop(columns<span class="op">=</span>base.columns[:<span class="op">-</span><span class="dv">1</span>])</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> [<span class="st">"Values"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="99a55f89" class="cell" data-execution_count="444">
+<div id="99a55f89" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="444">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -593,10 +593,10 @@ IC 95% per la std: [4.557530, 4.975471]</code></pre>
 </div>
 </div>
 </div>
-<div id="036bbccb" class="cell" data-execution_count="445">
+<div id="036bbccb" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> df[<span class="st">"Values"</span>].values</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="68aabb6a" class="cell" data-execution_count="446">
+<div id="68aabb6a" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>a_range <span class="op">=</span> np.linspace(<span class="fl">1e-3</span>, <span class="fl">1e-5</span>, <span class="dv">100</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>b_range <span class="op">=</span> np.linspace(<span class="fl">1e-3</span>,<span class="fl">1e-5</span>, <span class="dv">100</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -618,15 +618,15 @@ IC 95% per la std: [4.557530, 4.975471]</code></pre>
 <span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> b_val <span class="kw">in</span> b_range:</span>
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>        lkl.append((a_val, b_val, dist.logpdf(T, a<span class="op">=</span>a_val, b<span class="op">=</span>b_val).mean()))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="74b294ba" class="cell" data-execution_count="447">
+<div id="74b294ba" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>lkl <span class="op">=</span> np.array(lkl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="c5416815" class="cell" data-execution_count="448">
+<div id="c5416815" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.argsort(lkl[:, <span class="dv">2</span>])[::<span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>lkl_sorted <span class="op">=</span> lkl[idx]</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>best_a, best_b, best_lkl <span class="op">=</span> lkl_sorted[<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="59e1ff4f" class="cell" data-execution_count="459">
+<div id="59e1ff4f" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(lkl.shape[<span class="dv">0</span>]), lkl[:,<span class="dv">2</span>])</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.hlines(best_lkl, <span class="dv">0</span>, lkl.shape[<span class="dv">0</span>], <span class="st">'r'</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
@@ -639,7 +639,7 @@ IC 95% per la std: [4.557530, 4.975471]</code></pre>
 </div>
 </div>
 </div>
-<div id="e35d4843" class="cell" data-execution_count="460">
+<div id="e35d4843" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best a: </span><span class="sc">{</span>best_a<span class="sc">:.5f}</span><span class="ss">"</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best b: </span><span class="sc">{</span>best_b<span class="sc">:.5f}</span><span class="ss">"</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Best likelihood: </span><span class="sc">{</span>best_lkl<span class="sc">:.5f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -653,7 +653,7 @@ Best likelihood: -5.36027</code></pre>
 <section id="test-di-adattamento-per-la-distribuzione-gamma" class="level2">
 <h2 class="anchored" data-anchor-id="test-di-adattamento-per-la-distribuzione-gamma">Test di adattamento per la distribuzione Gamma</h2>
 <p><strong>Sempre per il campione qui a fianco, verificare con un test di adattamento se può appartenere invece alla distribuzione gamma.</strong></p>
-<div id="10df59fe" class="cell" data-execution_count="465">
+<div id="10df59fe" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> gamma, chisquare</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -685,9 +685,9 @@ Best likelihood: -5.36027</code></pre>
 <span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Statistic: </span><span class="sc">{</span>statistic<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P-value: </span><span class="sc">{</span>pvalue<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Gamma fit: a=2.59545, loc=0, scale=3.34871
-Statistic: 10.67
-P-value: 0.004819910112270773</code></pre>
+<pre><code>Gamma fit: a=2.43714, loc=0, scale=3.43889
+Statistic: 16.57
+P-value: 0.00025227267797412796</code></pre>
 </div>
 </div>
 
