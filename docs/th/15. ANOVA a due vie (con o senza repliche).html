@@ -366,13 +366,28 @@ window.Quarto = {
   <ul>
   <li><a href="#anova-a-due-vie-con-o-senza-repliche" id="toc-anova-a-due-vie-con-o-senza-repliche" class="nav-link active" data-scroll-target="#anova-a-due-vie-con-o-senza-repliche">ANOVA a due vie (con o senza repliche)</a>
   <ul class="collapse">
-  <li><a href="#struttura-del-problema" id="toc-struttura-del-problema" class="nav-link" data-scroll-target="#struttura-del-problema">Struttura del problema</a></li>
-  <li><a href="#modello-generale" id="toc-modello-generale" class="nav-link" data-scroll-target="#modello-generale">Modello generale</a></li>
+  <li><a href="#struttura-del-problema" id="toc-struttura-del-problema" class="nav-link" data-scroll-target="#struttura-del-problema">Struttura del problema</a>
+  <ul class="collapse">
+  <li><a href="#con-o-senza-repliche" id="toc-con-o-senza-repliche" class="nav-link" data-scroll-target="#con-o-senza-repliche">Con o senza repliche</a></li>
+  </ul></li>
+  <li><a href="#formati-dei-dati" id="toc-formati-dei-dati" class="nav-link" data-scroll-target="#formati-dei-dati">Formati dei dati</a></li>
+  <li><a href="#repliche-non-costanti-e-disegno-non-bilanciato" id="toc-repliche-non-costanti-e-disegno-non-bilanciato" class="nav-link" data-scroll-target="#repliche-non-costanti-e-disegno-non-bilanciato">Repliche non costanti e disegno non bilanciato</a></li>
+  <li><a href="#modello-generale-modello-a-celle" id="toc-modello-generale-modello-a-celle" class="nav-link" data-scroll-target="#modello-generale-modello-a-celle">Modello generale (modello a celle)</a></li>
   <li><a href="#modello-additivo-senza-interazione" id="toc-modello-additivo-senza-interazione" class="nav-link" data-scroll-target="#modello-additivo-senza-interazione">Modello additivo (senza interazione)</a></li>
   <li><a href="#modello-con-interazione" id="toc-modello-con-interazione" class="nav-link" data-scroll-target="#modello-con-interazione">Modello con interazione</a></li>
   <li><a href="#test-per-linterazione" id="toc-test-per-linterazione" class="nav-link" data-scroll-target="#test-per-linterazione">Test per l’interazione</a></li>
-  <li><a href="#caso-senza-repliche-l-1" id="toc-caso-senza-repliche-l-1" class="nav-link" data-scroll-target="#caso-senza-repliche-l-1">Caso senza repliche (<span class="math inline">\(l = 1\)</span>)</a></li>
-  <li><a href="#caso-con-repliche-l-ge-2" id="toc-caso-con-repliche-l-ge-2" class="nav-link" data-scroll-target="#caso-con-repliche-l-ge-2">Caso con repliche (<span class="math inline">\(l \ge 2\)</span>)</a></li>
+  </ul></li>
+  <li><a href="#caso-senza-repliche-l-1" id="toc-caso-senza-repliche-l-1" class="nav-link" data-scroll-target="#caso-senza-repliche-l-1">Caso senza repliche (<span class="math inline">\(l = 1\)</span>)</a>
+  <ul class="collapse">
+  <li><a href="#devianze" id="toc-devianze" class="nav-link" data-scroll-target="#devianze">Devianze</a></li>
+  <li><a href="#gradi-di-libertà" id="toc-gradi-di-libertà" class="nav-link" data-scroll-target="#gradi-di-libertà">Gradi di libertà</a></li>
+  <li><a href="#statistiche-test" id="toc-statistiche-test" class="nav-link" data-scroll-target="#statistiche-test">Statistiche test</a></li>
+  </ul></li>
+  <li><a href="#caso-con-repliche-l-ge-2" id="toc-caso-con-repliche-l-ge-2" class="nav-link" data-scroll-target="#caso-con-repliche-l-ge-2">Caso con repliche (<span class="math inline">\(l \ge 2\)</span>)</a>
+  <ul class="collapse">
+  <li><a href="#devianze-1" id="toc-devianze-1" class="nav-link" data-scroll-target="#devianze-1">Devianze</a></li>
+  <li><a href="#gradi-di-libertà-1" id="toc-gradi-di-libertà-1" class="nav-link" data-scroll-target="#gradi-di-libertà-1">Gradi di libertà</a></li>
+  <li><a href="#statistiche-f" id="toc-statistiche-f" class="nav-link" data-scroll-target="#statistiche-f">Statistiche <span class="math inline">\(F\)</span></a></li>
   <li><a href="#stimatori" id="toc-stimatori" class="nav-link" data-scroll-target="#stimatori">Stimatori</a></li>
   <li><a href="#considerazioni" id="toc-considerazioni" class="nav-link" data-scroll-target="#considerazioni">Considerazioni</a></li>
   </ul></li>
@@ -387,178 +402,339 @@ window.Quarto = {
 
 <section id="anova-a-due-vie-con-o-senza-repliche" class="level1">
 <h1>ANOVA a due vie (con o senza repliche)</h1>
-<p>L’analisi della varianza a due vie estende l’ANOVA a una via per studiare l’effetto congiunto di due variabili categoriche sulla variabile risposta <span class="math inline">\(Y\)</span>, che deve essere numerica e distribuita approssimativamente secondo una normale, con varianza costante.</p>
-<section id="struttura-del-problema" class="level3">
-<h3 class="anchored" data-anchor-id="struttura-del-problema">Struttura del problema</h3>
-<p>Si considerano due variabili categoriche: - <span class="math inline">\(x_1\)</span> con <span class="math inline">\(m\)</span> livelli distinti - <span class="math inline">\(x_2\)</span> con <span class="math inline">\(n\)</span> livelli distinti</p>
-<p>Per ogni combinazione dei livelli di <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span>, si raccolgono <span class="math inline">\(l\)</span> osservazioni (dette <strong>repliche</strong>). Il numero totale di osservazioni sarà:</p>
-<p><span class="math display">\[
-N = m \cdot n \cdot l
-\]</span></p>
-<p>Se <span class="math inline">\(l = 1\)</span> si parla di <strong>ANOVA senza repliche</strong>. Se invece <span class="math inline">\(l \ge 2\)</span>, si parla di <strong>ANOVA con repliche</strong>, e diventa possibile valutare anche l’interazione tra i due fattori.</p>
-<p>I dati possono essere presentati in due formati: - <strong>Formato largo (“unstacked”)</strong>: una tabella <span class="math inline">\(m \times n\)</span> in cui ogni cella contiene <span class="math inline">\(l\)</span> osservazioni. - <strong>Formato lungo (“stacked”)</strong>: una tabella con <span class="math inline">\(N\)</span> righe, dove per ogni osservazione si annotano il livello di <span class="math inline">\(x_1\)</span>, il livello di <span class="math inline">\(x_2\)</span> e il valore di <span class="math inline">\(Y\)</span>.</p>
-<p>Nel caso in cui il numero di repliche non sia costante per ogni combinazione, è spesso necessario riequilibrare i dati, scartando le osservazioni in eccesso per ottenere una struttura regolare.</p>
-</section>
-<section id="modello-generale" class="level3">
-<h3 class="anchored" data-anchor-id="modello-generale">Modello generale</h3>
-<p>Nel caso più completo, ogni combinazione di <span class="math inline">\((x_1 = i, x_2 = j)\)</span> ha una propria media <span class="math inline">\(\mu_{ij}\)</span>, e le osservazioni sono indipendenti e normalmente distribuite:</p>
-<p><span class="math display">\[
-Y_{ijk} \sim \mathcal{N}(\mu_{ij}, \sigma^2), \quad i = 1,...,m;\ j = 1,...,n;\ k = 1,...,l
-\]</span></p>
-<p>Questo modello, detto <strong>completo con interazioni</strong>, ha <span class="math inline">\(m \cdot n\)</span> medie da stimare (più la varianza <span class="math inline">\(\sigma^2\)</span>), e quindi richiede <span class="math inline">\(l \ge 2\)</span> per poter stimare anche la variabilità residua.</p>
-</section>
-<section id="modello-additivo-senza-interazione" class="level3">
-<h3 class="anchored" data-anchor-id="modello-additivo-senza-interazione">Modello additivo (senza interazione)</h3>
-<p>Se si ipotizza che non ci sia interazione tra le due variabili, si può semplificare il modello scrivendo:</p>
-<p><span class="math display">\[
-\mu_{ij} = \mu + \alpha_i + \beta_j
-\]</span></p>
-<p>Qui: - <span class="math inline">\(\mu\)</span> è la media globale - <span class="math inline">\(\alpha_i\)</span> rappresenta l’effetto del livello <span class="math inline">\(i\)</span> della prima variabile (<span class="math inline">\(x_1\)</span>) - <span class="math inline">\(\beta_j\)</span> rappresenta l’effetto del livello <span class="math inline">\(j\)</span> della seconda variabile (<span class="math inline">\(x_2\)</span>)</p>
-<p>Per rendere il modello identificabile si impongono le condizioni:</p>
-<p><span class="math display">\[
-\sum_{i=1}^m \alpha_i = 0, \quad \sum_{j=1}^n \beta_j = 0
-\]</span></p>
-<p>Questa formulazione è molto utile perché permette di interpretare separatamente gli effetti delle due variabili, ed è utilizzabile anche quando non si hanno repliche (<span class="math inline">\(l = 1\)</span>), a patto che non ci siano interazioni significative.</p>
-</section>
-<section id="modello-con-interazione" class="level3">
-<h3 class="anchored" data-anchor-id="modello-con-interazione">Modello con interazione</h3>
-<p>Quando l’effetto di una variabile dipende dal livello dell’altra, si introduce un termine di interazione <span class="math inline">\(\gamma_{ij}\)</span>:</p>
-<p><span class="math display">\[
-\mu_{ij} = \mu + \alpha_i + \beta_j + \gamma_{ij}
-\]</span></p>
-<p>In questo caso: - ogni <span class="math inline">\(\gamma_{ij}\)</span> misura la deviazione rispetto al modello additivo per la cella <span class="math inline">\((i, j)\)</span> - si impongono i vincoli:</p>
-<p><span class="math display">\[
-\sum_i \gamma_{ij} = 0, \quad \sum_j \gamma_{ij} = 0
-\]</span></p>
-<p>L’aggiunta di <span class="math inline">\(\gamma_{ij}\)</span> consente al modello di adattarsi meglio ai dati, ma rende più complessa l’interpretazione.</p>
-</section>
-<section id="test-per-linterazione" class="level3">
-<h3 class="anchored" data-anchor-id="test-per-linterazione">Test per l’interazione</h3>
-<p>Prima di scegliere tra il modello additivo e quello con interazione, si effettua un test con le seguenti ipotesi:</p>
+<p>L’<strong>analisi della varianza a due vie</strong> (two-way ANOVA) estende l’ANOVA a una via per studiare l’effetto congiunto di <strong>due variabili categoriali</strong> (fattori) su una variabile risposta <span class="math inline">\(Y\)</span> <strong>numerica</strong>. In genere si assume che, all’interno dei gruppi definiti dalle combinazioni dei livelli dei fattori, <span class="math inline">\(Y\)</span> sia <strong>approssimativamente normale</strong> e con <strong>varianza costante</strong> (omoschedasticità).</p>
+<section id="struttura-del-problema" class="level2">
+<h2 class="anchored" data-anchor-id="struttura-del-problema">Struttura del problema</h2>
+<p>Si considerano due fattori:</p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: tutte le <span class="math inline">\(\gamma_{ij} = 0\)</span> (nessuna interazione)</li>
-<li><span class="math inline">\(H_1\)</span>: almeno una <span class="math inline">\(\gamma_{ij} \ne 0\)</span></li>
+<li><span class="math inline">\(x_1\)</span> con <span class="math inline">\(m\)</span> livelli distinti;</li>
+<li><span class="math inline">\(x_2\)</span> con <span class="math inline">\(n\)</span> livelli distinti.</li>
 </ul>
-<p>Se <span class="math inline">\(H_0\)</span> viene accettata, si può utilizzare il modello additivo, riducendo anche il numero di parametri. In questo caso, se <span class="math inline">\(l \ge 2\)</span>, si può persino calcolare la media per ogni combinazione <span class="math inline">\((i, j)\)</span> e ridurre l’analisi a una ANOVA senza repliche (<span class="math inline">\(l = 1\)</span>) usando le medie.</p>
-<p>Se invece l’interazione risulta significativa, il modello additivo non è più valido e si deve mantenere il modello completo.</p>
-<p>L’analisi della varianza a due vie prevede il confronto tra le devianze associate agli effetti riga, colonna, interazione ed errore. La struttura della devianza dipende dalla presenza o meno di repliche.</p>
+<p>Per ogni combinazione di livelli <span class="math inline">\((i,j)\)</span> con <span class="math inline">\(i \in \{1,\dots,m\}\)</span> e <span class="math inline">\(j \in \{1,\dots,n\}\)</span> si raccolgono <span class="math inline">\(l\)</span> osservazioni, dette <strong>repliche</strong>. Se il disegno è bilanciato (stesso numero di repliche in ogni cella), il numero totale di osservazioni è:</p>
+<p><span class="math display">\[
+N = m \cdot n \cdot l.
+\]</span></p>
+<section id="con-o-senza-repliche" class="level3">
+<h3 class="anchored" data-anchor-id="con-o-senza-repliche">Con o senza repliche</h3>
+<p>Se <span class="math inline">\(l = 1\)</span>, si parla di <strong>ANOVA a due vie senza repliche</strong>: ogni cella (combinazione di livelli) contiene una sola osservazione. In questo caso, non c’è informazione sufficiente per stimare separatamente un errore “puro” all’interno delle celle, e in pratica <strong>non si può testare l’interazione</strong> tra i due fattori in modo indipendente.</p>
+<p>Se invece <span class="math inline">\(l \ge 2\)</span>, si parla di <strong>ANOVA a due vie con repliche</strong>: più osservazioni per ogni combinazione di livelli permettono di stimare la variabilità intra-cella e quindi di <strong>valutare anche l’interazione</strong> tra i due fattori.</p>
 </section>
-<section id="caso-senza-repliche-l-1" class="level3">
-<h3 class="anchored" data-anchor-id="caso-senza-repliche-l-1">Caso senza repliche (<span class="math inline">\(l = 1\)</span>)</h3>
-<p>In assenza di repliche, non è possibile stimare l’interazione tra i fattori. Il modello è quindi il seguente:</p>
-<p><span class="math display">\[
-Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j,\ \sigma^2)
-\]</span></p>
-<p>Le devianze si calcolano come:</p>
-<ul>
-<li><p><strong>Devianza totale</strong>: <span class="math display">\[
-SS_T = \sum_{i,j} (Y_{ij} - \bar{Y}_{**})^2
-\]</span></p></li>
-<li><p><strong>Devianza riga</strong>: <span class="math display">\[
-SS_R = n \sum_i (\bar{Y}_{i*} - \bar{Y}_{**})^2
-\]</span></p></li>
-<li><p><strong>Devianza colonna</strong>: <span class="math display">\[
-SS_C = m \sum_j (\bar{Y}_{*j} - \bar{Y}_{**})^2
-\]</span></p></li>
-<li><p><strong>Devianza errore</strong>: <span class="math display">\[
-SS_E = \sum_{i,j} (Y_{ij} - \bar{Y}_{i*} - \bar{Y}_{*j} + \bar{Y}_{**})^2
-\]</span></p></li>
-</ul>
-<p>Gradi di libertà associati:</p>
-<div class="line-block">Fonte di variabilità | Gradi di libertà |</div>
-<p>|-|| | Riga | <span class="math inline">\(m - 1\)</span> | | Colonna | <span class="math inline">\(n - 1\)</span> | | Errore | <span class="math inline">\((m - 1)(n - 1)\)</span> | | Totale | <span class="math inline">\(mn - 1\)</span> |</p>
-<p>Statistica del test (effetto riga):</p>
-<p><span class="math display">\[
-F_R = \frac{SS_R / (m - 1)}{SS_E / [(m - 1)(n - 1)]} \sim F(m-1, (m-1)(n-1))
-\]</span></p>
-<p>Analogo il test per l’effetto colonna.</p>
 </section>
-<section id="caso-con-repliche-l-ge-2" class="level3">
-<h3 class="anchored" data-anchor-id="caso-con-repliche-l-ge-2">Caso con repliche (<span class="math inline">\(l \ge 2\)</span>)</h3>
-<p>Con repliche si può stimare anche la componente di interazione. Le osservazioni sono:</p>
+<section id="formati-dei-dati" class="level2">
+<h2 class="anchored" data-anchor-id="formati-dei-dati">Formati dei dati</h2>
+<p>I dati possono essere organizzati in due modi equivalenti, a seconda del software e delle preferenze di analisi.</p>
+<p>Nel <strong>formato largo</strong> (“unstacked”), si usa una tabella <span class="math inline">\(m \times n\)</span> in cui righe e colonne corrispondono ai livelli di <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span>; ogni cella contiene le <span class="math inline">\(l\)</span> osservazioni associate alla specifica combinazione dei livelli.</p>
+<p>Nel <strong>formato lungo</strong> (“stacked”), si usa una tabella con <span class="math inline">\(N\)</span> righe, una per osservazione, contenente almeno tre colonne: il livello di <span class="math inline">\(x_1\)</span>, il livello di <span class="math inline">\(x_2\)</span> e il valore osservato di <span class="math inline">\(Y\)</span>.</p>
+</section>
+<section id="repliche-non-costanti-e-disegno-non-bilanciato" class="level2">
+<h2 class="anchored" data-anchor-id="repliche-non-costanti-e-disegno-non-bilanciato">Repliche non costanti e disegno non bilanciato</h2>
+<p>Se il numero di repliche varia tra le combinazioni di livelli (disegno <strong>non bilanciato</strong>), l’analisi diventa più delicata. In alcuni contesti si procede a “regolarizzare” il dataset ottenendo un disegno bilanciato, ad esempio <strong>scartando le osservazioni in eccesso</strong> nelle celle più numerose; questa scelta però riduce l’informazione disponibile e va motivata con attenzione.</p>
+</section>
+<section id="modello-generale-modello-a-celle" class="level2">
+<h2 class="anchored" data-anchor-id="modello-generale-modello-a-celle">Modello generale (modello a celle)</h2>
+<p>Nel caso più completo, a ciascuna combinazione di livelli <span class="math inline">\((x_1 = i, x_2 = j)\)</span> è associata una propria media <span class="math inline">\(\mu_{ij}\)</span>. Le osservazioni sono assunte indipendenti e normalmente distribuite con varianza comune:</p>
 <p><span class="math display">\[
-Y_{ijk} \sim \mathcal{N}(\mu + \alpha_i + \beta_j + \gamma_{ij},\ \sigma^2)
+Y_{ijk} \sim \mathcal{N}(\mu_{ij}, \sigma^2),
+\qquad
+i = 1,\dots,m;\; j = 1,\dots,n;\; k = 1,\dots,l.
 \]</span></p>
-<p>Le devianze si calcolano come:</p>
+<p>Questo è detto <strong>modello completo con interazioni</strong> o <strong>modello a celle</strong>, perché ogni cella <span class="math inline">\((i,j)\)</span> ha una media distinta.</p>
+<p>I parametri da stimare sono:</p>
 <ul>
-<li><p><strong>Devianza riga</strong>: <span class="math display">\[
-SS_R = n l \sum_i (\bar{Y}_{i**} - \bar{Y}_{***})^2
-\]</span></p></li>
-<li><p><strong>Devianza colonna</strong>: <span class="math display">\[
-SS_C = m l \sum_j (\bar{Y}_{*j*} - \bar{Y}_{***})^2
-\]</span></p></li>
-<li><p><strong>Devianza interazione</strong>: <span class="math display">\[
-SS_{Int} = l \sum_{i,j} (\bar{Y}_{ij*} - \bar{Y}_{i**} - \bar{Y}_{*j*} + \bar{Y}_{***})^2
-\]</span></p></li>
-<li><p><strong>Devianza errore</strong>: <span class="math display">\[
-SS_E = \sum_{i,j,k} (Y_{ijk} - \bar{Y}_{ij*})^2
-\]</span></p></li>
+<li><span class="math inline">\(m \cdot n\)</span> medie <span class="math inline">\(\mu_{ij}\)</span>,</li>
+<li>la varianza comune <span class="math inline">\(\sigma^2\)</span>.</li>
 </ul>
-<p>Gradi di libertà associati:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Fonte di variabilità</th>
-<th>Gradi di libertà</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Riga</td>
-<td><span class="math inline">\(m - 1\)</span></td>
-</tr>
-<tr class="even">
-<td>Colonna</td>
-<td><span class="math inline">\(n - 1\)</span></td>
-</tr>
-<tr class="odd">
-<td>Interazione</td>
-<td><span class="math inline">\((m - 1)(n - 1)\)</span></td>
-</tr>
-<tr class="even">
-<td>Errore</td>
-<td><span class="math inline">\(mn(l - 1)\)</span></td>
-</tr>
-<tr class="odd">
-<td>Totale</td>
-<td><span class="math inline">\(mnl - 1\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>Le statistiche dei test <span class="math inline">\(F\)</span>:</p>
-<ul>
-<li>Per l’effetto riga:</li>
-</ul>
+<p>Il numero totale di parametri è quindi <span class="math inline">\(mn + 1\)</span>. Per poter stimare in modo separato la variabilità residua <span class="math inline">\(\sigma^2\)</span>, è necessario che in ogni cella vi siano almeno due osservazioni, cioè <span class="math inline">\(l \ge 2\)</span>. Se <span class="math inline">\(l = 1\)</span>, non è possibile distinguere tra variabilità casuale ed eventuale interazione.</p>
+<hr>
+</section>
+<section id="modello-additivo-senza-interazione" class="level2">
+<h2 class="anchored" data-anchor-id="modello-additivo-senza-interazione">Modello additivo (senza interazione)</h2>
+<p>Se si assume che <strong>non vi sia interazione</strong> tra i due fattori, si impone una struttura additiva sulle medie:</p>
 <p><span class="math display">\[
-F_R = \frac{SS_R / (m - 1)}{SS_E / [mn(l - 1)]} \sim F(m-1, mn(l-1))
+\mu_{ij} = \mu + \alpha_i + \beta_j.
 \]</span></p>
-<ul>
-<li>Per l’effetto colonna:</li>
-</ul>
+<p>Il modello completo diventa:</p>
 <p><span class="math display">\[
-F_C = \frac{SS_C / (n - 1)}{SS_E / [mn(l - 1)]} \sim F(n-1, mn(l-1))
+Y_{ijk} = \mu + \alpha_i + \beta_j + \varepsilon_{ijk},
+\qquad
+\varepsilon_{ijk} \sim \mathcal{N}(0,\sigma^2),
 \]</span></p>
+<p>con errori indipendenti.</p>
+<p>Qui:</p>
 <ul>
-<li>Per l’interazione:</li>
+<li><span class="math inline">\(\mu\)</span> è la <strong>media globale</strong>;</li>
+<li><span class="math inline">\(\alpha_i\)</span> è l’effetto del livello <span class="math inline">\(i\)</span> del primo fattore <span class="math inline">\(x_1\)</span>;</li>
+<li><span class="math inline">\(\beta_j\)</span> è l’effetto del livello <span class="math inline">\(j\)</span> del secondo fattore <span class="math inline">\(x_2\)</span>.</li>
 </ul>
+<p>Per rendere il modello identificabile (evitare ridondanze nei parametri) si impongono i vincoli di centratura:</p>
 <p><span class="math display">\[
-F_{Int} = \frac{SS_{Int} / [(m - 1)(n - 1)]}{SS_E / [mn(l - 1)]} \sim F((m-1)(n-1), mn(l-1))
+\sum_{i=1}^m \alpha_i = 0,
+\qquad
+\sum_{j=1}^n \beta_j = 0.
+\]</span></p>
+<p>Con tali vincoli:</p>
+<ul>
+<li><span class="math inline">\(\mu\)</span> coincide con la media complessiva;</li>
+<li>ogni <span class="math inline">\(\alpha_i\)</span> rappresenta lo scostamento medio del livello <span class="math inline">\(i\)</span> del primo fattore rispetto alla media globale;</li>
+<li>ogni <span class="math inline">\(\beta_j\)</span> rappresenta lo scostamento medio del livello <span class="math inline">\(j\)</span> del secondo fattore rispetto alla media globale.</li>
+</ul>
+<p>Questo modello è particolarmente utile perché consente di interpretare separatamente gli effetti principali dei due fattori. Inoltre può essere utilizzato anche nel caso <span class="math inline">\(l = 1\)</span>, purché si assuma l’assenza di interazione.</p>
+<hr>
+</section>
+<section id="modello-con-interazione" class="level2">
+<h2 class="anchored" data-anchor-id="modello-con-interazione">Modello con interazione</h2>
+<p>Quando l’effetto di un fattore <strong>dipende dal livello dell’altro</strong>, il modello additivo non è più adeguato. Si introduce allora un termine di interazione <span class="math inline">\(\gamma_{ij}\)</span>:</p>
+<p><span class="math display">\[
+\mu_{ij} = \mu + \alpha_i + \beta_j + \gamma_{ij}.
+\]</span></p>
+<p>Il modello statistico diventa:</p>
+<p><span class="math display">\[
+Y_{ijk} = \mu + \alpha_i + \beta_j + \gamma_{ij} + \varepsilon_{ijk},
+\qquad
+\varepsilon_{ijk} \sim \mathcal{N}(0,\sigma^2).
+\]</span></p>
+<p>Qui:</p>
+<ul>
+<li><span class="math inline">\(\gamma_{ij}\)</span> misura la deviazione della media della cella <span class="math inline">\((i,j)\)</span> rispetto a quanto previsto dal modello puramente additivo;</li>
+<li>se <span class="math inline">\(\gamma_{ij} = 0\)</span> per ogni <span class="math inline">\(i,j\)</span>, il modello si riduce a quello additivo.</li>
+</ul>
+<p>Per garantire l’identificabilità si impongono i vincoli:</p>
+<p><span class="math display">\[
+\sum_{i=1}^m \gamma_{ij} = 0 \quad \text{per ogni } j,
+\qquad
+\sum_{j=1}^n \gamma_{ij} = 0 \quad \text{per ogni } i.
+\]</span></p>
+<p>Con questi vincoli, l’interazione rappresenta esclusivamente la parte non spiegata dagli effetti principali.</p>
+<p>L’introduzione dei termini <span class="math inline">\(\gamma_{ij}\)</span> aumenta la flessibilità del modello e permette una migliore aderenza ai dati, ma rende l’interpretazione meno immediata, poiché gli effetti principali non sono più interpretabili indipendentemente dall’interazione.</p>
+</section>
+<section id="test-per-linterazione" class="level2">
+<h2 class="anchored" data-anchor-id="test-per-linterazione">Test per l’interazione</h2>
+<p>Nel caso con repliche (<span class="math inline">\(l \ge 2\)</span>), prima di adottare il modello additivo è necessario verificare l’assenza di interazione tra i due fattori.</p>
+<p>Si considerano le ipotesi:</p>
+<p><span class="math display">\[
+H_0 : \gamma_{ij} = 0 \quad \text{per ogni } i,j
+\]</span></p>
+<p><span class="math display">\[
+H_1 : \text{esiste almeno una } \gamma_{ij} \ne 0.
+\]</span></p>
+<p>Se non si rifiuta <span class="math inline">\(H_0\)</span>, il modello può essere ridotto alla forma additiva, con un numero inferiore di parametri. In presenza di repliche, in tal caso si possono anche sostituire le osservazioni <span class="math inline">\(Y_{ijk}\)</span> con le medie di cella <span class="math inline">\(\bar Y_{ij*}\)</span>, riducendo formalmente il problema a un’ANOVA senza repliche sulle medie.</p>
+<p>Se invece l’interazione risulta significativa, il modello additivo non è adeguato e deve essere mantenuto il modello completo con interazione.</p>
+<p>L’ANOVA a due vie si basa sulla scomposizione della <strong>devianza totale</strong> in componenti attribuibili a:</p>
+<ul>
+<li>effetto riga (fattore <span class="math inline">\(x_1\)</span>),</li>
+<li>effetto colonna (fattore <span class="math inline">\(x_2\)</span>),</li>
+<li>interazione (se stimabile),</li>
+<li>errore.</li>
+</ul>
+<p>La struttura della scomposizione dipende dalla presenza o meno di repliche.</p>
+<hr>
+</section>
+</section>
+<section id="caso-senza-repliche-l-1" class="level1">
+<h1>Caso senza repliche (<span class="math inline">\(l = 1\)</span>)</h1>
+<p>Quando <span class="math inline">\(l = 1\)</span>, per ogni coppia <span class="math inline">\((i,j)\)</span> è osservato un solo valore <span class="math inline">\(Y_{ij}\)</span>. Il modello additivo è:</p>
+<p><span class="math display">\[
+Y_{ij} \sim \mathcal{N}(\mu + \alpha_i + \beta_j,\ \sigma^2).
+\]</span></p>
+<p>Non è possibile stimare separatamente un termine di interazione: l’eventuale interazione viene assorbita nell’errore.</p>
+<p>Indichiamo con:</p>
+<ul>
+<li><span class="math inline">\(\bar Y_{i*}\)</span> la media della riga <span class="math inline">\(i\)</span>,</li>
+<li><span class="math inline">\(\bar Y_{*j}\)</span> la media della colonna <span class="math inline">\(j\)</span>,</li>
+<li><span class="math inline">\(\bar Y_{**}\)</span> la media complessiva.</li>
+</ul>
+<section id="devianze" class="level3">
+<h3 class="anchored" data-anchor-id="devianze">Devianze</h3>
+<p>Devianza totale:</p>
+<p><span class="math display">\[
+SS_T = \sum_{i=1}^m \sum_{j=1}^n (Y_{ij} - \bar Y_{**})^2.
+\]</span></p>
+<p>Devianza riga:</p>
+<p><span class="math display">\[
+SS_R = n \sum_{i=1}^m (\bar Y_{i*} - \bar Y_{**})^2.
+\]</span></p>
+<p>Devianza colonna:</p>
+<p><span class="math display">\[
+SS_C = m \sum_{j=1}^n (\bar Y_{*j} - \bar Y_{**})^2.
+\]</span></p>
+<p>Devianza errore:</p>
+<p><span class="math display">\[
+SS_E = \sum_{i=1}^m \sum_{j=1}^n
+\bigl(
+Y_{ij} - \bar Y_{i*} - \bar Y_{*j} + \bar Y_{**}
+\bigr)^2.
+\]</span></p>
+<p>Vale la scomposizione:</p>
+<p><span class="math display">\[
+SS_T = SS_R + SS_C + SS_E.
 \]</span></p>
 </section>
-<section id="stimatori" class="level3">
-<h3 class="anchored" data-anchor-id="stimatori">Stimatori</h3>
-<p>Per la varianza dell’errore (valido in entrambi i casi):</p>
-<p><span class="math display">\[
-\hat{\sigma}^2 = \frac{SS_E}{gdl_E}
-\]</span></p>
-<p>dove <span class="math inline">\(gdl_E\)</span> sono i gradi di libertà associati all’errore: - <span class="math inline">\((m - 1)(n - 1)\)</span> nel caso senza repliche - <span class="math inline">\(mn(l - 1)\)</span> nel caso con repliche</p>
-<p>Le medie campionarie, invece, sono: - <span class="math inline">\(\bar{Y}_{i**}\)</span> = media dei dati nella riga <span class="math inline">\(i\)</span> - <span class="math inline">\(\bar{Y}_{*j*}\)</span> = media dei dati nella colonna <span class="math inline">\(j\)</span> - <span class="math inline">\(\bar{Y}_{ij*}\)</span> = media dei dati nella cella <span class="math inline">\((i,j)\)</span> - <span class="math inline">\(\bar{Y}_{***}\)</span> = media globale di tutti i dati</p>
+<section id="gradi-di-libertà" class="level3">
+<h3 class="anchored" data-anchor-id="gradi-di-libertà">Gradi di libertà</h3>
+<ul>
+<li>Riga: <span class="math inline">\(m - 1\)</span></li>
+<li>Colonna: <span class="math inline">\(n - 1\)</span></li>
+<li>Errore: <span class="math inline">\((m - 1)(n - 1)\)</span></li>
+<li>Totale: <span class="math inline">\(mn - 1\)</span></li>
+</ul>
 </section>
-<section id="considerazioni" class="level3">
-<h3 class="anchored" data-anchor-id="considerazioni">Considerazioni</h3>
-<p>Se il test sull’interazione non risulta significativo, è possibile utilizzare il modello additivo, più semplice da interpretare. In quel caso si possono anche ridurre i dati sostituendo le osservazioni con le medie per cella e applicare una ANOVA senza repliche.</p>
-<p>Se invece l’interazione è significativa, bisogna mantenere il modello completo. In questo caso, l’interpretazione dei singoli effetti diventa più complessa, perché l’effetto di una variabile dipende dal livello dell’altra.</p>
-<p>La correttezza dell’intera procedura dipende dalle ipotesi classiche dell’ANOVA: normalità dei residui, indipendenza e omoschedasticità.</p>
+<section id="statistiche-test" class="level3">
+<h3 class="anchored" data-anchor-id="statistiche-test">Statistiche test</h3>
+<p>Per l’effetto riga:</p>
+<p><span class="math display">\[
+F_R =
+\frac{SS_R / (m - 1)}
+     {SS_E / \bigl[(m - 1)(n - 1)\bigr]}
+\sim F\bigl(m-1,\ (m-1)(n-1)\bigr).
+\]</span></p>
+<p>Per l’effetto colonna:</p>
+<p><span class="math display">\[
+F_C =
+\frac{SS_C / (n - 1)}
+     {SS_E / \bigl[(m - 1)(n - 1)\bigr]}
+\sim F\bigl(n-1,\ (m-1)(n-1)\bigr).
+\]</span></p>
+<hr>
+</section>
+</section>
+<section id="caso-con-repliche-l-ge-2" class="level1">
+<h1>Caso con repliche (<span class="math inline">\(l \ge 2\)</span>)</h1>
+<p>Con repliche è possibile stimare anche l’interazione. Il modello completo è:</p>
+<p><span class="math display">\[
+Y_{ijk} \sim
+\mathcal{N}(\mu + \alpha_i + \beta_j + \gamma_{ij},\ \sigma^2).
+\]</span></p>
+<p>Indichiamo con:</p>
+<ul>
+<li><span class="math inline">\(\bar Y_{ij*}\)</span> la media della cella <span class="math inline">\((i,j)\)</span>,</li>
+<li><span class="math inline">\(\bar Y_{i**}\)</span> la media della riga <span class="math inline">\(i\)</span>,</li>
+<li><span class="math inline">\(\bar Y_{*j*}\)</span> la media della colonna <span class="math inline">\(j\)</span>,</li>
+<li><span class="math inline">\(\bar Y_{***}\)</span> la media complessiva.</li>
+</ul>
+<section id="devianze-1" class="level3">
+<h3 class="anchored" data-anchor-id="devianze-1">Devianze</h3>
+<p>Devianza totale:</p>
+<p><span class="math display">\[
+SS_T = \sum_{i,j,k} (Y_{ijk} - \bar Y_{***})^2.
+\]</span></p>
+<p>Devianza riga:</p>
+<p><span class="math display">\[
+SS_R = nl \sum_{i=1}^m (\bar Y_{i**} - \bar Y_{***})^2.
+\]</span></p>
+<p>Devianza colonna:</p>
+<p><span class="math display">\[
+SS_C = ml \sum_{j=1}^n (\bar Y_{*j*} - \bar Y_{***})^2.
+\]</span></p>
+<p>Devianza interazione:</p>
+<p><span class="math display">\[
+SS_{Int} =
+l \sum_{i=1}^m \sum_{j=1}^n
+\bigl(
+\bar Y_{ij*}
+- \bar Y_{i**}
+- \bar Y_{*j*}
++ \bar Y_{***}
+\bigr)^2.
+\]</span></p>
+<p>Devianza errore (intra-cella):</p>
+<p><span class="math display">\[
+SS_E =
+\sum_{i=1}^m \sum_{j=1}^n \sum_{k=1}^l
+(Y_{ijk} - \bar Y_{ij*})^2.
+\]</span></p>
+<p>Vale la scomposizione:</p>
+<p><span class="math display">\[
+SS_T = SS_R + SS_C + SS_{Int} + SS_E.
+\]</span></p>
+</section>
+<section id="gradi-di-libertà-1" class="level3">
+<h3 class="anchored" data-anchor-id="gradi-di-libertà-1">Gradi di libertà</h3>
+<ul>
+<li>Riga: <span class="math inline">\(m - 1\)</span></li>
+<li>Colonna: <span class="math inline">\(n - 1\)</span></li>
+<li>Interazione: <span class="math inline">\((m - 1)(n - 1)\)</span></li>
+<li>Errore: <span class="math inline">\(mn(l - 1)\)</span></li>
+<li>Totale: <span class="math inline">\(mnl - 1\)</span></li>
+</ul>
+</section>
+<section id="statistiche-f" class="level3">
+<h3 class="anchored" data-anchor-id="statistiche-f">Statistiche <span class="math inline">\(F\)</span></h3>
+<p>Per l’effetto riga:</p>
+<p><span class="math display">\[
+F_R =
+\frac{SS_R / (m - 1)}
+     {SS_E / \bigl[mn(l - 1)\bigr]}
+\sim F\bigl(m-1,\ mn(l-1)\bigr).
+\]</span></p>
+<p>Per l’effetto colonna:</p>
+<p><span class="math display">\[
+F_C =
+\frac{SS_C / (n - 1)}
+     {SS_E / \bigl[mn(l - 1)\bigr]}
+\sim F\bigl(n-1,\ mn(l-1)\bigr).
+\]</span></p>
+<p>Per l’interazione:</p>
+<p><span class="math display">\[
+F_{Int} =
+\frac{SS_{Int} / \bigl[(m - 1)(n - 1)\bigr]}
+     {SS_E / \bigl[mn(l - 1)\bigr]}
+\sim F\bigl((m-1)(n-1),\ mn(l-1)\bigr).
+\]</span></p>
+</section>
+<section id="stimatori" class="level2">
+<h2 class="anchored" data-anchor-id="stimatori">Stimatori</h2>
+<p>La stima della varianza dell’errore è data dallo stimatore basato sulla devianza residua:</p>
+<p><span class="math display">\[
+\hat{\sigma}^2 = \frac{SS_E}{\text{gdl}_E},
+\]</span></p>
+<p>dove <span class="math inline">\(\text{gdl}_E\)</span> sono i gradi di libertà associati all’errore:</p>
+<ul>
+<li><p>nel caso senza repliche (<span class="math inline">\(l = 1\)</span>): <span class="math display">\[
+\text{gdl}_E = (m - 1)(n - 1);
+\]</span></p></li>
+<li><p>nel caso con repliche (<span class="math inline">\(l \ge 2\)</span>): <span class="math display">\[
+\text{gdl}_E = mn(l - 1).
+\]</span></p></li>
+</ul>
+<p>Questo stimatore coincide con il <strong>mean square error (MSE)</strong> ed è uno stimatore non distorto di <span class="math inline">\(\sigma^2\)</span> sotto le ipotesi del modello.</p>
+<hr>
+<p>Le principali medie campionarie utilizzate nella scomposizione della devianza sono:</p>
+<ul>
+<li><p>Media di riga: <span class="math display">\[
+\bar{Y}_{i**}
+= \frac{1}{nl} \sum_{j=1}^n \sum_{k=1}^l Y_{ijk};
+\]</span></p></li>
+<li><p>Media di colonna: <span class="math display">\[
+\bar{Y}_{*j*}
+= \frac{1}{ml} \sum_{i=1}^m \sum_{k=1}^l Y_{ijk};
+\]</span></p></li>
+<li><p>Media di cella: <span class="math display">\[
+\bar{Y}_{ij*}
+= \frac{1}{l} \sum_{k=1}^l Y_{ijk};
+\]</span></p></li>
+<li><p>Media globale: <span class="math display">\[
+\bar{Y}_{***}
+= \frac{1}{mnl} \sum_{i=1}^m \sum_{j=1}^n \sum_{k=1}^l Y_{ijk}.
+\]</span></p></li>
+</ul>
+<p>Nel caso senza repliche (<span class="math inline">\(l=1\)</span>), le definizioni si semplificano eliminando la somma su <span class="math inline">\(k\)</span>.</p>
+<hr>
+</section>
+<section id="considerazioni" class="level2">
+<h2 class="anchored" data-anchor-id="considerazioni">Considerazioni</h2>
+<p>Se il test sull’interazione non risulta significativo, il modello additivo rappresenta una descrizione adeguata dei dati. In tal caso:</p>
+<ul>
+<li>il numero di parametri è ridotto;</li>
+<li>l’interpretazione degli effetti principali è più semplice;</li>
+<li>con repliche si possono sostituire le osservazioni con le medie di cella <span class="math inline">\(\bar Y_{ij*}\)</span> e procedere come in un’ANOVA senza repliche.</li>
+</ul>
+<p>Se invece l’interazione è significativa, il modello completo deve essere mantenuto. In questa situazione gli effetti principali <span class="math inline">\(\alpha_i\)</span> e <span class="math inline">\(\beta_j\)</span> non possono essere interpretati isolatamente, poiché l’effetto di un fattore dipende dal livello dell’altro.</p>
+<p>L’intera procedura è valida sotto le ipotesi classiche dell’ANOVA:</p>
+<ul>
+<li>indipendenza delle osservazioni;</li>
+<li>normalità degli errori <span class="math inline">\(\varepsilon_{ijk}\)</span>;</li>
+<li>omoschedasticità, cioè varianza comune <span class="math inline">\(\sigma^2\)</span> in tutte le celle.</li>
+</ul>
 
 
 </section>
