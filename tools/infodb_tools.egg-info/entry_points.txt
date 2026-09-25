@@ -1,0 +1,3 @@
+[console_scripts]
+md-to-pdf = pdf_to_md.md2pdf:main
+pdf-to-md = pdf_to_md.pdf2md:main

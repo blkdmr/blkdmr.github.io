@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "infodb-tools"
+version = "0.1.0"
+description = "Command-line tools for info.db"
+requires-python = ">=3.10"
+dependencies = [
+    # pdf_to_md. marker 2.x runs its models in an external inference server
+    # (vllm in Docker, or a llama-server binary); 1.x runs them in-process.
+    "marker-pdf>=1.10,<2",
+]
+
+# One entry per command. To add a tool: create a package next to this file
+# and register its entry points here.
+[project.scripts]
+pdf-to-md = "pdf_to_md.pdf2md:main"
+md-to-pdf = "pdf_to_md.md2pdf:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
