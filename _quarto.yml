@@ -1,20 +1,15 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: site
 
 website:
-  title: "IML"
+  title: "KnowledgeBase"
   sidebar:
     style: docked
     collapse-level: 1
     contents:
-      - section: "Theory"
-        contents: "th/*"
-      - section: "Laboratory"
-        contents: "lab/*"
-      - section: "Exams"
-        contents: "exams/*"
-
+      - section: "Machine Learning"
+        contents: "src/machine-learning/*"
 
 format:
   html:
